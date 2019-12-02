@@ -11,6 +11,7 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {LoginComponent} from './component/Shared/dialog/login/login.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
+import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MaterialModule} from './material.module';
     EquipmentOverviewPageComponent,
     LoginComponent,
     FrontpageComponent,
+    EquipmentAdminOverviewPageComponent,
 
   ],
   imports: [
