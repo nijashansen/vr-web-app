@@ -12,6 +12,10 @@ import {LoginComponent} from './component/Shared/dialog/login/login.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
 import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
+import { ProductListComponent } from './component/admin-page/product/product-list/product-list.component';
+import { UserListComponent } from './component/admin-page/user/user-list/user-list.component';
+import { CategoryListComponent } from './component/admin-page/category/category-list/category-list.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -24,13 +28,17 @@ import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equi
     LoginComponent,
     FrontpageComponent,
     EquipmentAdminOverviewPageComponent,
+    ProductListComponent,
+    UserListComponent,
+    CategoryListComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule],
+    MaterialModule,
+    HttpClientModule],
   providers: [],
   bootstrap: [
     AppComponent

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminPageServiceService} from "../../../services/admin-page-service.service";
 
 @Component({
   selector: 'app-equipment-admin-overview-page',
@@ -8,7 +7,7 @@ import {AdminPageServiceService} from "../../../services/admin-page-service.serv
 })
 export class EquipmentAdminOverviewPageComponent implements OnInit {
 
-  constructor(productService: AdminPageServiceService) { }
+  constructor() { }
 
   ngOnInit() {
   }
