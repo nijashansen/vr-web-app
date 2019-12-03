@@ -11,7 +11,9 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {LoginComponent} from './component/Shared/dialog/login/login.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
-import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
+import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
+import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
+
 
 
 @NgModule({
@@ -24,7 +26,7 @@ import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equi
     LoginComponent,
     FrontpageComponent,
     EquipmentAdminOverviewPageComponent,
-
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equi
     MaterialModule],
   providers: [],
   bootstrap: [
-    AppComponent
+    AppComponent,
   ]
 })
 export class AppModule {
