@@ -1,0 +1,37 @@
+.category-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: fit-content;
+  background-color: #111111;
+  z-index: 4;
+  position: relative;
+}
+
+.category-h {
+  margin: 10px;
+  color: #fabb2c;
+  font-weight: normal;
+}
+
+.list-container {
+  width: 50%;
+  padding-left: 25%;
+  height: auto;
+  justify-content: center;
+  padding-bottom: 541px;
+}
+
+.create-button-position {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+
+.form-position{
+  padding-left: 25%;
+}
+
+.list-item-text{
+  color: #888888;
+}

@@ -3,33 +3,39 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../component/Shared/models/Product";
 import {environment} from "../../environments/environment";
+import {Category} from "../component/Shared/models/Category";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AdminPageServiceService {
-  apiUrl = environment.apiUrl + '/products';
+  productApiUrl = environment.apiUrl + 'products';
+  categoryApiUrl = environment.apiUrl + 'categories';
 
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>(this.productApiUrl);
   }
 
   getProduct(id: number): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl + '/' + id);
+    return this.http.get<Product[]>(this.productApiUrl + '/' + id);
   }
 
   createProduct(prod: Product): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, prod);
+    return this.http.post<Product>(this.productApiUrl, prod);
   }
 
-  updateProduct(prod: Product) {
-    this.http.put(this.apiUrl, prod);
+  updateProduct(prod: Product): Observable<any> {
+    return this.http.put(this.productApiUrl, prod);
   }
 
-  deleteProduct(id: number) {
-    this.http.delete(this.apiUrl + '/' + id);
+  deleteProduct(id: number): Observable<any>{
+    return this.http.delete<Product>(this.productApiUrl + '/' + id);
+  }
+
+  getCategories(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.categoryApiUrl)
   }
 }

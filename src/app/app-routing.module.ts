@@ -7,6 +7,7 @@ import {EquipmentAdminOverviewPageComponent} from "./component/admin-page/equipm
 import {ProductListComponent} from "./component/admin-page/product/product-list/product-list.component";
 import {UserListComponent} from "./component/admin-page/user/user-list/user-list.component";
 import {CategoryListComponent} from "./component/admin-page/category/category-list/category-list.component";
+import {ProductAddComponent} from "./component/admin-page/product/product-add/product-add.component";
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'equipment/:id', component: EquipmentRoomPageComponent},
   {path: 'admin-operations-overview', component: EquipmentAdminOverviewPageComponent},
   {path: 'admin-equipment-list', component: ProductListComponent},
+  {path: 'admin-equipment-add', component: ProductAddComponent},
   {path: 'admin-user-list', component: UserListComponent},
   {path: 'admin-category-list', component: CategoryListComponent},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
