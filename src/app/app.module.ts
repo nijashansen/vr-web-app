@@ -13,8 +13,10 @@ import {MaterialModule} from './material.module';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
 import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {FormsModule} from '@angular/forms';
-import {MatDialog, MatDialogModule} from '@angular/material';
-
+import {MatDialogModule} from '@angular/material';
+import {AuthenticationService} from "./services/authentication.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {DelayInterceptor} from './component/Interceptors/DelayInterceptor';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import {MatDialog, MatDialogModule} from '@angular/material';
     EquipmentOverviewPageComponent,
     FrontpageComponent,
     EquipmentAdminOverviewPageComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,12 +36,20 @@ import {MatDialog, MatDialogModule} from '@angular/material';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   entryComponents: [
     LoginDialogComponent
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: DelayInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [
     AppComponent,
   ]

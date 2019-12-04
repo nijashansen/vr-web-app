@@ -1,11 +1,17 @@
 <h2 align="center" style="color:whitesmoke">Login</h2>
 <div align="center" Class="input-container">
-  <input *ngIf="!loading" [(ngModel)]="username" class="input-txt" placeholder="Username">
-  <input *ngIf="!loading" [(ngModel)]="password" class="input-txt" placeholder="Password" type="password"/>
+  <mat-form-field>
+    <input matInput [(ngModel)]="username" class="input-txt" placeholder="Username"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" class="input-txt" placeholder="Password" type="password"/>
+  </mat-form-field>
   <mat-spinner *ngIf="loading" [diameter]="50"></mat-spinner>
+  <p *ngIf="loading">Show this only if "show" is true</p>
 </div>
 <div align="center" mat-dialog-actions>
 
   <button (click)="Cancel()" mat-button>Cancel</button>
+  <button (click)="login()" mat-button>Login</button>
 </div>
 
