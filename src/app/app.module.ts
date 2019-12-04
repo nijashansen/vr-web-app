@@ -16,7 +16,6 @@ import { ProductListComponent } from './component/admin-page/product/product-lis
 import { UserListComponent } from './component/admin-page/user/user-list/user-list.component';
 import { CategoryListComponent } from './component/admin-page/category/category-list/category-list.component';
 import {HttpClientModule} from "@angular/common/http";
-import {MatIconModule} from "@angular/material/icon";
 import { ProductAddComponent } from './component/admin-page/product/product-add/product-add.component';
 
 
