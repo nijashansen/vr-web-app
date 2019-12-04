@@ -2,9 +2,9 @@ import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {delay} from 'rxjs/operators';
-import {Observable, pipe} from "rxjs";
+import {Observable, pipe} from 'rxjs';
 
-let loading: boolean = false;
+const loading = false;
 
 @Component({
   selector: 'app-login-dialog',
@@ -14,7 +14,7 @@ let loading: boolean = false;
 export class LoginDialogComponent {
   username: string;
   password: string;
-  loading: boolean = false;
+  loading = false;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -25,29 +25,20 @@ export class LoginDialogComponent {
 
   login() {
     this.loading = true;
-    console.log('bef sub ', loading);
-    //sleep(3000);
-    this.authenticationService.login(this.username, this.password)
-      /*.pipe(
-        delay(3000)
-      )*/
-      .subscribe((result) => {
-        console.log('result sub ', loading);
-        if (result) {
+
+    // sleep(3000);
+    this.authenticationService.login(this.username, this.password).subscribe((result) => {
+
+      if (result) {
           this.dialogRef.close();
           this.loading = false;
         } else {
           this.loading = false;
 
         }
-    }, error => {
-        this.loading = false;
-        console.error('Error happened ', error);
-      }, () => {
-        this.loading = false;
-        console.error('Complete happened ');
+
       });
-    console.log('after sub ', loading);
+
   }
 
   Cancel(): void {

@@ -14,9 +14,9 @@ import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog
 import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material';
-import {AuthenticationService} from "./services/authentication.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {DelayInterceptor} from './component/Interceptors/DelayInterceptor';
+import {AuthenticationService} from './services/authentication.service';
+import { HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -44,11 +44,7 @@ import {DelayInterceptor} from './component/Interceptors/DelayInterceptor';
   ],
   providers: [
     AuthenticationService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: DelayInterceptor,
-      multi: true
-    }
+
   ],
   bootstrap: [
     AppComponent,
