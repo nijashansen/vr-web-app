@@ -8,7 +8,7 @@ import {Product} from '../component/Shared/models/Product';
   providedIn: 'root'
 })
 export class ProductsService {
-  apiUrl = environment.apiUrl + '/products';
+  apiUrl = environment.apiUrl + 'products';
 
   constructor(private http: HttpClient) {}
 
