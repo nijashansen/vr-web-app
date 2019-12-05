@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Product} from "../component/Shared/models/Product";
-import {environment} from "../../environments/environment";
-import {Category} from "../component/Shared/models/Category";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Product} from '../component/Shared/models/Product';
+import {environment} from '../../environments/environment';
+import {Category} from '../component/Shared/models/Category';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +31,11 @@ export class AdminPageServiceService {
     return this.http.put(this.productApiUrl, prod);
   }
 
-  deleteProduct(id: number): Observable<any>{
+  deleteProduct(id: number): Observable<any> {
     return this.http.delete<Product>(this.productApiUrl + '/' + id);
   }
 
-  getCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.categoryApiUrl)
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.categoryApiUrl);
   }
 }
