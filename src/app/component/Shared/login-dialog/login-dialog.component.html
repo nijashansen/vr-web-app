@@ -6,8 +6,9 @@
   <mat-form-field>
     <input matInput [(ngModel)]="password" class="input-txt" placeholder="Password" type="password"/>
   </mat-form-field>
-  <mat-spinner *ngIf="loading" [diameter]="50"></mat-spinner>
-  <p *ngIf="loading">Show this only if "show" is true</p>
+  <mat-spinner *ngIf="(loadingObv | async) else false" [diameter]="50"></mat-spinner>
+  <br>
+  <label style="color: red" *ngIf="(loginUnsuccObs | async) else false">*Username or Password is wrong</label>
 </div>
 <div align="center" mat-dialog-actions>
 

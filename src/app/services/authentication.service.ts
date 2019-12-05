@@ -3,6 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
+import {User} from "../component/Shared/models/User";
+import {LoginModel} from "../component/Shared/models/LoginModel";
+import {Token} from "@angular/compiler";
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +14,22 @@ import {map} from 'rxjs/operators';
 export class AuthenticationService {
 
   constructor(private http: HttpClient) {
-  }
+  }// ole123@easv365.dk
 
-  login(username: string, password: string): Observable<boolean> {
+  login(loginModel: LoginModel): Observable<any> {
 
-    return this.http.post<any>(environment.apiUrl + 'Token', {username, password})
+    return this.http.post<any>(environment.apiUrl + 'Token', loginModel)
       .pipe(map(response => {
-        const Token = response.Token;
+        const token = response.token;
 
-        if (Token) {
+        if (token) {
 
-          localStorage.setItem('currentUser', JSON.stringify({username: username, Token: Token}));
+          localStorage.setItem('currentUser', JSON.stringify({user: User, token: Token}));
 
-          return true;
+         // return true;
         } else {
 
-          return false;
+          // return false;
 
         }
       }));
