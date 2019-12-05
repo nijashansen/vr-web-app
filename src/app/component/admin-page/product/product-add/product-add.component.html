@@ -1,30 +1,28 @@
-<div style="background-color: #222222; padding-top: 70px; width: 100%; position: absolute">
+<div style="background-color: #222222; padding-top: 70px; width: 100%; position: absolute; height: 100%">
   <div class="category-container" align="center">
     <h1 class="category-h">Add Equipment</h1>
   </div>
   <div class="form-position">
-    <mat-form-field class="list-item-text">
-      <input matInput placeholder="Product Name">
-    </mat-form-field>
-    <br>
-    <mat-form-field class="list-item-text">
-      <textarea matInput placeholder="Product Description"></textarea>
-    </mat-form-field>
-    <br>
-      <mat-form-field>
-        <mat-select placeholder="Category">
-          <div *ngFor="let category of Categories" class="list-item-text">
-            <mat-option class="list-item-text" value="{{category.name}}">{{category.name}}</mat-option>
-          </div>
-        </mat-select>
+    <div class="container-color">
+      <form [formGroup]="productForm" (ngSubmit)="createProduct()">
+      <mat-form-field class="list-item-text">
+        <input type="text" formControlName="name" matInput placeholder="Product Name">
       </mat-form-field>
+      <br>
+      <mat-form-field class="list-item-text">
+        <textarea rows="24" type="text" formControlName="description" matInput placeholder="Product Description"></textarea>
+      </mat-form-field>
+      <br>
+        <mat-form-field class="list-item-text">
+          <mat-select type="number" formControlName="categoryId" placeholder="Category">
+            <div *ngFor="let category of Categories" class="list-item-text">
+              <mat-option class="list-item-text" value="{{category.id}}">{{category.name}}</mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button type="submit" class="button-position" (click)="createProduct()">Submit</button>
     </div>
+
   </div>
-
-<!--TODO
-lav create siden færdig d. 5/12 godt og realistisk mål, mangler css, og lidt typescript fra henrik,
-hvis han ikke kommer så skriv til ham om det er gjort, så kan create siden blive færdig.
-
-hvis du har tid må du gerne kigge på en generic form for list component, kunne være fedt kun at bruge det :)
-Du kan godt :D 
--->
+</div>

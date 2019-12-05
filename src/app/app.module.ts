@@ -17,6 +17,8 @@ import { UserListComponent } from './component/admin-page/user/user-list/user-li
 import { CategoryListComponent } from './component/admin-page/category/category-list/category-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ProductAddComponent } from './component/admin-page/product/product-add/product-add.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { ProductUpdateComponent } from './component/admin-page/product/product-update/product-update.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ProductAddComponent } from './component/admin-page/product/product-add/
     UserListComponent,
     CategoryListComponent,
     ProductAddComponent,
+    ProductUpdateComponent,
 
   ],
   imports: [
@@ -40,6 +43,7 @@ import { ProductAddComponent } from './component/admin-page/product/product-add/
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
     HttpClientModule],
   providers: [],
   bootstrap: [

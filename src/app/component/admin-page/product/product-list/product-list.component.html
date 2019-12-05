@@ -4,17 +4,17 @@
   </div>
   <div *ngIf="products" class="container-color">
     <div class="list-container">
-    <mat-nav-list>
-      <mat-list-item *ngFor="let product of products">
-        <a class="list-item-text" matLine href="/equipment/{{product.id}}">{{ product.name }}</a>
-        <button mat-icon-button>
-          <mat-icon class="list-item-text" (click)="delete(product.id)">delete</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon class="list-item-text">update</mat-icon>
-        </button>
-      </mat-list-item>
-    </mat-nav-list>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let product of products">
+          <a class="list-item-text" matLine href="/equipment/{{product.id}}">{{ product.name }}</a>
+          <button mat-icon-button>
+            <mat-icon class="list-item-text" (click)="delete(product.id)">delete</mat-icon>
+          </button>
+          <button mat-icon-button routerLink="/admin-equipment-update/{{product.id}}">
+            <mat-icon class="list-item-text">edit</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
     </div>
   </div>
   <div class="create-button-position">

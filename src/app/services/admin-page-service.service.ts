@@ -19,8 +19,8 @@ export class AdminPageServiceService {
     return this.http.get<Product[]>(this.productApiUrl);
   }
 
-  getProduct(id: number): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productApiUrl + '/' + id);
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(this.productApiUrl + '/' + id);
   }
 
   createProduct(prod: Product): Observable<Product> {

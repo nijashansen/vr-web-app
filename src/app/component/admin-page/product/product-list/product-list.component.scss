@@ -88,13 +88,26 @@
 }
 
 .create-button-position {
+  padding: 10px;
+  height: fit-content;
+  width: fit-content;
   position: absolute;
-  bottom: 775px;
-  right: 400px;
+  right: 20%;
+  background-color: #2c2c2c;
 }
 
 .spinner-position{
   padding-top: 300px;
+}
+
+.button-container {
+  width: 60px;
+  height: 60px;
+  top: 165px;
+  background-color: #2c2c2c;
+  left: 1450px;
+  position: absolute;
+  padding: 2px;
 }
 
 
