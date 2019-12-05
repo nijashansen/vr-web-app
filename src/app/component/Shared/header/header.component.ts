@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import {openLoginWindow} from '../../../Functions/OpenLoginDialog';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -15,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
   public select(event) {
     const elements = document.getElementsByClassName('header-cell');
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < elements.length; i++) {
       if (elements[i].classList.contains('selected')) {
         elements[i].classList.remove('selected');
@@ -34,4 +38,25 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
+
+
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '250px', data: 'login'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openLoginWindow() {
+    openLoginWindow(this.dialog);
+  }
+
+
+
+
+
 }

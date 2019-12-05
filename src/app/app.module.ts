@@ -8,17 +8,21 @@ import {HeaderComponent} from './component/Shared/header/header.component';
 import {FooterComponent} from './component/Shared/footer/footer.component';
 import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-page/equipment-room-page.component';
 import {EquipmentOverviewPageComponent} from './component/equipment/equipment-overview-page/equipment-overview-page.component';
-import {LoginComponent} from './component/Shared/dialog/login/login.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
-import { EquipmentAdminOverviewPageComponent } from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
+
 import { ProductListComponent } from './component/admin-page/product/product-list/product-list.component';
 import { UserListComponent } from './component/admin-page/user/user-list/user-list.component';
 import { CategoryListComponent } from './component/admin-page/category/category-list/category-list.component';
-import {HttpClientModule} from "@angular/common/http";
 import { ProductAddComponent } from './component/admin-page/product/product-add/product-add.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ProductUpdateComponent } from './component/admin-page/product/product-update/product-update.component';
+import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
+import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
+import {FormsModule} from '@angular/forms';
+import {MatDialogModule} from '@angular/material';
+import {AuthenticationService} from './services/authentication.service';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +32,6 @@ import { ProductUpdateComponent } from './component/admin-page/product/product-u
     FooterComponent,
     EquipmentRoomPageComponent,
     EquipmentOverviewPageComponent,
-    LoginComponent,
     FrontpageComponent,
     EquipmentAdminOverviewPageComponent,
     ProductListComponent,
@@ -36,6 +39,7 @@ import { ProductUpdateComponent } from './component/admin-page/product/product-u
     CategoryListComponent,
     ProductAddComponent,
     ProductUpdateComponent,
+    LoginDialogComponent,
 
   ],
   imports: [
@@ -44,10 +48,19 @@ import { ProductUpdateComponent } from './component/admin-page/product/product-u
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule],
-  providers: [],
+    HttpClientModule,
+    FormsModule,
+    MatDialogModule,
+  ],
+  entryComponents: [
+    LoginDialogComponent
+  ],
+  providers: [
+    AuthenticationService,
+
+  ],
   bootstrap: [
-    AppComponent
+    AppComponent,
   ]
 })
 export class AppModule {
