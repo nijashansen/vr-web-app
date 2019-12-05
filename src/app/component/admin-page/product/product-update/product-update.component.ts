@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Observable} from "rxjs";
-import {Product} from "../../../Shared/models/Product";
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
-import {take} from "rxjs/operators";
-import {Category} from "../../../Shared/models/Category";
+import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {Observable} from 'rxjs';
+import {Product} from '../../../Shared/models/Product';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
+import {take} from 'rxjs/operators';
+import {Category} from '../../../Shared/models/Category';
 
 @Component({
   selector: 'app-product-update',

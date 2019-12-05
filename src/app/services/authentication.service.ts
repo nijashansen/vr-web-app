@@ -3,9 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
-import {User} from "../component/Shared/models/User";
-import {LoginModel} from "../component/Shared/models/LoginModel";
-import {Token} from "@angular/compiler";
+import {User} from '../component/Shared/models/User';
+import {LoginModel} from '../component/Shared/models/LoginModel';
+import {Token} from '@angular/compiler';
 
 
 @Injectable({
@@ -26,7 +26,7 @@ export class AuthenticationService {
 
           localStorage.setItem('currentUser', JSON.stringify({user: User, token: Token}));
 
-         // return true;
+          // return true;
         } else {
 
           // return false;

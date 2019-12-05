@@ -1,6 +1,6 @@
-import {Category} from "./Category";
+import {Category} from './Category';
 
-export class Product{
+export class Product {
   id: number;
   name: string;
   description: string;

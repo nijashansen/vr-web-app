@@ -4,7 +4,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 
 // OBSERVABLES
 import {Observable} from 'rxjs';
-import {catchError, delay, map} from "rxjs/operators";
+import {catchError, delay, map} from 'rxjs/operators';
 
 @Injectable()
 export class DelayInterceptor implements HttpInterceptor {

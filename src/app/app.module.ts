@@ -11,18 +11,18 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
 
-import { ProductListComponent } from './component/admin-page/product/product-list/product-list.component';
-import { UserListComponent } from './component/admin-page/user/user-list/user-list.component';
-import { CategoryListComponent } from './component/admin-page/category/category-list/category-list.component';
-import { ProductAddComponent } from './component/admin-page/product/product-add/product-add.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import { ProductUpdateComponent } from './component/admin-page/product/product-update/product-update.component';
+import {ProductListComponent} from './component/admin-page/product/product-list/product-list.component';
+import {UserListComponent} from './component/admin-page/user/user-list/user-list.component';
+import {CategoryListComponent} from './component/admin-page/category/category-list/category-list.component';
+import {ProductAddComponent} from './component/admin-page/product/product-add/product-add.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
 import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
-import { HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({

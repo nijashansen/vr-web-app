@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Product} from "../../../Shared/models/Product";
-import {take} from "rxjs/operators";
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
+import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {Product} from '../../../Shared/models/Product';
+import {take} from 'rxjs/operators';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-list',

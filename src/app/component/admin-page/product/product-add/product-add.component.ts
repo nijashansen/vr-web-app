@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../../Shared/models/Product";
-import {Observable, pipe} from "rxjs";
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Category} from "../../../Shared/models/Category";
-import {take} from "rxjs/operators";
-import {FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
+import {Product} from '../../../Shared/models/Product';
+import {Observable, pipe} from 'rxjs';
+import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {Category} from '../../../Shared/models/Category';
+import {take} from 'rxjs/operators';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -36,12 +36,12 @@ export class ProductAddComponent implements OnInit {
         this.Categories = listOfCategories);
   }
 
-  createProduct(){
+  createProduct() {
     const product = this.productForm.value;
-    console.log(product)
+    console.log(product);
     this.productService.createProduct(product)
       .subscribe(() => {
-        this.router.navigateByUrl('/admin-equipment-list')
+        this.router.navigateByUrl('/admin-equipment-list');
       });
   }
 
