@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
 import { HttpClientModule} from '@angular/common/http';
+import {AuthGuard} from './Guards/auth.guard';
 
 
 
@@ -29,6 +30,7 @@ import { HttpClientModule} from '@angular/common/http';
     FrontpageComponent,
     EquipmentAdminOverviewPageComponent,
     LoginDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   providers: [
     AuthenticationService,
+    AuthGuard
 
   ],
   bootstrap: [

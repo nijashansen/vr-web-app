@@ -24,7 +24,7 @@ export class AuthenticationService {
 
         if (token) {
 
-          localStorage.setItem('currentUser', JSON.stringify({user: User, token: Token}));
+          localStorage.setItem('username', JSON.stringify({user: User, token: Token}));
 
          // return true;
         } else {
@@ -36,17 +36,19 @@ export class AuthenticationService {
   }
 
   getToken(): string {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    return currentUser && currentUser.Token;
+    console.log('debug1');
+    const username = JSON.parse(localStorage.getItem('username'));
+    console.log('debug2');
+    return username.Token && username.user;
   }
 
   getUsername(): string {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    return currentUser && currentUser.username;
+    const username = JSON.parse(localStorage.getItem('username'));
+    return username && username.user.Firstname;
   }
 
   logout(): void {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('username');
   }
 }
