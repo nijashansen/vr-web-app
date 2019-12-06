@@ -21,34 +21,34 @@ export class AuthenticationService {
     return this.http.post<any>(environment.apiUrl + 'Token', loginModel)
       .pipe(map(response => {
         const token = response.token;
+        const user = response.user
 
-        if (token) {
+        if (token != null) {
+          console.log(token)
+          localStorage.setItem('User', JSON.stringify({Token: token, User: user}));
 
-          localStorage.setItem('username', JSON.stringify({user: User, token: Token}));
-
-         // return true;
+         //return true;
         } else {
 
-          // return false;
+          //return false;
 
         }
       }));
   }
 
   getToken(): string {
-    console.log('debug1');
-    const username = JSON.parse(localStorage.getItem('username'));
-    console.log('debug2');
-    return username.Token && username.user;
+    const user = JSON.parse(localStorage.getItem('User'));
+    console.log(user.Token)
+    return user.Token;
   }
 
   getUsername(): string {
-    const username = JSON.parse(localStorage.getItem('username'));
-    return username && username.user.Firstname;
+    const user = JSON.parse(localStorage.getItem('User'));
+    return user && user.user.Firstname;
   }
 
   logout(): void {
     // remove user from local storage to log user out
-    localStorage.removeItem('username');
+    localStorage.removeItem('User');
   }
 }

@@ -11,15 +11,14 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    console.log('debug3');
+
     if (this.authService.getToken()) {
-      console.log('debug6');
+
       return true;
     }
 
     // not logged in so redirect to login page
     this.router.navigate(['/index']);
-    console.log('debug5');
     return false;
   }
 }
