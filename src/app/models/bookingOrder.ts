@@ -1,7 +1,10 @@
-export class BookingOrder {
-  id?: number;
-  user?: string;
-  product?: string;
-  startTimeOfBooking?: string;
-  endTimeOfBooking?: string;
+import {Product} from './product';
+import {User} from './User';
+
+export interface BookingOrder {
+  id: number;
+  user: User;
+  product: Product;
+  startTimeOfBooking: Date;
+  endTimeOfBooking: Date;
 }

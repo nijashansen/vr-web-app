@@ -25,3 +25,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 a:link {
   text-decoration: none;
 }
+
+.grow-card { transition: all .1s ease-in-out; }
+.grow-card:hover { transform: scale(1.025); }

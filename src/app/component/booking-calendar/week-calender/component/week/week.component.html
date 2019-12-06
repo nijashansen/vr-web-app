@@ -1,0 +1,17 @@
+<div style="display: grid; grid-template-columns: 50px 10px fit-content(100%)">
+  <div class="week-grid-side week-grid-side-hour">
+    <div class="week-grid-side-hour week-grid-side-hour-text"></div>
+    <p *ngFor="let hour of OpeningHours"
+       class="week-grid-side-hour week-grid-side-hour-text">{{hour}}:00</p>
+    <p
+      class="week-grid-side-hour week-grid-side-hour-text">{{OpeningHours[OpeningHours.length - 1] + 1}}:00</p>
+  </div>
+  <div class="week-grid-side">
+    <div class="week-grid-side-space"></div>
+    <div *ngFor="let hour of OpeningHours" class="week-grid-side-space"></div>
+  </div>
+  <div class="week-grid week-grid-main">
+    <app-day *ngFor="let date of OpeningDays" [openingHours]="getOpeningHours(OpeningHour, ClosingHour)"
+             [day]="date" [user]="user" [product]="product"></app-day>
+  </div>
+</div>

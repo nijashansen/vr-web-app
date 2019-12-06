@@ -4,7 +4,7 @@ import {LoginDialogComponent} from '../component/Shared/login-dialog/login-dialo
 
 export function openLoginWindow(dialog: MatDialog): void {
   const dialogRef = dialog.open(LoginDialogComponent, {
-    width: '350px', height: '300px', data: 'login'
+    width: '300px', data: 'login'
   });
   dialogRef.afterClosed().subscribe(result => {
     if (result) {

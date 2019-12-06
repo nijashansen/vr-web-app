@@ -23,6 +23,13 @@ import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
 import {HttpClientModule} from '@angular/common/http';
+import {DayComponent} from './component/booking-calendar/week-calender/component/day/day.component';
+import {BookingComponent} from './component/booking-calendar/week-calender/component/booking/booking.component';
+import {WeekComponent} from './component/booking-calendar/week-calender/component/week/week.component';
+import {CurrentTimeIndicatorComponent} from './component/booking-calendar/week-calender/component/current-time-indicator/current-time-indicator.component';
+import {BookingCalenderComponent} from './component/booking-calendar/booking-calender.component';
+import {BookingDialogComponent} from './component/booking-calendar/shared/component/booking-dialog/booking-dialog.component';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -40,7 +47,12 @@ import {HttpClientModule} from '@angular/common/http';
     ProductAddComponent,
     ProductUpdateComponent,
     LoginDialogComponent,
-
+    DayComponent,
+    BookingComponent,
+    WeekComponent,
+    CurrentTimeIndicatorComponent,
+    BookingCalenderComponent,
+    BookingDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +63,11 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    MatNativeDateModule
   ],
   entryComponents: [
-    LoginDialogComponent
+    LoginDialogComponent,
+    BookingDialogComponent
   ],
   providers: [
     AuthenticationService,

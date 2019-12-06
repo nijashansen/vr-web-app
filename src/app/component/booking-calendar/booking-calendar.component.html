@@ -1,0 +1,18 @@
+<div class="booking-calendar-Main">
+  <div align="right">
+    <div class="week-picker">
+      <button mat-icon-button (click)="changeWeek(-1)">
+        <mat-icon class="mat-icon-rtl-mirror" color="primary">keyboard_arrow_left</mat-icon>
+      </button>
+      <label class="week-text">Week {{weekNo}}</label>
+      <button mat-icon-button (click)="changeWeek(+1)">
+        <mat-icon class="mat-icon-rtl-mirror" color="primary">keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <app-week *ngIf="chosenWeek" [week]="chosenWeek" [user]="currentUser" [product]="product" [bookings]="bookings" [OpeningHour]="OpeningHour" [ClosingHour]="ClosingHour"></app-week>
+  <div align="right">
+    <button mat-stroked-button class="current-button" color="primary" (click)="toCurrent()">Current Week</button>
+  </div>
+</div>
+

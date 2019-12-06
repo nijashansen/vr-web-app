@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {catchError, delay} from 'rxjs/operators';
 import {BehaviorSubject, Observable, pipe, throwError} from 'rxjs';
-import {LoginModel} from '../models/LoginModel';
+import {LoginModel} from '../../../models/LoginModel';
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 
 

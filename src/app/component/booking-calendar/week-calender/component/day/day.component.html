@@ -1,0 +1,20 @@
+<div *ngIf="day" class="weekday-column">
+  <div align="center" class="same-column weekday-column-header-container">
+    <div class="weekday-column-header-wrapper">
+      <p class="weekday-column-header-date">{{day.date.getDate() + ". " + day.date.toString().split(" ")[1]}}</p>
+      <p class="weekday-column-header-dayOfWeek">{{day.name}}</p>
+    </div>
+  </div>
+  <div class="weekday-column-header-space same-column">
+  </div>
+  <div (click)="getBooking(hour)" *ngFor="let hour of openingHours; let i= index;" [style.grid-row]="i+3"
+       class="weekday-column-cell same-column"></div>
+  <app-booking *ngFor="let booking of bookingsObv | async"
+               [booking]="booking"
+               [ngStyle]="{ 'grid-row': (booking.start + headerRows), 'grid-row-end': (booking.end + headerRows)}"
+               class="same-column"></app-booking>
+  <app-current-time-indicator *ngIf="isTodayObv | async"
+                              [style.grid-row]="((currentHourObv| async) - openingHours[0]) + headerRows"
+                              [style.margin-top.px]="currentMinObv | async"
+                              class="same-column"></app-current-time-indicator>
+</div>

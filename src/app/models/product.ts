@@ -1,6 +1,8 @@
-export class Product {
-  id?: number;
-  name?: string;
+import {Category} from './Category';
+
+export interface Product {
+  id: number;
+  name: string;
   description: string;
-  category?: string;
+  category: Category;
 }

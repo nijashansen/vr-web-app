@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../../models/User';
+import {Product} from '../../../models/Product';
+import {BookingOrder} from '../../../models/BookingOrder';
 
 @Component({
   selector: 'app-equipment-room-page',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentRoomPageComponent implements OnInit {
 
-  constructor() { }
+  currentUser: User;
+  product: Product;
+  bookings: BookingOrder[];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

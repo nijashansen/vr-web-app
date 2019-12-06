@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
-import {User} from '../component/Shared/models/User';
-import {LoginModel} from '../component/Shared/models/LoginModel';
+import {User} from '../models/User';
+import {LoginModel} from '../models/LoginModel';
 import {Token} from '@angular/compiler';
 
 
@@ -21,10 +21,9 @@ export class AuthenticationService {
     return this.http.post<any>(environment.apiUrl + 'Token', loginModel)
       .pipe(map(response => {
         const token = response.token;
-
         if (token) {
 
-          localStorage.setItem('currentUser', JSON.stringify({user: User, token: Token}));
+          localStorage.setItem('currentUser', JSON.stringify({token: Token}));
 
           // return true;
         } else {

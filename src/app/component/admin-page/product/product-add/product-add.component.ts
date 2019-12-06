@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../../Shared/models/Product';
+import {Product} from '../../../../models/Product';
 import {Observable, pipe} from 'rxjs';
 import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
-import {Category} from '../../../Shared/models/Category';
+import {Category} from '../../../../models/Category';
 import {take} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
