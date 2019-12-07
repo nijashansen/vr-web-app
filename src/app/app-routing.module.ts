@@ -9,18 +9,19 @@ import {UserListComponent} from './component/admin-page/user/user-list/user-list
 import {CategoryListComponent} from './component/admin-page/category/category-list/category-list.component';
 import {ProductAddComponent} from './component/admin-page/product/product-add/product-add.component';
 import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
+import {AuthGuard} from './Guards/auth.guard';
 
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
   {path: 'equipment', component: EquipmentOverviewPageComponent},
   {path: 'equipment/:id', component: EquipmentRoomPageComponent},
-  {path: 'admin-operations-overview', component: EquipmentAdminOverviewPageComponent},
   {path: 'admin-equipment-list', component: ProductListComponent},
   {path: 'admin-equipment-add', component: ProductAddComponent},
   {path: 'admin-equipment-update/:id', component: ProductUpdateComponent},
   {path: 'admin-user-list', component: UserListComponent},
   {path: 'admin-category-list', component: CategoryListComponent},
+  {path: 'admin-equipment', component: EquipmentAdminOverviewPageComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 
