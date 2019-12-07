@@ -31,6 +31,7 @@ import {BookingCalenderComponent} from './component/booking-calendar/booking-cal
 import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {AuthGuard} from './Guards/auth.guard';
+import { UserCardComponent } from './component/Shared/header/user-card/user-card.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {AuthGuard} from './Guards/auth.guard';
     CurrentTimeIndicatorComponent,
     BookingCalenderComponent,
     BookingDialogComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,

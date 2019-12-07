@@ -1,0 +1,19 @@
+<div class="userCard">
+  <div class="userCard-img-container" align="center">
+    <div style="height: fit-content; width: fit-content; margin: auto;">
+      <mat-icon class="icon no-select" color="primary">account_circle</mat-icon>
+    </div>
+    <label class="userCard-username no-select" *ngIf="user">{{(user.FirstName | titlecase) + ' ' + (user.LastName.charAt(0)| titlecase)}}.</label>
+    <label class="userCard-username no-select" *ngIf="!user">DADADADADDADADADADADADADADADAD L.</label>
+    <button mat-button color="primary">Profile</button>
+  </div>
+  <div class="userCard-logout-container" align="center">
+    <button mat-button color="primary" (click)="onLogout()">Sign Out</button>
+  </div>
+  <div class="container-bottom">
+  </div>
+
+</div>
+
+<div class="user-card-overlay" (click)="toggle()">
+</div>

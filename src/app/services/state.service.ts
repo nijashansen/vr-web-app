@@ -4,11 +4,15 @@ import {EventEmitter, Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class StateService {
-  public loggedInStatus$: EventEmitter<boolean>;
-  private isLoggedin = JSON.parse(localStorage.getItem('currentUser')) !== null;
+  private loggedInStatus$: EventEmitter<boolean>;
+  private isLoggedin = JSON.parse(localStorage.getItem('User')) !== null;
 
   constructor() {
     this.loggedInStatus$ = new EventEmitter();
+  }
+
+  get loggedInStatusEvent() {
+    return this.loggedInStatus$;
   }
 
   public loginEmit() {
@@ -25,7 +29,7 @@ export class StateService {
 
   public emit() {
     console.log('emit: isLoggedIn = ' + this.isLoggedin);
-    this.isLoggedin = JSON.parse(localStorage.getItem('currentUser')) !== null;
+    this.isLoggedin = JSON.parse(localStorage.getItem('User')) !== null;
     this.loggedInStatus$.emit(this.isLoggedin);
   }
 

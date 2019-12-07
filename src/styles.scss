@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -26,5 +33,19 @@ a:link {
   text-decoration: none;
 }
 
-.grow-card { transition: all .1s ease-in-out; }
-.grow-card:hover { transform: scale(1.025); }
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+.grow-card {
+  transition: all .1s ease-in-out;
+}
+
+.grow-card:hover {
+  transform: scale(1.025);
+}

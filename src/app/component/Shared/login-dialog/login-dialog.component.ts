@@ -44,7 +44,7 @@ export class LoginDialogComponent {
       .pipe(catchError(error => this.checkResponse(error)
       ))
       .subscribe((result) => {
-        this.dialogRef.close();
+        this.dialogRef.close(true);
         this.loading = false;
         this.loadingBehave.next(false);
       });
@@ -60,7 +60,7 @@ export class LoginDialogComponent {
   }
 
   Cancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
 

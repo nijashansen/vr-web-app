@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {openLoginWindow} from '../../../Functions/OpenLoginDialog';
+import {Router} from '@angular/router';
+import {StateService} from '../../../services/state.service';
+import {User} from '../../../models/User';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +13,27 @@ import {openLoginWindow} from '../../../Functions/OpenLoginDialog';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
+  isLoggedIn: boolean;
+  toggleUserCard: boolean;
+  currentUser: User;
+
+  constructor(public dialog: MatDialog, private router: Router, private state: StateService, private authService: AuthenticationService) {
   }
 
   ngOnInit() {
+    this.state.loggedInStatusEvent.subscribe(result => this.isLoggedIn = result);
   }
 
   public select(event) {
+    const elements = document.getElementsByClassName('header-cell');
+    this.clearSelection();
+    if (event.target.classList.contains('cell-text')) {
+      event.target.parentElement.classList.add('selected');
+    }
+    event.target.classList.add('selected');
+  }
+
+  public clearSelection() {
     const elements = document.getElementsByClassName('header-cell');
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < elements.length; i++) {
@@ -24,39 +41,30 @@ export class HeaderComponent implements OnInit {
         elements[i].classList.remove('selected');
       }
     }
-    if (event.target.classList.contains('cell-text')) {
-      event.target.parentElement.classList.add('selected');
-    }
-    event.target.classList.add('selected');
   }
 
-  public clearSelection(event) {
-    const elements = document.getElementsByClassName('header-cell');
-    for (let i = 0; i < elements.length; i++) {
-      if (elements[i].classList.contains('selected')) {
-        elements[i].classList.remove('selected');
-      }
-    }
+  public goToHome() {
+    const element = document.getElementById('home');
+    this.clearSelection();
+    element.classList.add('selected');
   }
 
+  logout() {
+    this.toggleUsercard();
+    this.authService.logout();
+  }
 
+  toggleUsercard() {
+    this.toggleUserCard = !this.toggleUserCard;
+  }
 
-  openLoginDialog(): void {
-    const dialogRef = this.dialog.open(LoginDialogComponent, {
-      width: '250px', data: 'login'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  openLoginWindow(event) {
+    this.select(event);
+    openLoginWindow(this.dialog).afterClosed().subscribe(() => {
+      this.router.navigate(['index']);
+      this.goToHome();
     });
   }
-
-  openLoginWindow() {
-    openLoginWindow(this.dialog);
-  }
-
-
-
 
 
 }

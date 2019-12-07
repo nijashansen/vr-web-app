@@ -5,7 +5,7 @@ import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {User} from '../models/User';
 import {LoginModel} from '../models/LoginModel';
-import {Token} from '@angular/compiler';
+import {StateService} from './state.service';
 
 
 @Injectable({
@@ -13,7 +13,7 @@ import {Token} from '@angular/compiler';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private state: StateService, ) {
   }// ole123@easv365.dk
 
   login(loginModel: LoginModel): Observable<any> {
@@ -21,10 +21,11 @@ export class AuthenticationService {
     return this.http.post<any>(environment.apiUrl + 'Token', loginModel)
       .pipe(map(response => {
         const token = response.token;
-        const user = response.user
+        const user = response.user;
 
         if (token != null) {
           localStorage.setItem('User', JSON.stringify({Token: token, User: user}));
+          this.state.loginEmit();
         }
       }));
   }
@@ -34,13 +35,13 @@ export class AuthenticationService {
     return user.Token;
   }
 
-  getUsername(): string {
+  getUser(): User {
     const user = JSON.parse(localStorage.getItem('User'));
-    return user && user.user.Email;
+    return user && user.user;
   }
 
   logout(): void {
-    // remove user from local storage to log user out
     localStorage.removeItem('User');
+    this.state.logoutEmit();
   }
 }

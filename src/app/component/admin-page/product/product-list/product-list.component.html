@@ -10,7 +10,7 @@
           <button mat-icon-button>
             <mat-icon class="list-item-text" (click)="delete(product.id)">delete</mat-icon>
           </button>
-          <button mat-icon-button routerLink="/admin-equipment-update/{{product.id}}">
+          <button mat-icon-button routerLink="/admin/equipment/update/{{product.id}}">
             <mat-icon class="list-item-text">edit</mat-icon>
           </button>
         </mat-list-item>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="create-button-position">
-    <button mat-fab color="primary" routerLink="/admin-equipment-add">
+    <button mat-fab color="primary" routerLink="/admin/equipment/create">
       <mat-icon>add</mat-icon>
     </button>
   </div>

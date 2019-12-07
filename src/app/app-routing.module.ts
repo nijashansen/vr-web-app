@@ -16,12 +16,12 @@ const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
   {path: 'equipment', component: EquipmentOverviewPageComponent},
   {path: 'equipment/:id', component: EquipmentRoomPageComponent},
-  {path: 'admin-equipment-list', component: ProductListComponent},
-  {path: 'admin-equipment-add', component: ProductAddComponent},
-  {path: 'admin-equipment-update/:id', component: ProductUpdateComponent},
-  {path: 'admin-user-list', component: UserListComponent},
-  {path: 'admin-category-list', component: CategoryListComponent},
-  {path: 'admin-equipment', component: EquipmentAdminOverviewPageComponent, canActivate: [AuthGuard]},
+  {path: 'admin/equipment', component: ProductListComponent},
+  {path: 'admin/equipment/create', component: ProductAddComponent},
+  {path: 'admin/equipment/update/:id', component: ProductUpdateComponent},
+  {path: 'admin/user', component: UserListComponent},
+  {path: 'admin/category', component: CategoryListComponent},
+  {path: 'admin', component: EquipmentAdminOverviewPageComponent/*, canActivate: [AuthGuard]*/},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 

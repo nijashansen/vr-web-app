@@ -49,5 +49,65 @@ a:link {
   text-decoration: none;
 }
 
-.grow { transition: all .1s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
+
+.userCard {
+  background: #333333;
+  /*border: 1px solid #ccc;*/
+  /*border-color: rgba(0, 0, 0, .2);*/
+  color: #000;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 8px;
+  top: 62px;
+  z-index: 991;
+  line-height: normal;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  display: block;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  margin-left: 12px;
+  width: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  /*max-height: -webkit-calc(100vh - 62px - 100px);
+  max-height: calc(100vh - 62px - 100px);*/
+}
+.userCard-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  display: block;
+  margin: 5px;
+
+}
+
+.userCard-username {
+  display:block;
+  color: #e3dac9;
+  margin-bottom: 10px;
+}
+
+
+
+.userCard-logout-container{
+  padding: 20px;
+}
+
+.userCard-img-container {
+  padding: 50px;
+  padding-bottom: 20px;
+}
+
+.userCard-img-container, .userCard-logout-container{
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #44444687;
+}
+
+.logo-grow { transition: all .1s ease-in-out; }
+.logo-grow:hover { transform: scale(1.1); }

@@ -1,17 +1,21 @@
 <div class="header-bar">
-  <a routerLink="" (click) ="clearSelection($event)">
-    <img class="header-logo grow" src="assets/img/easv-vr-logo.png">
+  <a (click)="goToHome()" routerLink="">
+    <img class="header-logo logo-grow" src="assets/img/easv-vr-logo.png">
   </a>
-  <a class="header-cell" routerLink="/equipment" (click)="openLoginWindow()">
-    <label class="cell-text">Login</label>
+  <a (click)="openLoginWindow($event)" *ngIf="!(state.loggedInStatusEvent | async)" class="header-cell">
+    <label class="cell-text no-select">Sign In</label>
   </a>
-  <a class="header-cell" routerLink="/equipment" (click)="select($event)">
-    <label class="cell-text">Equipment</label>
+  <a (click)="toggleUsercard()" *ngIf="(state.loggedInStatusEvent | async)" class="header-cell">
+    <label class="cell-text no-select">Username</label>
   </a>
-  <a class="header-cell selected" routerLink="index" (click)="select($event)">
-    <label class="cell-text">Home</label>
+  <a (click)="select($event)" class="header-cell" routerLink="/equipment">
+    <label class="cell-text no-select">Equipment</label>
   </a>
-  <a class="header-cell" routerLink="/admin-operations-overview" (click)="select($event)">
-    <label class="cell-text">Admin Operations</label>
+  <a (click)="select($event)" class="header-cell selected" id="home" routerLink="index">
+    <label class="cell-text no-select">Home</label>
   </a>
+  <a (click)="select($event)" class="header-cell" routerLink="/admin">
+    <label class="cell-text no-select">Admin Operations</label>
+  </a>
+  <app-user-card (logoutButtonEvent)="logout()" *ngIf="toggleUserCard" (toggleEvent)="toggleUsercard()"></app-user-card>
 </div>
