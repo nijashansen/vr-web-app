@@ -10,6 +10,7 @@ import {CategoryListComponent} from './component/admin-page/category/category-li
 import {ProductAddComponent} from './component/admin-page/product/product-add/product-add.component';
 import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {AuthGuard} from './Guards/auth.guard';
+import {RoleGuard} from './Guards/auth.guard.admin';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path: 'admin/equipment/update/:id', component: ProductUpdateComponent},
   {path: 'admin/user', component: UserListComponent},
   {path: 'admin/category', component: CategoryListComponent},
-  {path: 'admin', component: EquipmentAdminOverviewPageComponent/*, canActivate: [AuthGuard]*/},
+  {path: 'admin', component: EquipmentAdminOverviewPageComponent/*, canActivate: [RoleGuard], data: {Role: 'Administrator'}}*/},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 

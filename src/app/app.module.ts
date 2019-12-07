@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -10,7 +9,6 @@ import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-p
 import {EquipmentOverviewPageComponent} from './component/equipment/equipment-overview-page/equipment-overview-page.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
-
 import {ProductListComponent} from './component/admin-page/product/product-list/product-list.component';
 import {UserListComponent} from './component/admin-page/user/user-list/user-list.component';
 import {CategoryListComponent} from './component/admin-page/category/category-list/category-list.component';
@@ -31,7 +29,8 @@ import {BookingCalenderComponent} from './component/booking-calendar/booking-cal
 import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {AuthGuard} from './Guards/auth.guard';
-import { UserCardComponent } from './component/Shared/header/user-card/user-card.component';
+import {UserCardComponent} from './component/Shared/header/user-card/user-card.component';
+import {RoleGuard} from './Guards/auth.guard.admin';
 
 
 @NgModule({
@@ -74,7 +73,8 @@ import { UserCardComponent } from './component/Shared/header/user-card/user-card
   ],
   providers: [
     AuthenticationService,
-    AuthGuard
+    AuthGuard,
+    RoleGuard
 
   ],
   bootstrap: [
