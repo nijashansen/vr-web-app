@@ -30,6 +30,7 @@ import {CurrentTimeIndicatorComponent} from './component/booking-calendar/week-c
 import {BookingCalenderComponent} from './component/booking-calendar/booking-calender.component';
 import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
 import {MatNativeDateModule} from '@angular/material/core';
+import {AuthGuard} from './Guards/auth.guard';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import {MatNativeDateModule} from '@angular/material/core';
   ],
   providers: [
     AuthenticationService,
+    AuthGuard
 
   ],
   bootstrap: [
