@@ -3,11 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
-import {User} from '../models/User';
 import {LoginModel} from '../models/LoginModel';
 import {StateService} from './state.service';
-import {Token} from "@angular/compiler";
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -15,8 +14,29 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private state: StateService, ) {
+  constructor(private http: HttpClient, private state: StateService,) {
   }// ole123@easv365.dk
+
+  get Token(): string {
+    return JSON.parse(localStorage.getItem('User')).Token;
+  }
+
+  get User() {
+    return JSON.parse(localStorage.getItem('User')).User;
+  }
+
+  get IsAdmin(): boolean {
+    const jwt = this.Token;
+    const jwtData = jwt.split('.')[1];
+    const decodedJwtJsonData = window.atob(jwtData);
+    if (decodedJwtJsonData.toString().includes('role')) {
+      const decodedJwtData = decodedJwtJsonData.toString().split(',')[1].split(':')[2];
+      const role = decodedJwtData.replace(/"/g, '').replace(' ', '');
+      return role === 'Administrator';
+    }
+    return false;
+  }
+
 
   login(loginModel: LoginModel): Observable<any> {
 
@@ -40,9 +60,10 @@ export class AuthenticationService {
   decode() {
     const decoder = new JwtHelperService();
     const decodeToken = decoder.decodeToken(this.getToken());
-    console.log(decodeToken)
+    console.log(decodeToken);
     return decodeToken;
   }
+
   getUsername(): string {
     const user = JSON.parse(localStorage.getItem('User'));
     return user && user.user;
@@ -52,4 +73,5 @@ export class AuthenticationService {
     localStorage.removeItem('User');
     this.state.logoutEmit();
   }
+
 }

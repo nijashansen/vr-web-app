@@ -31,6 +31,8 @@ export class LoginDialogComponent {
     this.loadingObv = this.loadingBehave.asObservable();
     this.loginUnsuccBehave = new BehaviorSubject<boolean>(false);
     this.loginUnsuccObs = this.loginUnsuccBehave.asObservable();
+    this.username = 'ole456@easv365.dk';
+    this.password = '123456';
   }
 
 

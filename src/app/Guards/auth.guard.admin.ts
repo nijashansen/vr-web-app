@@ -1,7 +1,6 @@
-
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs';
 import {AuthenticationService} from '../services/authentication.service';
 
 @Injectable()
@@ -12,9 +11,9 @@ export class RoleGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const decodedToken = this.authService.decode();
-    // console.log(decodedToken.http://schemas.microsoft.com/ws/2008/06/identity/claims/role)
-      if (decodedToken.Role === next.data.role) {
+    /*const decodedToken = this.authService.decode();
+    console.log(decodedToken.'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name');
+    if (decodedToken.Role === next.data.Role) {
       return true;
     } else {
       // navigate to not found page
@@ -22,7 +21,7 @@ export class RoleGuard implements CanActivate {
       return false;
 
 
-    }
-
+    }*/
+    return this.authService.IsAdmin;
   }
 }

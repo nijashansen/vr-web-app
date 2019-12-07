@@ -51,6 +51,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.toggleUsercard();
+    this.router.navigate(['/index']);
     this.authService.logout();
   }
 
@@ -61,7 +62,7 @@ export class HeaderComponent implements OnInit {
   openLoginWindow(event) {
     this.select(event);
     openLoginWindow(this.dialog).afterClosed().subscribe(() => {
-      this.router.navigate(['index']);
+      this.router.navigate(['/index']);
       this.goToHome();
     });
   }

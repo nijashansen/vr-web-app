@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'admin/equipment/update/:id', component: ProductUpdateComponent},
   {path: 'admin/user', component: UserListComponent},
   {path: 'admin/category', component: CategoryListComponent},
-  {path: 'admin', component: EquipmentAdminOverviewPageComponent/*, canActivate: [RoleGuard], data: {Role: 'Administrator'}}*/},
+  {path: 'admin', component: EquipmentAdminOverviewPageComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 
