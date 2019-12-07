@@ -5,13 +5,14 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-page/equipment-room-page.component';
 import {EquipmentAdminOverviewPageComponent} from "./component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component";
 import {AuthGuard} from './Guards/auth.guard';
+import {RoleGuard} from './Guards/auth.guard.admin';
 
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
   {path: 'equipment', component: EquipmentOverviewPageComponent},
   {path: 'equipment/:id', component: EquipmentRoomPageComponent},
-  {path: 'admin-equipment', component: EquipmentAdminOverviewPageComponent, canActivate: [AuthGuard]},
+  {path: 'admin-equipment', component: EquipmentAdminOverviewPageComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];
 

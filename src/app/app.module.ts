@@ -17,6 +17,7 @@ import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
 import { HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './Guards/auth.guard';
+import {RoleGuard} from './Guards/auth.guard.admin';
 
 
 
@@ -46,7 +47,8 @@ import {AuthGuard} from './Guards/auth.guard';
   ],
   providers: [
     AuthenticationService,
-    AuthGuard
+    AuthGuard,
+    RoleGuard
 
   ],
   bootstrap: [

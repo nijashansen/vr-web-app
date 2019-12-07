@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {User} from "../component/Shared/models/User";
 import {LoginModel} from "../component/Shared/models/LoginModel";
 import {Token} from "@angular/compiler";
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -38,10 +39,15 @@ export class AuthenticationService {
 
   getToken(): string {
     const user = JSON.parse(localStorage.getItem('User'));
-    console.log(user.Token)
     return user.Token;
   }
 
+  decode() {
+    const decoder = new JwtHelperService();
+    const decodeToken = decoder.decodeToken(this.getToken());
+    console.log(decodeToken)
+    return decodeToken;
+  }
   getUsername(): string {
     const user = JSON.parse(localStorage.getItem('User'));
     return user && user.user.Firstname;
