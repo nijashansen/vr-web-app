@@ -2,12 +2,15 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../../models/User';
 import {Product} from '../../models/Product';
-import {BookingOrder} from '../../models/BookingOrder';
+import {BookingOrderService} from '../../services/booking-order.service';
 import {Week} from './shared/models/Week';
+import {Day} from './shared/models/Day';
+import {BookingOrder} from '../../models/BookingOrder';
 
 
 const DAY_UNIX = 86400000;
 const WEEK_UNIX = 604800000;
+const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 @Component({
   selector: 'app-calender',
@@ -19,23 +22,72 @@ export class BookingCalenderComponent implements OnInit {
 
   @Input() currentUser: User;
   @Input() product: Product;
-  @Input() bookings: BookingOrder[];
   @Input() OpeningHour: number;
   @Input() ClosingHour: number;
-  private weekNo: number;
-  private chosenWeek: Date;
-  private chosenWeekObv: Observable<Date>;
-  private chosenWeekBehave: BehaviorSubject<Date>;
+  private w: Week;
+  private WeekObv: Observable<Week>;
+  private WeekBehave: BehaviorSubject<Week>;
+  private bookings: BookingOrder[];
 
-  constructor() {
+  constructor(public bookingservice: BookingOrderService) {
   }
 
   ngOnInit() {
     const date = new Date();
-    this.weekNo = this.getWeekNumber(date);
-    this.chosenWeek = new Date(Math.floor(date.valueOf() / WEEK_UNIX) * WEEK_UNIX - (3 * DAY_UNIX));
-    this.chosenWeekBehave = new BehaviorSubject<Date>(this.chosenWeek);
-    this.chosenWeekObv = this.chosenWeekBehave.asObservable();
+    this.setWeek(date);
+    this.WeekBehave = new BehaviorSubject<Week>(this.w);
+    this.WeekObv = this.WeekBehave.asObservable();
+  }
+
+  getKey(date: Date): number {
+    const i = Math.floor(date.valueOf() / DAY_UNIX);
+    return i;
+  }
+
+  private changeWeek(change: number): void {
+    const date = new Date(this.w.weekStart.valueOf() + ((change * 7) * DAY_UNIX));
+    this.setWeek(date);
+  }
+
+  private toCurrent(): void {
+    this.setWeek(new Date());
+  }
+
+  private setWeek(date: Date) {
+    const weekNumber = this.getWeekNumber(date);
+    const weekstart = this.getWeekStart(date);
+    const weekend = this.getWeekEnd(date);
+    const openingH = this.getOpeningHours(this.OpeningHour, this.ClosingHour);
+
+    this.bookingservice.getBookingsFromWeek({productId: this.product.id, weekStart: weekstart, weekEnd: weekend}).subscribe(result => {
+      this.bookings = result;
+      const map: Map<number, BookingOrder[]> = new Map<number, BookingOrder[]>();
+      for (const booking of result) {
+        const key: number = this.getKey(booking.startTimeOfBooking);
+        if (map.has(key)) {
+          map.get(key).push(booking);
+        } else {
+          map.set(key, [booking]);
+        }
+      }
+      const openingD = this.getOpeningDays(weekstart, weekend, map);
+      this.w = {
+        days: openingD,
+        openingHours: openingH,
+        weekStart: weekstart,
+        weekEnd: weekend,
+        weekNumber
+      };
+      this.WeekBehave.next(this.w);
+    });
+  }
+
+  private getWeekStart(date: Date): Date {
+    return new Date(Math.floor((date.valueOf()) / WEEK_UNIX) * WEEK_UNIX - (3 * DAY_UNIX));
+  }
+
+  private getWeekEnd(date: Date): Date {
+    return new Date(Math.floor((date.valueOf()) / WEEK_UNIX) * WEEK_UNIX + (3 * DAY_UNIX));
   }
 
   private getWeekNumber(d: Date): number {
@@ -45,15 +97,35 @@ export class BookingCalenderComponent implements OnInit {
     return weekNo;
   }
 
-  private changeWeek(change: number): void {
-    this.chosenWeek = new Date(Math.floor((this.chosenWeek.valueOf()) / WEEK_UNIX) * WEEK_UNIX + ((4 + 7 * change) * DAY_UNIX));
-    console.log(this.chosenWeek);
-    this.weekNo = this.getWeekNumber(new Date(this.chosenWeek.valueOf() + 4 * DAY_UNIX));
+  private getOpeningHours(open: number, close: number): number[] {
+    const n: number = close - open;
+    const openingHours: number[] = [];
+    for (let i = open; i <= close; i++) {
+      openingHours.push(i);
+    }
+    return openingHours;
   }
 
-  private toCurrent(): void {
-    this.weekNo = this.getWeekNumber(new Date());
-    this.chosenWeek = new Date(Math.floor(Date.now().valueOf() / WEEK_UNIX) * WEEK_UNIX - (3 * DAY_UNIX));
+
+  private getOpeningDays(start: Date, end: Date, bookings: Map<number, BookingOrder[]>): Day[] {
+    const n = end.valueOf() / DAY_UNIX - start.valueOf() / DAY_UNIX;
+    const openingDays: Day[] = [];
+    for (let i = 0; i <= n; i++) {
+      const date: Date = new Date(start.valueOf() + (i * DAY_UNIX));
+      const key: number = this.getKey(date);
+      openingDays.push({
+        // tslint:disable-next-line:object-literal-shorthand
+        date: date,
+        name: WEEKDAY_NAMES[date.getDay()],
+        bookings: bookings.has(key) ? bookings.get(key) : []
+      });
+    }
+    return openingDays;
   }
 
+  private catchBooking(b) {
+    this.bookingservice.createBooking(b).subscribe(() => {
+      this.setWeek(this.w.weekStart);
+    });
+  }
 }

@@ -6,3 +6,10 @@
   margin: auto 0.5em auto -1em;
   padding-left: 0.3em;
 }
+
+.not-empty-select.mat-selected {
+  color: green !important;
+}
+.form {
+  max-width: 9em;
+}

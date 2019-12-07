@@ -1,6 +1,6 @@
 <div *ngIf="booking" class="booking-item">
   <div [ngStyle]="{'padding-top.em': 0.7,
     'padding-left.em': 0.7}">
-    <p>{{booking?.start + OpeningHour}}:00 - {{booking?.end + OpeningHour}}:00</p>
+    <p>{{booking.startTimeOfBooking.getHours()}}:00 - {{booking.endTimeOfBooking.getHours()}}:00</p>
   </div>
 </div>

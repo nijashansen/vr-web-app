@@ -15,6 +15,23 @@ export class EquipmentRoomPageComponent implements OnInit {
   bookings: BookingOrder[];
 
   constructor() {
+    this.product = {
+      id: 1,
+      category: {
+        id: 1,
+        name: 'haps'
+      },
+      description: 'haps',
+      name: 'haps'
+    };
+    this.currentUser = {
+      Id: 1,
+      Address: '',
+      Email: '',
+      FirstName: '',
+      LastName: '',
+      PhoneNumber: ''
+    };
   }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Booking} from '../../../shared/models/Booking';
+import {BookingOrder} from '../../../../../models/BookingOrder';
 
 @Component({
   selector: 'app-booking',
@@ -8,12 +9,13 @@ import {Booking} from '../../../shared/models/Booking';
 })
 export class BookingComponent implements OnInit {
 
-  @Input()  booking: Booking;
+  @Input()  booking: BookingOrder;
   @Input() OpeningHour: number;
   constructor() {
   }
 
   ngOnInit() {
+    console.log(this.booking.endTimeOfBooking.getHours());
   }
 
 }

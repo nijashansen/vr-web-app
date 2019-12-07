@@ -28,7 +28,7 @@ import {BookingComponent} from './component/booking-calendar/week-calender/compo
 import {WeekComponent} from './component/booking-calendar/week-calender/component/week/week.component';
 import {CurrentTimeIndicatorComponent} from './component/booking-calendar/week-calender/component/current-time-indicator/current-time-indicator.component';
 import {BookingCalenderComponent} from './component/booking-calendar/booking-calender.component';
-import {BookingDialogComponent} from './component/booking-calendar/shared/component/booking-dialog/booking-dialog.component';
+import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
 import {MatNativeDateModule} from '@angular/material/core';
 
 

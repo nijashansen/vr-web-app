@@ -9,9 +9,10 @@
   </div>
   <div (click)="getBooking(hour)" *ngFor="let hour of openingHours; let i= index;" [style.grid-row]="i+3"
        class="weekday-column-cell same-column"></div>
-  <app-booking *ngFor="let booking of bookingsObv | async"
+  <app-booking *ngFor="let booking of day.bookings"
                [booking]="booking"
-               [ngStyle]="{ 'grid-row': (booking.start + headerRows), 'grid-row-end': (booking.end + headerRows)}"
+               [OpeningHour]="openingHours[0]"
+               [ngStyle]="{ 'grid-row': (booking.startTimeOfBooking.getHours() - openingHours[0] + headerRows), 'grid-row-end': (booking.endTimeOfBooking.getHours() - openingHours[0] + headerRows)}"
                class="same-column"></app-booking>
   <app-current-time-indicator *ngIf="isTodayObv | async"
                               [style.grid-row]="((currentHourObv| async) - openingHours[0]) + headerRows"

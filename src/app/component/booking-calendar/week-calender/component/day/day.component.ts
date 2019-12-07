@@ -1,8 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Day} from '../../../shared/models/Day';
-import {Booking} from '../../../shared/models/Booking';
 import {ClockService} from '../../../services/clock.service';
-import {BookingDialogComponent} from '../../../shared/component/booking-dialog/booking-dialog.component';
+import {BookingDialogComponent} from '../booking-dialog/booking-dialog.component';
 import {MatDialog} from '@angular/material';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import {Product} from '../../../../../models/Product';
@@ -21,7 +20,7 @@ export class DayComponent implements OnInit, OnDestroy {
   @Input() user: User;
   @Input() product: Product;
   @Input() openingHours: number[];
-  @Input() bookings: BookingOrder[];
+  @Output() pendingBooking = new EventEmitter();
 
   public bookingsObv: Observable<Array<BookingOrder>>;
   public isTodayObv: Observable<boolean>;
@@ -39,7 +38,7 @@ export class DayComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.bookingsBehave = new BehaviorSubject<Array<BookingOrder>>(this.bookings);
+    this.bookingsBehave = new BehaviorSubject<Array<BookingOrder>>(this.day.bookings);
     this.bookingsObv = this.bookingsBehave.asObservable();
 
     this.isTodayBehave = new BehaviorSubject<boolean>(false);
@@ -74,25 +73,31 @@ export class DayComponent implements OnInit, OnDestroy {
   }
 
   openDialog(numb: number): void {
+    const date = this.day.date;
+    date.setHours(numb);
     const dialogRef = this.dialog.open(BookingDialogComponent, {
+      width: '400px',
       data: {
-        userId: 1,
-        prodId: 1,
-        start: numb
+        user: this.user,
+        product: this.product,
+        startTimeOfBooking: date,
+        hours: this.openingHours
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result !== null) {
-        console.log(result);
-        this.addBooking(result);
-        console.log(this.bookings);
+      if (result) {
+        const dateStart = new Date(this.day.date);
+        dateStart.setHours(result.startTimeOfBooking);
+        const dateEnd = new Date(this.day.date);
+        dateEnd.setHours(result.endTimeOfBooking);
+        this.pendingBooking.emit({
+          user: result.user,
+          product: result.product,
+          startTimeOfBooking: dateStart.valueOf(),
+          endTimeOfBooking: dateEnd.valueOf()
+        });
       }
     });
-  }
-
-  addBooking(booking: BookingOrder) {
-    this.bookings.push(booking);
-    this.bookingsBehave.next(this.bookings);
   }
 }
