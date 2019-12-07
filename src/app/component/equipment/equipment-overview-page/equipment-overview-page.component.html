@@ -1,9 +1,26 @@
 <div style="background-color: #222222; padding-top: 70px; width: 100%; position: absolute" >
   <div class="category-container" align="center">
-    <h1 class="category-h">VR Room</h1>
+    <h1 class="category-h" *ngIf="filter">{{filter.name | titlecase}}</h1>
+    <h1 class="category-h" *ngIf="!filter">All</h1>
   </div>
-  <div style="width: 100%; display: inline-block;" align="center">
-    <div align="left" class="card-container">
+
+  <div class="layout-grid">
+    <div id="toolbar-equipment" class="toolbar right-column">
+      <section *ngIf="categories">
+        <label class="category-label">Categories</label>
+        <mat-radio-group class="category-picker-group" [(ngModel)]="filter" (ngModelChange)="onFilterChange($event)   ">
+          <mat-radio-button color="primary" class="category-picker" [value]="all">All</mat-radio-button>
+          <mat-radio-button color="primary" class="category-picker" [value]="cat" *ngFor="let cat of categories">{{cat.name | titlecase}}</mat-radio-button>
+        </mat-radio-group>
+      </section>
+      <section *ngIf="!categories">
+        <label class="category-label">Categories</label>
+        <mat-radio-group class="category-picker-group">
+          <mat-radio-button color="primary" class="category-picker" value="none">none</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </div>
+    <div align="left" style="grid-row: 1" class="card-container middle-column">
       <div style="padding: 25px">
         <a routerLink="/equipment/1">
           <div class="card">
@@ -85,5 +102,9 @@
         </a>
       </div>
     </div>
+    <mat-paginator (page)="onPageDataChange($event)" [length]="length"
+                   [pageSize]="pageSize" [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizes" class="middle-column pageinator" color="primary">
+    </mat-paginator>
   </div>
 </div>
