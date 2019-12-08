@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../models/User';
 import {Product} from '../../../models/Product';
-import {BookingOrder} from '../../../models/BookingOrder';
+import {AuthenticationService} from '../../../services/authentication.service';
+import {ProductService} from '../../../services/product.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-equipment-room-page',
@@ -12,29 +14,15 @@ export class EquipmentRoomPageComponent implements OnInit {
 
   currentUser: User;
   product: Product;
-  bookings: BookingOrder[];
 
-  constructor() {
-    this.product = {
-      id: 1,
-      category: {
-        id: 1,
-        name: 'haps'
-      },
-      description: 'haps',
-      name: 'haps'
-    };
-    this.currentUser = {
-      Id: 1,
-      Address: '',
-      Email: '',
-      FirstName: '',
-      LastName: '',
-      PhoneNumber: ''
-    };
+  constructor(private auth: AuthenticationService, private prod: ProductService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.currentUser = this.auth.User;
+    this.prod.getProduct(+this.route.snapshot.paramMap.get('id')).subscribe(result => {
+      this.product = result;
+    });
   }
 
 }

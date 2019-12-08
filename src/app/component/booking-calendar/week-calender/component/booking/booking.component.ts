@@ -15,7 +15,6 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.booking.endTimeOfBooking.getHours());
   }
 
 }

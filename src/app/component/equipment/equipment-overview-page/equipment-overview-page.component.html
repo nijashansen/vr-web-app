@@ -1,110 +1,33 @@
-<div style="background-color: #222222; padding-top: 70px; width: 100%; position: absolute" >
-  <div class="category-container" align="center">
-    <h1 class="category-h" *ngIf="filter">{{filter.name | titlecase}}</h1>
-    <h1 class="category-h" *ngIf="!filter">All</h1>
+<div class="background">
+  <div align="center" class="category-container">
+    <h1 *ngIf="filter" class="category-h">{{filter.name | titlecase}}</h1>
+    <h1 *ngIf="!filter" class="category-h">All</h1>
   </div>
 
   <div class="layout-grid">
-    <div id="toolbar-equipment" class="toolbar right-column">
+    <div class="toolbar right-column" id="toolbar-equipment">
       <section *ngIf="categories">
         <label class="category-label">Categories</label>
-        <mat-radio-group class="category-picker-group" [(ngModel)]="filter" (ngModelChange)="onFilterChange($event)   ">
-          <mat-radio-button color="primary" class="category-picker" [value]="all">All</mat-radio-button>
-          <mat-radio-button color="primary" class="category-picker" [value]="cat" *ngFor="let cat of categories">{{cat.name | titlecase}}</mat-radio-button>
+        <mat-radio-group (ngModelChange)="onFilterChange($event)   " [(ngModel)]="filter" class="category-picker-group">
+          <mat-radio-button [value]="all" class="category-picker" color="primary">All</mat-radio-button>
+          <mat-radio-button *ngFor="let cat of categories" [value]="cat" class="category-picker"
+                            color="primary">{{cat.name | titlecase}}</mat-radio-button>
         </mat-radio-group>
       </section>
       <section *ngIf="!categories">
         <label class="category-label">Categories</label>
         <mat-radio-group class="category-picker-group">
-          <mat-radio-button color="primary" class="category-picker" value="none">none</mat-radio-button>
+          <mat-radio-button class="category-picker" color="primary" value="none">none</mat-radio-button>
         </mat-radio-group>
       </section>
     </div>
-    <div align="left" style="grid-row: 1" class="card-container middle-column">
-      <div style="padding: 25px">
-        <a routerLink="/equipment/1">
-          <div class="card">
-            <img src="assets/img/category-placeholder1.png">
-            <div class="card-text-container">
-              <label class="card-label">VR Room</label>
-              <p class="card-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt
-                ut
-                labore et dolore
-                magna aliqua.</p>
-              <p class="card-book">Book Now ></p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div style="padding: 25px">
-        <a routerLink="/equipment/1">
-          <div class="card">
-            <img src="assets/img/category-placeholder1.png">
-            <div class="card-text-container">
-              <label class="card-label">VR Room</label>
-              <p class="card-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt
-                ut
-                labore et dolore
-                magna aliqua.</p>
-              <p class="card-book">Book Now ></p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div style="padding: 25px">
-        <a routerLink="/equipment/1">
-          <div class="card">
-            <img src="assets/img/category-placeholder1.png">
-            <div class="card-text-container">
-              <label class="card-label">VR Room</label>
-              <p class="card-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt
-                ut
-                labore et dolore
-                magna aliqua.</p>
-              <p class="card-book">Book Now ></p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div style="padding: 25px">
-        <a routerLink="/equipment/1">
-          <div class="card">
-            <img src="assets/img/category-placeholder1.png">
-            <div class="card-text-container">
-              <label class="card-label">VR Room</label>
-              <p class="card-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt
-                ut
-                labore et dolore
-                magna aliqua.</p>
-              <p class="card-book">Book Now ></p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div style="padding: 25px">
-        <a routerLink="/equipment/1">
-          <div class="card">
-            <img src="assets/img/category-placeholder1.png">
-            <div class="card-text-container">
-              <label class="card-label">VR Room</label>
-              <p class="card-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt
-                ut
-                labore et dolore
-                magna aliqua.</p>
-              <p class="card-book">Book Now ></p>
-            </div>
-          </div>
-        </a>
-      </div>
+    <div *ngIf="currentPage" align="left" class="card-container middle-column" style="grid-row: 1">
+      <app-products-card (navigateEvent)="navigateTo($event)" *ngFor="let product of currentPage.products"
+                         [product]="product"></app-products-card>
     </div>
     <mat-paginator (page)="onPageDataChange($event)" [length]="length"
-                   [pageSize]="pageSize" [pageIndex]="pageIndex"
-                   [pageSizeOptions]="pageSizes" class="middle-column pageinator" color="primary">
+                   [pageIndex]="pageIndex" [pageSizeOptions]="pageSizes"
+                   [pageSize]="pageSize" class="middle-column pageinator" color="primary">
     </mat-paginator>
   </div>
 </div>

@@ -23,7 +23,6 @@ export class WeekComponent implements OnInit, OnChanges {
   @Output() pendingBooking = new EventEmitter<BookingOrder>();
 
   constructor() {
-    console.log(this.w);
   }
 
   ngOnInit() {

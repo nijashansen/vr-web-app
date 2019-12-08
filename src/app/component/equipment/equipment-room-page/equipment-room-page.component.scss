@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 .layout-grid {
   padding-top: 4.5em;
   display: grid;
@@ -6,7 +8,7 @@
   width: 100%;
   height: fit-content;
   min-height: 1000px;
-  background-color: #333333;
+  background-color: $theme-color3;
 }
 
 .middle-column {
@@ -14,7 +16,7 @@
 }
 
 .booking-calendar-container {
-  background-color: #111111;
+  background-color: $theme-color1;
   height: fit-content;
   padding: 20px;
 }

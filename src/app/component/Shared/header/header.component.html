@@ -2,11 +2,11 @@
   <a (click)="goToHome()" routerLink="">
     <img class="header-logo logo-grow" src="assets/img/easv-vr-logo.png">
   </a>
-  <a (click)="openLoginWindow($event)" *ngIf="!(state.loggedInStatusEvent | async)" class="header-cell">
+  <a (click)="openLoginWindow($event)" *ngIf="!currentUser" class="header-cell">
     <label class="cell-text no-select">Sign In</label>
   </a>
-  <a (click)="toggleUsercard()" *ngIf="(state.loggedInStatusEvent | async)" class="header-cell">
-    <label class="cell-text no-select">Username</label>
+  <a (click)="toggleUsercard()" *ngIf="currentUser" class="header-cell">
+    <label class="cell-text no-select">{{currentUser.email.split('@')[0]}}</label>
   </a>
   <a (click)="select($event)" class="header-cell" routerLink="equipment">
     <label class="cell-text no-select">Equipment</label>
@@ -17,5 +17,5 @@
   <a (click)="select($event)" class="header-cell" routerLink="/admin">
     <label class="cell-text no-select">Admin Operations</label>
   </a>
-  <app-user-card (logoutButtonEvent)="logout()" *ngIf="toggleUserCard" (toggleEvent)="toggleUsercard()"></app-user-card>
+  <app-user-card [user]="currentUser" (logoutButtonEvent)="logout()" *ngIf="toggleUserCard" (toggleEvent)="toggleUsercard()"></app-user-card>
 </div>

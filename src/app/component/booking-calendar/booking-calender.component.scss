@@ -1,11 +1,11 @@
-
+@import "src/styles.scss";
 
 .booking-calendar-Main {
   height: fit-content;
 }
 
 .week-text {
-  color: #fabb2c;
+  color: $theme-color-text3;
   font-size: 1.4rem;
   margin: auto;
   vertical-align: middle;
@@ -22,7 +22,7 @@
   margin: 0.7em 1.8em 1em 1em;
   display: inline-flex;
   flex-direction: row;
-  background-color: #222222;
+  background-color: $theme-color2;
   padding-right: 0.4em;
   padding-left: 0.4em;
   border-radius: 1.5em;
