@@ -31,6 +31,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {AuthGuard} from './Guards/auth.guard';
 import {UserCardComponent} from './component/Shared/header/user-card/user-card.component';
 import {RoleGuard} from './Guards/auth.guard.admin';
+import { ProductsCardComponent } from './component/equipment/equipment-overview-page/products-card/products-card.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {RoleGuard} from './Guards/auth.guard.admin';
     BookingCalenderComponent,
     BookingDialogComponent,
     UserCardComponent,
+    ProductsCardComponent,
   ],
   imports: [
     BrowserModule,

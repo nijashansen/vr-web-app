@@ -1,5 +1,5 @@
 <div class="layout-grid">
-  <div class="middle-column booking-calendar-container">
+  <div class="middle-column booking-calendar-container" *ngIf="product">
     <app-calender [product]="product" [currentUser]="currentUser" [OpeningHour]="12" [ClosingHour]="19"></app-calender>
   </div>
   <div class="middle-column"></div>

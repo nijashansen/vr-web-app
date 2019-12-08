@@ -3,8 +3,8 @@
     <div style="height: fit-content; width: fit-content; margin: auto;">
       <mat-icon class="icon no-select" color="primary">account_circle</mat-icon>
     </div>
-    <label class="userCard-username no-select" *ngIf="user">{{(user.FirstName | titlecase) + ' ' + (user.LastName.charAt(0)| titlecase)}}.</label>
-    <label class="userCard-username no-select" *ngIf="!user">DADADADADDADADADADADADADADADAD L.</label>
+    <label class="userCard-username no-select" *ngIf="user">{{(user.firstName | titlecase) + ' ' + (user.lastName.charAt(0)| titlecase)}}.</label>
+    <label class="userCard-username no-select" *ngIf="!user">Name L.</label>
     <button mat-button color="primary">Profile</button>
   </div>
   <div class="userCard-logout-container" align="center">

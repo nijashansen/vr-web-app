@@ -9,6 +9,7 @@ export class StateService {
 
   constructor() {
     this.loggedInStatus$ = new EventEmitter();
+    this.loggedInStatus$.emit(this.isLoggedin);
   }
 
   get loggedInStatusEvent() {

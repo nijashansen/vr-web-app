@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+$theme-color1: #111111;
+$theme-color2: #222222;
+$theme-color3: #333333;
+$theme-color-text1: #777777;
+$theme-color-text2: #e3dac9;
+$theme-color-text3: #fabb2c;
+
 
 html, body {
   height: 100%;
@@ -16,7 +23,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #777777;
+  background: $theme-color-text1;
 }
 
 /* Handle */
@@ -48,4 +55,8 @@ a:link {
 
 .grow-card:hover {
   transform: scale(1.025);
+}
+
+.pointer {
+  cursor: pointer;
 }

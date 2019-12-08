@@ -6,7 +6,7 @@ import {map} from 'rxjs/operators';
 import {LoginModel} from '../models/LoginModel';
 import {StateService} from './state.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {Router} from '@angular/router';
+import {User} from '../models/User';
 
 
 @Injectable({
@@ -21,7 +21,7 @@ export class AuthenticationService {
     return JSON.parse(localStorage.getItem('User')).Token;
   }
 
-  get User() {
+  get User(): User {
     return JSON.parse(localStorage.getItem('User')).User;
   }
 
@@ -44,7 +44,7 @@ export class AuthenticationService {
       .pipe(map(response => {
         const token = response.token;
         const user = response.user;
-
+        console.log(user);
         if (token != null) {
           localStorage.setItem('User', JSON.stringify({Token: token, User: user}));
           this.state.loginEmit();

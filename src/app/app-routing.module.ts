@@ -15,13 +15,13 @@ import {RoleGuard} from './Guards/auth.guard.admin';
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
-  {path: 'equipment', component: EquipmentOverviewPageComponent},
-  {path: 'equipment/:id', component: EquipmentRoomPageComponent},
-  {path: 'admin/equipment', component: ProductListComponent},
-  {path: 'admin/equipment/create', component: ProductAddComponent},
-  {path: 'admin/equipment/update/:id', component: ProductUpdateComponent},
-  {path: 'admin/user', component: UserListComponent},
-  {path: 'admin/category', component: CategoryListComponent},
+  {path: 'equipment', component: EquipmentOverviewPageComponent, canActivate: [AuthGuard]},
+  {path: 'equipment/:id', component: EquipmentRoomPageComponent, canActivate: [AuthGuard]},
+  {path: 'admin/equipment', component: ProductListComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/equipment/create', component: ProductAddComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/equipment/update/:id', component: ProductUpdateComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/user', component: UserListComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/category', component: CategoryListComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: 'admin', component: EquipmentAdminOverviewPageComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];

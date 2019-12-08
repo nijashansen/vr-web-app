@@ -4,6 +4,7 @@ import {ProductService} from '../../../services/product.service';
 import {Category} from '../../../models/category';
 import {FilterPageProductList} from '../../../models/FilterPageProductList';
 import {Product} from '../../../models/product';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-equipment-overview-page',
@@ -12,7 +13,6 @@ import {Product} from '../../../models/product';
 })
 export class EquipmentOverviewPageComponent implements OnInit {
   categories: Category[];
-  products: Product[];
   currentPage: FilterPageProductList;
   pageSize: number;
   pageIndex: number;
@@ -22,7 +22,7 @@ export class EquipmentOverviewPageComponent implements OnInit {
   filter: Category;
   all: Category;
 
-  constructor(private categoryService: CategoryService, private productService: ProductService) {
+  constructor(private categoryService: CategoryService, private productService: ProductService, private router: Router) {
     this.pageSizes = [6, 12, 18];
     this.all = {id: 0, name: 'all'};
     this.filter = this.all;
@@ -48,7 +48,6 @@ export class EquipmentOverviewPageComponent implements OnInit {
   private loadPage(pageIndex: number, pageSize: number, filter: Category) {
     if (filter.id === this.all.id) {
       this.productService.getProductsWithFilterPage({pageIndex: pageIndex, itemsPrPage: pageSize}).subscribe(result => {
-        console.log(result);
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;
         this.pageIndex = result.pageIndex;
@@ -61,12 +60,15 @@ export class EquipmentOverviewPageComponent implements OnInit {
         filter: this.filter
       })
         .subscribe(result => {
-          console.log(result);
           this.currentPage = result;
           this.pageSize = result.itemsPrPage;
           this.pageIndex = result.pageIndex;
           this.length = result.itemsTotal;
         });
     }
+  }
+
+  public navigateTo($event: number) {
+    this.router.navigate(['/equipment/' + $event]);
   }
 }
