@@ -1,5 +1,5 @@
 <div class="background">
-  <div align="center" class="category-container">
+  <div align="center" class="header-container">
     <h1 *ngIf="filter" class="category-h">{{filter.name | titlecase}}</h1>
     <h1 *ngIf="!filter" class="category-h">All</h1>
   </div>
@@ -8,7 +8,7 @@
     <div class="toolbar right-column" id="toolbar-equipment">
       <section *ngIf="categories">
         <label class="category-label">Categories</label>
-        <mat-radio-group (ngModelChange)="onFilterChange($event)   " [(ngModel)]="filter" class="category-picker-group">
+        <mat-radio-group (change)="onFilterChange($event)" [(ngModel)]="filter" class="category-picker-group">
           <mat-radio-button [value]="all" class="category-picker" color="primary">All</mat-radio-button>
           <mat-radio-button *ngFor="let cat of categories" [value]="cat" class="category-picker"
                             color="primary">{{cat.name | titlecase}}</mat-radio-button>

@@ -35,6 +35,7 @@ import {AdminIndexComponent} from './component/admin/admin-index/admin-index.com
 import {OptionCardComponent} from './component/admin/option-menu/option-card/option-card.component';
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 import { OptionMenuComponent } from './component/admin/option-menu/option-menu.component';
+import { BackButtonComponent } from './component/admin/component/back-button/back-button.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { OptionMenuComponent } from './component/admin/option-menu/option-menu.c
     OptionCardComponent,
     EquipmentComponent,
     OptionMenuComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,71 +1,24 @@
 @import "src/styles.scss";
-.card-text-container {
-  display: block;
-  height: 100%;
-  padding: 1em;
+
+:host {
+  grid-column: 1;
+  grid-row: 1;
+  border-right: 1px solid #777777;
 }
 
-.category-container {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.background {
+  background-color: #333333;
   width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.list-container {
   height: fit-content;
-  background-color: #111111;
-  z-index: 4;
-  position: relative;
-}
-
-.category-h {
-  margin: 10px;
-  color: #fabb2c;
-  font-weight: normal;
-}
-
-.card-label {
-  color: #777777;
-  font-size: 1.5rem;
-  cursor: inherit;
-}
-
-.card-p {
-  color: #777777;
-  height: 7em;
-}
-
-.card-buttons {
-  color: #fabb2c;
-  position: relative;
-  bottom: 0;
-  cursor: inherit;
-}
-
-.card {
-  width: 390px;
-  height: 510px;
-  background-color: #111111;
-  border-bottom: solid 2px #fabb2c;
-  display: grid;
-  flex-direction: column;
-}
-
-.card-container {
-  width: 1760px;
-  padding-top: 90px;
-  display: flex;
-  padding-bottom: 120px;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-
-
-.container-color {
-  width: 50%;
-  position: absolute;
-  left: 25%;
-  right: 25%;
-  padding-bottom: 5px;
-  background-color: #2c2c2c;
+  background-color: #222222;
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 1.49em;
 }
 
 .list-item-text {
@@ -93,25 +46,68 @@
   left: 1450px;
   position: absolute;
   padding: 2px;
-}
-///////////////////
-:host {
-  grid-column: 1;
-  grid-row: 1;
-  border-right: 1px solid #777777;
+  border-radius: 4px;
 }
 
-.background {
-  background-color: #333333;
-  padding-top: 70px;
+.header-container {
+  margin-top: 70px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 100%;
-  height: 100%;
-}
-
-.list-container {
   height: fit-content;
-  background-color: #222222;
+  background-color: $theme-color1;
+  z-index: 4;
+  position: relative;
+  grid-row: 1;
+  grid-column: 1/ span 3;
 }
 
+.toolbar {
+  grid-row: 2;
+  grid-column: 3;
+  background: $theme-color2;
+  height: 50px;
+  width: 50px;
+  padding: 10px 10px 10px 10px;
+  //border-radius: 4px;
+  position: sticky;
+  margin-top: 1.49em;
+  margin-left: 1em;
+  top: 9.1em;
+  z-index: 2;
+  border-radius: 4px;
+}
 
+.category-h {
+  margin: auto;
+  color: #fabb2c;
+  width: fit-content;
+  font-weight: normal;
+}
 
+.layout-grid {
+  display: grid;
+  grid-template-columns: 2% 88% 10%;
+}
+
+.tool-button {
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  min-width: 0px;
+  border-radius: 50%;
+  margin-top: 5px;
+
+}
+.icon {
+  margin: auto;
+}
+.pageinator {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.back-button {
+  margin-top: 5px;
+  position: absolute;
+}

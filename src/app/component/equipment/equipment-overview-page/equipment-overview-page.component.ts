@@ -1,9 +1,8 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../../../services/category.service';
 import {ProductService} from '../../../services/product.service';
 import {Category} from '../../../models/category';
 import {FilterPageProductList} from '../../../models/FilterPageProductList';
-import {Product} from '../../../models/product';
 import {Router} from '@angular/router';
 
 @Component({
@@ -41,13 +40,19 @@ export class EquipmentOverviewPageComponent implements OnInit {
     this.loadPage(event.pageIndex, event.pageSize, this.filter);
   }
 
+  public navigateTo($event: number) {
+    this.router.navigate(['/equipment/' + $event]);
+  }
+
   private onFilterChange(event) {
-    this.loadPage(this.currentPage.pageIndex, this.currentPage.itemsPrPage, event);
+    this.loadPage(this.currentPage.pageIndex, this.currentPage.itemsPrPage, event.value);
   }
 
   private loadPage(pageIndex: number, pageSize: number, filter: Category) {
+    console.log(filter);
     if (filter.id === this.all.id) {
       this.productService.getProductsWithFilterPage({pageIndex: pageIndex, itemsPrPage: pageSize}).subscribe(result => {
+        console.log(result);
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;
         this.pageIndex = result.pageIndex;
@@ -58,17 +63,13 @@ export class EquipmentOverviewPageComponent implements OnInit {
         pageIndex: pageIndex,
         itemsPrPage: pageSize,
         filter: this.filter
-      })
-        .subscribe(result => {
-          this.currentPage = result;
-          this.pageSize = result.itemsPrPage;
-          this.pageIndex = result.pageIndex;
-          this.length = result.itemsTotal;
-        });
+      }).subscribe(result => {
+        console.log(result);
+        this.currentPage = result;
+        this.pageSize = result.itemsPrPage;
+        this.pageIndex = result.pageIndex;
+        this.length = result.itemsTotal;
+      });
     }
-  }
-
-  public navigateTo($event: number) {
-    this.router.navigate(['/equipment/' + $event]);
   }
 }

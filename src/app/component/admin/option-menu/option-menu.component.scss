@@ -1,11 +1,30 @@
+@import "src/styles.scss";
 :host {
   grid-column: 1;
   grid-row: 1;
 }
 
 .option-grid {
-  margin-top: 100px;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-auto-rows: fit-content(100%);
+}
+
+.header-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: fit-content;
+  background-color: $theme-color1;
+  z-index: 4;
+  position: relative;
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
+.category-h {
+  margin: auto;
+  color: #fabb2c;
+  width: fit-content;
+  font-weight: normal;
 }
