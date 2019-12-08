@@ -13,7 +13,7 @@ import {AuthGuard} from './Guards/auth.guard';
 import {RoleGuard} from './Guards/auth.guard.admin';
 import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
-import {OptionMenuComponent} from './component/admin/admin-index/option-menu/option-menu.component';
+import {OptionMenuComponent} from './component/admin/option-menu/option-menu.component';
 
 
 const routes: Routes = [

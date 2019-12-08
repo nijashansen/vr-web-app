@@ -32,9 +32,9 @@ import {UserCardComponent} from './component/Shared/header/user-card/user-card.c
 import {RoleGuard} from './Guards/auth.guard.admin';
 import {ProductsCardComponent} from './component/equipment/equipment-overview-page/products-card/products-card.component';
 import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
-import {OptionCardComponent} from './component/admin/admin-index/option-menu/option-card/option-card.component';
+import {OptionCardComponent} from './component/admin/option-menu/option-card/option-card.component';
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
-import { OptionMenuComponent } from './component/admin/admin-index/option-menu/option-menu.component';
+import { OptionMenuComponent } from './component/admin/option-menu/option-menu.component';
 
 
 @NgModule({
