@@ -1,0 +1,11 @@
+:host {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.option-grid {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-auto-rows: fit-content(100%);
+}
