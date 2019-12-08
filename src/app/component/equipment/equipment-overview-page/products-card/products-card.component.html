@@ -1,0 +1,13 @@
+<div style="padding: 25px">
+  <a (click)="onClick()">
+    <div class="card pointer grow-card">
+      <img src="assets/img/category-placeholder1.png">
+      <img *ngIf="product.imgUrl" [src]="product.imgUrl">
+      <div class="card-text-container">
+        <label class="card-label">{{product.name | titlecase}} {{product.id}}</label>
+        <p class="card-p">{{product.description | titlecase}} <br>--Short decription goes here</p>
+        <p class="card-book">Book Now ></p>
+      </div>
+    </div>
+  </a>
+</div>

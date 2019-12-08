@@ -1,7 +1,8 @@
 $border-color: #777777;
 .weekday-column {
   display: grid;
-  grid-template-rows: fit-content(100%) 10px repeat(8, 60px);
+  border-bottom: 1px solid $border-color;
+  //grid-template-rows: fit-content(100%) 10px repeat(8, 60px);
 }
 
 .weekday-column-header-wrapper {
@@ -39,10 +40,10 @@ $border-color: #777777;
   border-bottom: 1px solid #77777710;
   cursor: pointer;
 }
-
+/*
 .weekday-column-cell:nth-child(10) {
   border-bottom: 1px solid $border-color;
-}
+}*/
 
 .weekday-column-header-space {
   border-bottom: 1px solid $border-color;

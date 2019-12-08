@@ -11,17 +11,34 @@ import {ProductAddComponent} from './component/admin-page/product/product-add/pr
 import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {AuthGuard} from './Guards/auth.guard';
 import {RoleGuard} from './Guards/auth.guard.admin';
+import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
+import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
-  {path: 'equipment', component: EquipmentOverviewPageComponent},
-  {path: 'equipment/:id', component: EquipmentRoomPageComponent},
-  {path: 'admin/equipment', component: ProductListComponent},
-  {path: 'admin/equipment/create', component: ProductAddComponent},
-  {path: 'admin/equipment/update/:id', component: ProductUpdateComponent},
-  {path: 'admin/user', component: UserListComponent},
-  {path: 'admin/category', component: CategoryListComponent},
+  {
+    path: 'admin2',
+    component: AdminIndexComponent,
+    children: [
+      {
+        path: 'equipment',
+        component: EquipmentComponent
+        /*canActivate: [RoleGuard], data: {Role: 'Administrator'}*/
+      }
+    ]
+  },
+  {path: 'equipment', component: EquipmentOverviewPageComponent, canActivate: [AuthGuard]},
+  {path: 'equipment/:id', component: EquipmentRoomPageComponent, canActivate: [AuthGuard]},
+  {
+    path: 'admin/equipment',
+    component: ProductListComponent,
+    outlet: 'admin-sidebar' /*canActivate: [RoleGuard], data: {Role: 'Administrator'}*/
+  },
+  {path: 'admin/equipment/create', component: ProductAddComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/equipment/update/:id', component: ProductUpdateComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/user', component: UserListComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
+  {path: 'admin/category', component: CategoryListComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: 'admin', component: EquipmentAdminOverviewPageComponent, canActivate: [RoleGuard], data: {Role: 'Administrator'}},
   {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];

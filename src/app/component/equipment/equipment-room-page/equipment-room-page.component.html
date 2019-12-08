@@ -1,6 +1,17 @@
-<div class="layout-grid">
-  <div class="middle-column booking-calendar-container">
-    <app-calender [product]="product" [currentUser]="currentUser" [OpeningHour]="12" [ClosingHour]="19"></app-calender>
+<div class="background">
+  <div class="layout-grid">
+    <div *ngIf="product" class="middle-column booking-calendar-container">
+      <app-calender [ClosingHour]="19" [OpeningHour]="11" [currentUser]="currentUser"
+                    [product]="product"></app-calender>
+    </div>
+    <div *ngIf="product" class="product-info-container middle-column">
+      <h1 style="color: #fabb2c; font-weight: normal">{{product.name | titlecase}} {{product.id}}</h1>
+      <mat-tab-group color="primary" style="color: #777777 !important;">
+        <mat-tab label="Info" style="color: #777777 !important;"><p>{{product.description |titlecase}} <br>--Here goes
+          Long description</p></mat-tab>
+        <mat-tab label="Specs" style="color: #777777 !important;"><p>{{product.description |titlecase}} <br>--Specs go
+          Here</p></mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
-  <div class="middle-column"></div>
 </div>

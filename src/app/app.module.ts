@@ -31,6 +31,10 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {AuthGuard} from './Guards/auth.guard';
 import {UserCardComponent} from './component/Shared/header/user-card/user-card.component';
 import {RoleGuard} from './Guards/auth.guard.admin';
+import { ProductsCardComponent } from './component/equipment/equipment-overview-page/products-card/products-card.component';
+import { AdminIndexComponent } from './component/admin/admin-index/admin-index.component';
+import { OptionCardComponent } from './component/admin/admin-index/option-card/option-card.component';
+import { EquipmentComponent } from './component/admin/equipment/equipment.component';
 
 
 @NgModule({
@@ -55,6 +59,10 @@ import {RoleGuard} from './Guards/auth.guard.admin';
     BookingCalenderComponent,
     BookingDialogComponent,
     UserCardComponent,
+    ProductsCardComponent,
+    AdminIndexComponent,
+    OptionCardComponent,
+    EquipmentComponent,
   ],
   imports: [
     BrowserModule,

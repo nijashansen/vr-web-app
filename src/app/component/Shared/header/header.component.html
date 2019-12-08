@@ -8,7 +8,7 @@
   <a (click)="toggleUsercard()" *ngIf="(state.loggedInStatusEvent | async)" class="header-cell">
     <label class="cell-text no-select">Username</label>
   </a>
-  <a (click)="select($event)" class="header-cell" routerLink="/equipment">
+  <a (click)="select($event)" class="header-cell" routerLink="equipment">
     <label class="cell-text no-select">Equipment</label>
   </a>
   <a (click)="select($event)" class="header-cell selected" id="home" routerLink="index">

@@ -1,4 +1,4 @@
-<div *ngIf="day" class="weekday-column">
+<div *ngIf="day" class="weekday-column" [ngStyle]="{ 'grid-template-rows': 'fit-content(100%) 10px repeat('+openingHours.length+', 60px)'}">
   <div align="center" class="same-column weekday-column-header-container">
     <div class="weekday-column-header-wrapper">
       <p class="weekday-column-header-date">{{day.date.getDate() + ". " + day.date.toString().split(" ")[1]}}</p>

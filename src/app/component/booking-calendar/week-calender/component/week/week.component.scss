@@ -1,13 +1,13 @@
 $border-color: #777777;
 .week-grid {
   display: grid;
-  grid-template-columns:repeat(7, 200px);
+  grid-template-columns:repeat(6, 200px) 200px;
 }
 .week-grid-side {
   display: grid;
   height: fit-content;
   padding-top: 6em;
-  grid-template-rows: 10px repeat(8, 60px);
+  //grid-template-rows: 10px repeat(8, 60px) 60px;
 }
 .week-grid-main {
   grid-column: 3;
@@ -37,4 +37,11 @@ $border-color: #777777;
   border-right: 1px solid $border-color;
   width: 10px;
   grid-column: 2;
+}
+.week-grid-side-space:last-child{
+  border-bottom:none
+}
+
+.space-column {
+  border-bottom: 1px solid $border-color;
 }
