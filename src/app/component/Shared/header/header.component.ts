@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.state.loggedInStatusEvent.subscribe(result => {
       this.isLoggedIn = result;
-      this.state.emit();
       if (this.isLoggedIn) {
         this.currentUser = this.authService.User;
       }
@@ -67,9 +66,11 @@ export class HeaderComponent implements OnInit {
 
   openLoginWindow(event) {
     this.select(event);
-    openLoginWindow(this.dialog).afterClosed().subscribe(() => {
-      this.router.navigate(['/index']);
-      this.goToHome();
+    openLoginWindow(this.dialog).afterClosed().subscribe((result) => {
+      if (result) {
+        this.router.navigate(['/index']);
+        this.goToHome();
+      }
     });
   }
 }
