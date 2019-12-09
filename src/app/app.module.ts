@@ -19,7 +19,7 @@ import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog
 import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DayComponent} from './component/booking-calendar/week-calender/component/day/day.component';
 import {BookingComponent} from './component/booking-calendar/week-calender/component/booking/booking.component';
 import {WeekComponent} from './component/booking-calendar/week-calender/component/week/week.component';
@@ -36,6 +36,7 @@ import {OptionCardComponent} from './component/admin/option-menu/option-card/opt
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 import { OptionMenuComponent } from './component/admin/option-menu/option-menu.component';
 import { BackButtonComponent } from './component/admin/component/back-button/back-button.component';
+import {HttpIntercepter} from "./interceptor/error-intercepter.service";
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { BackButtonComponent } from './component/admin/component/back-button/bac
   providers: [
     AuthenticationService,
     AuthGuard,
-    RoleGuard
+    RoleGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepter, multi: true }
 
   ],
   bootstrap: [

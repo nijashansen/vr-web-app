@@ -5,7 +5,6 @@ import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {LoginModel} from '../models/LoginModel';
 import {StateService} from './state.service';
-import {JwtHelperService} from '@auth0/angular-jwt';
 import {User} from '../models/User';
 
 
@@ -55,13 +54,6 @@ export class AuthenticationService {
   getToken(): string {
     const user = JSON.parse(localStorage.getItem('User'));
     return user.Token;
-  }
-
-  decode() {
-    const decoder = new JwtHelperService();
-    const decodeToken = decoder.decodeToken(this.getToken());
-    console.log(decodeToken);
-    return decodeToken;
   }
 
   getUsername(): string {
