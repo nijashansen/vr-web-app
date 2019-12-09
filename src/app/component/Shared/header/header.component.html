@@ -2,10 +2,10 @@
   <a (click)="goToHome()" routerLink="">
     <img class="header-logo logo-grow" src="assets/img/easv-vr-logo.png">
   </a>
-  <a (click)="openLoginWindow($event)" *ngIf="!currentUser" class="header-cell">
+  <a (click)="openLoginWindow($event)" *ngIf="!isLoggedIn" class="header-cell">
     <label class="cell-text no-select">Sign In</label>
   </a>
-  <a (click)="toggleUsercard()" *ngIf="currentUser" class="header-cell">
+  <a (click)="toggleUsercard()" *ngIf="isLoggedIn" class="header-cell">
     <label class="cell-text no-select">{{currentUser.email.split('@')[0]}}</label>
   </a>
   <a (click)="select($event)" class="header-cell" routerLink="equipment">
