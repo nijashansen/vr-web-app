@@ -19,7 +19,6 @@ export class HttpIntercepter implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log("hlirh")
     return next.handle(req).pipe(
       retry(1),
       catchError((error: HttpErrorResponse) => {
@@ -31,8 +30,10 @@ export class HttpIntercepter implements HttpInterceptor {
           // server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
+
         window.alert(errorMessage);
         return throwError(errorMessage);
+
       })
     );
   }
