@@ -37,6 +37,9 @@ import { OptionMenuComponent } from './component/admin/option-menu/option-menu.c
 import { BackButtonComponent } from './component/admin/component/back-button/back-button.component';
 import {HttpIntercepter} from "./interceptor/error-intercepter.service";
 import { ProductDetailsComponent } from './component/admin/product/product-details/product-details.component';
+import {CategoryComponent} from "./component/admin/category/category.component";
+import {CategoryAddComponent} from "./component/admin/category/category-add/category-add.component";
+import { CategoryDetailsComponent } from './component/admin/category/category-details/category-details.component';
 
 
 @NgModule({
@@ -67,6 +70,9 @@ import { ProductDetailsComponent } from './component/admin/product/product-detai
     OptionMenuComponent,
     BackButtonComponent,
     ProductDetailsComponent,
+    CategoryComponent,
+    CategoryAddComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
