@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
-import {Product} from '../../../../models/Product';
+import {Product} from '../../../../models/product';
 import {take} from 'rxjs/operators';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';

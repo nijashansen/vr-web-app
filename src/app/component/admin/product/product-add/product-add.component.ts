@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../../../models/Product';
+import {Product} from '../../../../models/product';
 import {Observable, pipe} from 'rxjs';
 import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
-import {Category} from '../../../../models/Category';
+import {Category} from '../../../../models/category';
 import {take} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -41,7 +41,7 @@ export class ProductAddComponent implements OnInit {
     console.log(product);
     this.productService.createProduct(product)
       .subscribe(() => {
-        this.router.navigateByUrl('/admin-equipment-list');
+        this.router.navigateByUrl('/admin/equipment');
       });
   }
 

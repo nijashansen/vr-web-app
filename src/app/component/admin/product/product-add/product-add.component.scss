@@ -1,0 +1,32 @@
+@import "src/app/component/admin/equipment/equipment.component";
+
+.list-container {
+  padding-left: 25%;
+  height: auto;
+  justify-content: center;
+}
+
+.create-button-position {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+
+.list-item-text{
+  width: 100%;
+  color: #888888;
+}
+
+.container-color {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  width: 80%;
+  margin: auto;
+  background-color: #222222;
+}
+
+.button-position {
+  margin: auto;
+}
+

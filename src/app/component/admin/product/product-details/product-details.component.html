@@ -1,0 +1,11 @@
+<div class="background">
+  <div *ngIf="product" class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="category-h">{{product.name}} {{product.id}}</h1>
+  </div>
+  <h1 *ngIf="editBool">{{editBool}}</h1>
+  <div>
+    <button (click)="switchToEdit()">edit</button>
+  </div>
+
+</div>
