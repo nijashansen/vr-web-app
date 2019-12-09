@@ -28,6 +28,5 @@ export class CategoryComponent implements OnInit {
     this.categoryService.deleteCategory(id).subscribe(() => {
       this.refresh();
     });
-
-  }w
+  }
 }

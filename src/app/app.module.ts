@@ -40,6 +40,9 @@ import { ProductDetailsComponent } from './component/admin/product/product-detai
 import {CategoryComponent} from "./component/admin/category/category.component";
 import {CategoryAddComponent} from "./component/admin/category/category-add/category-add.component";
 import { CategoryDetailsComponent } from './component/admin/category/category-details/category-details.component';
+import { BookingsComponent } from './component/admin/bookings/bookings/bookings.component';
+import { BookingsAddComponent } from './component/admin/bookings/bookings-add/bookings-add.component';
+import { BookingsDetailsComponent } from './component/admin/bookings/bookings-details/bookings-details.component';
 
 
 @NgModule({
@@ -73,6 +76,9 @@ import { CategoryDetailsComponent } from './component/admin/category/category-de
     CategoryComponent,
     CategoryAddComponent,
     CategoryDetailsComponent,
+    BookingsComponent,
+    BookingsAddComponent,
+    BookingsDetailsComponent,
   ],
   imports: [
     BrowserModule,
