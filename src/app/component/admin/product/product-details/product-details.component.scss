@@ -3,8 +3,116 @@
 .img-view {
   height: 150px;
   width: 150px;
+  margin-right: 40px;
 }
+
 .img-container {
-  color: #222222;
   display: flex;
+  padding: 20px;
+}
+
+.img-container, .detail-grid, .button-container-detail {
+  background-color: #222222;
+  margin: 20px;
+}
+
+.img-url-input {
+}
+
+.img-url-label {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.static {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.img-button {
+  margin-right: 20px;
+  margin-top: 14px;
+  height: 35px;
+  font-weight: lighter;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 35% 35% 30%;
+  grid-template-rows: fit-content(100%);
+}
+
+.future-bookings-container {
+  min-height: 600px;
+  grid-column: 3;
+  grid-row: 1 / span 3;
+}
+
+.grid-cell-s {
+  min-height: 70px;
+}
+
+.grid-cell-s, .grid-cell-m, .future-bookings-container {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-cell-m {
+  min-height: 350px;
+}
+
+.button-container-detail {
+  padding: 15px;
+}
+
+.anti-mat-input {
+  max-height: none;
+  border-top: none;
+  margin-top: -1em;
+  margin-bottom: -1em;
+}
+
+.text-area {
+  height: 250px;
+  min-height: 0;
+  max-height: none;
+}
+.text {
+  color: #e3dac9;
+}
+
+.info-head {
+  color: #fabb2c;
+  font-size: smaller
+}
+
+.info-static {
+  margin-top: 0.25em;
+}
+
+.booking-card {
+  padding: 5px;
+  display: grid;
+  grid-template-rows: repeat(3, 20px);
+  grid-template-columns: fit-content(100%) max-content;
+  border-bottom: 1px solid #77777740;
+  color: #e3dac9;
+
+}
+
+.data-indicator{
+  margin-right: 10px;
+  grid-column: 1;
+}
+.data-text {
+  grid-column: 2;
+
+}
+.data-indicator, .data-text {
+  font-size: small;
+}
+
+.future-bookings-container {
+  background-color: #222222;
 }

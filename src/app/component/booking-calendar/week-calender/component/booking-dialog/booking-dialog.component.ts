@@ -56,13 +56,8 @@ export class BookingDialogComponent implements OnInit {
       startTimeOfBooking: new FormControl(this.start, Validators.required),
       endTimeOfBooking: new FormControl(this.end, Validators.required)
     });
-    this.bookingForm.get('startTimeOfBooking').setValidators([Validators.required, Validators.max(this.endTimeOfBooking.value)]);
-    this.bookingForm.get('endTimeOfBooking').setValidators([Validators.required, Validators.min(this.startTimeOfBooking.value)]);
-    /*this.startControl = new FormControl(this.start);
-    this.endControl = new FormControl(this.end);
-    this.startControl.setValidators([Validators.required, Validators.max(this.endControl.value)]);
-    this.endControl.setValidators([Validators.required, Validators.min(this.startControl.value)]);
-    this.registerForm = this.formBuilder.array([this.userControl, this.productControl, this.startControl, this.endControl]);*/
+    this.startTimeOfBooking.setValidators([Validators.required, Validators.max(this.endTimeOfBooking.value)]);
+    this.endTimeOfBooking.setValidators([Validators.required, Validators.min(this.startTimeOfBooking.value)]);
   }
 
   get startTimeOfBooking() { return this.bookingForm.get('startTimeOfBooking'); }
@@ -83,4 +78,7 @@ export class BookingDialogComponent implements OnInit {
   }
 
 
+}
+function validateTime(start: number, end: number) {
+  return start !== end;
 }

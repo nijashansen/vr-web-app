@@ -36,12 +36,14 @@ export class EquipmentOverviewPageComponent implements OnInit {
     this.loadPage(this.pageIndex, this.pageSize, this.filter);
   }
 
-  onPageDataChange(event) {
-    this.loadPage(event.pageIndex, event.pageSize, this.filter);
-  }
+
 
   public navigateTo($event: number) {
     this.router.navigate(['/equipment/' + $event]);
+  }
+
+  onPageDataChange(event) {
+    this.loadPage(event.pageIndex, event.pageSize, this.filter);
   }
 
   private onFilterChange(event) {

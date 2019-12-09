@@ -10,21 +10,21 @@
       </button>
     </div>
     <div class="list-container">
-      <mat-nav-list *ngIf="products">
-        <mat-list-item *ngFor="let product of products">
-          <a class="list-item-text" href="admin/equipment/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
-          <button mat-icon-button>
-            <mat-icon (click)="delete(product.id)" class="list-item-text">delete</mat-icon>
-          </button>
+      <mat-nav-list *ngIf="currentPage">
+        <mat-list-item *ngFor="let product of currentPage.products" class="list-item" (click)="onNavigate(product.id)">
+         <label class="list-item-text">{{ product.name }} {{product.id}}</label>
+            <button mat-icon-button>
+              <mat-icon (click)="delete(product.id)" class="list-item-icon">delete</mat-icon>
+            </button>
         </mat-list-item>
       </mat-nav-list>
     </div>
-    <div *ngIf="!products" align="center" class="spinner-position">
+    <div *ngIf="!currentPage" align="center" class="spinner-position">
       <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
     </div>
-    <mat-paginator [length]="100"
-                   [pageSizeOptions]="[5, 10, 25, 100]"
-                   [pageSize]="10" class="paginator">
+    <mat-paginator (page)="onPageDataChange($event)" [length]="length"
+                   [pageIndex]="pageIndex" [pageSizeOptions]="pageSizes"
+                   [pageSize]="pageSize" class="paginator" color="primary">
     </mat-paginator>
   </div>
 </div>

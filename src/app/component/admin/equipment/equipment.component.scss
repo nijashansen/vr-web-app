@@ -3,7 +3,6 @@
 :host {
   grid-column: 1;
   grid-row: 1;
-  border-right: 1px solid #777777;
 }
 
 .background {
@@ -21,9 +20,7 @@
   margin-top: 1.49em;
 }
 
-.list-item-text {
-  color: #888888;
-}
+
 
 .create-button-position {
   padding: 10px;
@@ -111,3 +108,15 @@
   margin-top: 5px;
   position: absolute;
 }
+
+.list-item {
+  display: flex;
+}
+
+.list-item-text,.list-item-icon {
+  color: #888888;
+}
+.list-item-text {
+  flex: 1;
+}
+

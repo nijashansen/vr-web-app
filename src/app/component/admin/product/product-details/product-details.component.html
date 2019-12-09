@@ -1,20 +1,81 @@
 <div class="background">
-  <div *ngIf="product" class="header-container">
-    <app-back-button class="back-button"></app-back-button>
-    <h1 class="category-h">{{product.name}} {{product.id}}</h1>
-  </div>
-  <div class="img-container">
-    <img src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png" alt="" class="img-view">
-    <label *ngIf="!editBool" for="" class="img-url-label">Url</label>
-    <mat-form-field *ngIf="editBool">
-      <input matInput class="img-url-input">
-    </mat-form-field>
-  </div>
-
-
-
-  <div>
-    <button mat-raised-button (click)="switchToEdit()">edit</button>
-  </div>
-
+  <section *ngIf="productForm">
+    <div *ngIf="product" class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">{{product.name | titlecase}} {{product.id}}</h1>
+    </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="img-container" style="">
+      <img alt="" class="img-view" [src] ="this.currentImageObv | async" (error)="setDefault()">
+      <div style="display: flex; flex-direction: column; flex: 1">
+        <label class="info-head">Url:</label>
+        <!--      <label *ngIf="!editBool" class="info-static">https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png</label>-->
+        <mat-form-field class="anti-mat-input text" style="width: 90%;">
+          <input [(ngModel)]="tempImageUrl" matInput
+                 style="margin-right: 100px;">
+        </mat-form-field>
+      </div>
+      <button [disabled]="productForm.disabled" class="img-button" color="primary" mat-stroked-button (click)="onSetImage()">Set Image</button>
+    </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="detail-grid">
+      <div class="grid-cell-s">
+        <label class="info-head">ID:</label>
+        <label class="info-static" style="color: #777777">{{product.id}}</label>
+      </div>
+      <div class="grid-cell-s">
+        <label class="info-head">Name:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input [formControl]="formName" matInput value="{{product.name}}">
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Long Description:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formDescription" class="text-area" matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Short Description:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formShortDescription" class="text-area" matInput>{{product.description}}</textarea>
+        </mat-form-field>
+        <button *ngIf="productForm.enabled" color="primary" mat-stroked-button>Suggest</button>
+      </div>
+      <div class="grid-cell-s" style="justify-content: flex-end; grid-column: 2">
+        <label class="info-head">Category:</label>
+        <mat-form-field  style="width: 100%;">
+          <mat-select [formControl]="formCategory">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat.id">{{cat.name | titlecase}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="future-bookings-container">
+        <label class="info-head">Future Bookings:</label>
+        <div style="background-color: #333333; flex:1; margin-top: 10px">
+          <div class="booking-card">
+            <label class="data-indicator">User:</label><label class="data-text">Ole L.   ole123@easv365.dk</label>
+            <label class="data-indicator">From:</label><label class="data-text">10/12/2019 - 17:00</label>
+            <label class="data-indicator">To:</label><label class="data-text">10/12/2019 - 18:00</label>
+          </div>
+          <div class="booking-card">
+            <label class="data-indicator">User:</label><label class="data-text">Ole L.   ole123@easv365.dk</label>
+            <label class="data-indicator">From:</label><label class="data-text">10/12/2019 - 17:00</label>
+            <label class="data-indicator">To:</label><label class="data-text">10/12/2019 - 18:00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="button-container-detail">
+      <button *ngIf="productForm.disabled" (click)="onEdit()" mat-raised-button>Edit</button>
+      <button *ngIf="productForm.enabled" (click)="onCancel()" mat-raised-button>Cancel</button>
+      <button *ngIf="productForm.enabled" (click)="onCommit()" mat-raised-button>Commit</button>
+    </div>
+  </section>
 </div>
+

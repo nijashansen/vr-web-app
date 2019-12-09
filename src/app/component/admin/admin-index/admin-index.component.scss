@@ -1,4 +1,5 @@
 @import "src/styles.scss";
+
 .layout-grid {
   display: grid;
   grid-template-columns: 60% 40%;
@@ -15,10 +16,44 @@
 .column2 {
   grid-column: 2;
 }
+
 .outlet {
   position: absolute;
   float: left;
   grid-row: 1;
+}
+
+.new-message-container {
+  margin-top: 95px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-container {
+  background-color: #222222;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.log-head {
+  margin-bottom: 10px;
+  color: #fabb2c;
+  font-size: large;
+  font-weight: lighter;
+}
+
+.log-message {
+  padding: 5px;
+  color: #e3dac9;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  font-size: small;
+  border-bottom: 1px solid #77777730;
 }
 
 

@@ -13,13 +13,13 @@ import {RoleGuard} from './Guards/auth.guard.admin';
 import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 import {OptionMenuComponent} from './component/admin/option-menu/option-menu.component';
-import {ProductDetailsComponent} from "./component/admin/product/product-details/product-details.component";
-import {CategoryComponent} from "./component/admin/category/category.component";
-import {CategoryAddComponent} from "./component/admin/category/category-add/category-add.component";
-import {CategoryDetailsComponent} from "./component/admin/category/category-details/category-details.component";
-import {BookingsComponent} from "./component/admin/bookings/bookings/bookings.component";
-import {BookingsAddComponent} from "./component/admin/bookings/bookings-add/bookings-add.component";
-import {BookingsDetailsComponent} from "./component/admin/bookings/bookings-details/bookings-details.component";
+import {ProductDetailsComponent} from './component/admin/product/product-details/product-details.component';
+import {CategoryComponent} from './component/admin/category/category.component';
+import {CategoryAddComponent} from './component/admin/category/category-add/category-add.component';
+import {CategoryDetailsComponent} from './component/admin/category/category-details/category-details.component';
+import {BookingsComponent} from './component/admin/bookings/bookings/bookings.component';
+import {BookingsAddComponent} from './component/admin/bookings/bookings-add/bookings-add.component';
+import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
 
 
 const routes: Routes = [
@@ -39,14 +39,14 @@ const routes: Routes = [
       {
         path: 'equipment/create',
         component: ProductAddComponent,
-        canActivate: [RoleGuard],
-        data: {Role: 'Administrator'}
+        /*canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}*/
       },
       {
         path: 'equipment/:id',
         component: ProductDetailsComponent,
-        canActivate: [RoleGuard],
-        data: {Role: 'Administrator'}
+        /*canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}*/
       },
       {
         path: 'category',
