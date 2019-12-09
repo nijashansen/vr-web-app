@@ -11,6 +11,6 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    return this.authService.Token != null;
+    return JSON.parse(localStorage.getItem('User')) != null && this.authService.Token != null;
   }
 }
