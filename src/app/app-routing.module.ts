@@ -14,6 +14,9 @@ import {AdminIndexComponent} from './component/admin/admin-index/admin-index.com
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 import {OptionMenuComponent} from './component/admin/option-menu/option-menu.component';
 import {ProductDetailsComponent} from "./component/admin/product/product-details/product-details.component";
+import {CategoryComponent} from "./component/admin/category/category.component";
+import {CategoryAddComponent} from "./component/admin/category/category-add/category-add.component";
+import {CategoryDetailsComponent} from "./component/admin/category/category-details/category-details.component";
 
 
 const routes: Routes = [
@@ -39,6 +42,22 @@ const routes: Routes = [
       {
         path: 'equipment/:id',
         component: ProductDetailsComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
+      },
+      {
+        path: 'category',
+        component: CategoryComponent,
+      },
+      {
+        path: 'category/create',
+        component: CategoryAddComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
+      },
+      {
+        path: 'category/:id',
+        component: CategoryDetailsComponent,
         canActivate: [RoleGuard],
         data: {Role: 'Administrator'}
       }
