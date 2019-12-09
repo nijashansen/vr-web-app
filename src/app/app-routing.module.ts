@@ -33,13 +33,14 @@ const routes: Routes = [
       {
         path: 'equipment/create',
         component: ProductAddComponent,
-        canActivate: [AuthGuard],
+        canActivate: [RoleGuard],
         data: {Role: 'Administrator'}
       },
       {
         path: 'equipment/:id',
         component: ProductDetailsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       }
     ]
   },

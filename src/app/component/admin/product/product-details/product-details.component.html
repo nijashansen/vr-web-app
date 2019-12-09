@@ -3,9 +3,18 @@
     <app-back-button class="back-button"></app-back-button>
     <h1 class="category-h">{{product.name}} {{product.id}}</h1>
   </div>
-  <h1 *ngIf="editBool">{{editBool}}</h1>
+  <div class="img-container">
+    <img src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png" alt="" class="img-view">
+    <label *ngIf="!editBool" for="" class="img-url-label">Url</label>
+    <mat-form-field *ngIf="editBool">
+      <input matInput class="img-url-input">
+    </mat-form-field>
+  </div>
+
+
+
   <div>
-    <button (click)="switchToEdit()">edit</button>
+    <button mat-raised-button (click)="switchToEdit()">edit</button>
   </div>
 
 </div>
