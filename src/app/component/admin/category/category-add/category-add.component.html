@@ -1,0 +1,17 @@
+<div style="background-color: #333333; padding-top: 70px; width: 100%; height: 100%">
+  <div class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="category-h">Add Category</h1>
+  </div>
+  <div class="form-position">
+    <div class="container-color">
+      <form [formGroup]="categoryForm" (ngSubmit)="createCategory()">
+        <mat-form-field class="list-item-text">
+          <input type="text" formControlName="name" matInput placeholder="Category Name">
+        </mat-form-field>
+        <br>
+      </form>
+      <button mat-raised-button type="submit" class="button-position" (click)="createCategory()">Submit</button>
+    </div>
+  </div>
+</div>

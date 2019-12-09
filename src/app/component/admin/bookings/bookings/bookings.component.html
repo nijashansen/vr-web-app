@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="layout-grid">
+    <div class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">Bookings</h1>
+    </div>
+    <div align="center" class="toolbar">
+      <button class="tool-button" color="primary" mat-stroked-button routerLink="/admin/bookings/create">
+        <mat-icon class="icon">add</mat-icon>
+      </button>
+    </div>
+    <div class="list-container">
+      <mat-nav-list *ngIf="bookings">
+        <mat-list-item *ngFor="let booking of bookings">
+          <a class="list-item-text" href="admin/bookings/{{booking.id}}" matLine>{{booking.startTimeOfBooking}}
+            - {{booking.endTimeOfBooking}}, {{booking.product}}, {{booking.user}}, {{booking.id}}</a>
+          <button mat-icon-button>
+            <mat-icon (click)="delete(booking.id)" class="list-item-text">delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+    <div *ngIf="!bookings" align="center" class="spinner-position">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <mat-paginator [length]="100"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   [pageSize]="10" class="paginator">
+    </mat-paginator>
+  </div>
+</div>

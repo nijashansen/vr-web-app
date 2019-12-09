@@ -1,0 +1,29 @@
+<div style="background-color: #333333; padding-top: 70px; width: 100%; height: 100%">
+  <div class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="category-h">Add Category</h1>
+  </div>
+  <div class="form-position">
+    <div class="container-color">
+      <form [formGroup]="bookingForm" (ngSubmit)="createBooking()">
+        <mat-form-field class="list-item-text">
+          <input type="text" formControlName="product" matInput placeholder="Product Name">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="list-item-text">
+          <input type="text" formControlName="user" matInput placeholder="User Name">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="list-item-text">
+          <input type="date" formControlName="startTime" matInput placeholder="Start Time">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="list-item-text">
+          <input type="date" formControlName="endTime" matInput placeholder="End Time">
+        </mat-form-field>
+        <br>
+      </form>
+      <button mat-raised-button type="submit" class="button-position" (click)="createBooking()">Submit</button>
+    </div>
+  </div>
+</div>
