@@ -9,10 +9,9 @@ import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-p
 import {EquipmentOverviewPageComponent} from './component/equipment/equipment-overview-page/equipment-overview-page.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
-import {ProductListComponent} from './component/admin-page/product/product-list/product-list.component';
+import {ProductListComponent} from './component/admin/product/product-list/product-list.component';
 import {UserListComponent} from './component/admin-page/user/user-list/user-list.component';
-import {CategoryListComponent} from './component/admin-page/category/category-list/category-list.component';
-import {ProductAddComponent} from './component/admin-page/product/product-add/product-add.component';
+import {ProductAddComponent} from './component/admin/product/product-add/product-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
@@ -36,6 +35,7 @@ import {OptionCardComponent} from './component/admin/option-menu/option-card/opt
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
 import { OptionMenuComponent } from './component/admin/option-menu/option-menu.component';
 import { BackButtonComponent } from './component/admin/component/back-button/back-button.component';
+import { ProductDetailsComponent } from './component/admin/product/product-details/product-details.component';
 
 
 @NgModule({
@@ -49,7 +49,6 @@ import { BackButtonComponent } from './component/admin/component/back-button/bac
     EquipmentAdminOverviewPageComponent,
     ProductListComponent,
     UserListComponent,
-    CategoryListComponent,
     ProductAddComponent,
     ProductUpdateComponent,
     LoginDialogComponent,
@@ -66,6 +65,7 @@ import { BackButtonComponent } from './component/admin/component/back-button/bac
     EquipmentComponent,
     OptionMenuComponent,
     BackButtonComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

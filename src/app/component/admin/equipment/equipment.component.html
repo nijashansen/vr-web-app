@@ -12,12 +12,9 @@
     <div class="list-container">
       <mat-nav-list *ngIf="products">
         <mat-list-item *ngFor="let product of products">
-          <a class="list-item-text" href="/equipment/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
+          <a class="list-item-text" href="admin/equipment/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
           <button mat-icon-button>
             <mat-icon (click)="delete(product.id)" class="list-item-text">delete</mat-icon>
-          </button>
-          <button mat-icon-button routerLink="/admin/equipment/update/{{product.id}}">
-            <mat-icon class="list-item-text">edit</mat-icon>
           </button>
         </mat-list-item>
       </mat-nav-list>
@@ -27,7 +24,7 @@
     </div>
     <mat-paginator [length]="100"
                    [pageSizeOptions]="[5, 10, 25, 100]"
-                   [pageSize]="10" class="pageinator">
+                   [pageSize]="10" class="paginator">
     </mat-paginator>
   </div>
 </div>
