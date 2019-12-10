@@ -24,7 +24,6 @@ export class ProductDetailsComponent implements OnInit {
   productForm: FormGroup;
   usedImageUrl: string;
   tempImageUrl: string;
-  privat;
   private currentImageBehave: BehaviorSubject<string>;
   private currentImageObv: Observable<string>;
 
