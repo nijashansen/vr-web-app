@@ -60,6 +60,6 @@ export class UserListComponent implements OnInit {
 
 
   onPageDataChange($event) {
-    this.loadPage($event.pageIndex, $event.pageSize, this.filter);
+    this.loadPage($event.pageIndex, $event.pageSize);
   }
 }
