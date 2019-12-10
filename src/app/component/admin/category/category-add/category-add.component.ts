@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {CategoryService} from "../../../../services/category.service";
-import {Category} from "../../../../models/category";
-import {BehaviorSubject, Observable} from "rxjs";
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Location} from "@angular/common";
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CategoryService} from '../../../../services/category.service';
+import {Category} from '../../../../models/category';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {Location} from '@angular/common';
 
 const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png';
 

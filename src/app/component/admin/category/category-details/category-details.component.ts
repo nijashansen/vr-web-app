@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from "../../../../services/category.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Category} from "../../../../models/category";
-import {Form, FormControl, FormGroup} from "@angular/forms";
-import {BehaviorSubject, Observable} from "rxjs";
+import {CategoryService} from '../../../../services/category.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Category} from '../../../../models/category';
+import {Form, FormControl, FormGroup} from '@angular/forms';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png';
 

@@ -16,19 +16,19 @@
       <div class="grid-cell-m">
         <label class="info-head">Product:</label>
         <mat-form-field class="anti-mat-input text">
-          <textarea [formControl]="formProduct" class="text-area" matInput></textarea>
+          <input [formControl]="formProduct" matInput>
         </mat-form-field>
       </div>
       <div class="grid-cell-m">
         <label class="info-head">Booking Start Time:</label>
         <mat-form-field class="anti-mat-input text">
-          <input type="date" [formControl]="formBookingStartTime" class="text-area" matInput>
+          <input type="datetime-local" [formControl]="formBookingStartTime" matInput>
         </mat-form-field>
       </div>
       <div class="grid-cell-m">
         <label class="info-head">Booking End Time:</label>
         <mat-form-field class="anti-mat-input text">
-          <input type="date" [formControl]="formBookingEndTime" class="text-area" matInput>
+          <input type="datetime-local" [formControl]="formBookingEndTime" matInput>
         </mat-form-field>
       </div>
     </div>

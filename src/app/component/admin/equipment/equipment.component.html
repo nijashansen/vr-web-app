@@ -11,11 +11,13 @@
     </div>
     <div class="list-container">
       <mat-nav-list *ngIf="currentPage">
-        <mat-list-item *ngFor="let product of currentPage.list" class="list-item" (click)="onNavigate(product.id)">
-         <label class="list-item-text">{{ product.name }} {{product.id}}</label>
+        <mat-list-item *ngFor="let product of currentPage.list" class="list-item">
+          <div style="display: flex; width: 100%">
+            <label class="list-item-text pointer" style="flex: 1; margin:auto" (click)="onNavigate(product.id)">{{ product.name }} {{product.id}}</label>
             <button mat-icon-button>
               <mat-icon (click)="delete(product.id)" class="list-item-icon">delete</mat-icon>
             </button>
+          </div>
         </mat-list-item>
       </mat-nav-list>
     </div>
