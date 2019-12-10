@@ -11,7 +11,7 @@
     </div>
     <div class="list-container">
       <mat-nav-list *ngIf="bookings">
-        <mat-list-item style="height: fit-content; padding: 10px" *ngFor="let booking of bookings">
+        <mat-list-item style="height: fit-content; padding-top: 5px; padding-bottom: 5px" *ngFor="let booking of bookings">
           <a class="list-item-text" routerLink="/admin/bookings/{{booking.id}}"
              matLine>
             <div class="booking-item">
