@@ -2,5 +2,20 @@
 @import "../../equipment/equipment-add/equipment-add.component";
 
 .date-time-container {
-   
+  display: flex;
+  flex-direction: row;
+}
+
+.date-time-date, .date-time-hour {
+  flex: 1;
+}
+
+.date-time-hour {
+  margin-left: 15px;
+}
+::ng-deep .mat-select-arrow {
+  border:none !important;
+}
+.detail-grid {
+  min-height: 300px;
 }

@@ -13,27 +13,49 @@
           <input [formControl]="formUser" matInput required>
         </mat-form-field>
       </div>
-      <div class="grid-cell-m">
+      <div class="grid-cell-s">
         <label class="info-head">Product:</label>
         <mat-form-field class="anti-mat-input text">
           <input [formControl]="formProduct" matInput>
         </mat-form-field>
       </div>
-      <div class="grid-cell-m">
+      <div class="grid-cell-s">
         <label class="info-head">Booking Start Time:</label>
-        <mat-form-field class="anti-mat-input text">
-          <mat-select>
-            <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="date-time-container">
+          <mat-form-field class="anti-mat-input text date-time-date">
+            <input [matDatepicker]="pickerS" matInput>
+            <mat-datepicker-toggle [for]="pickerS" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #pickerS></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="anti-mat-input text date-time-hour">
+            <mat-select (valueChange)="formBookingStartTime.setValue(onValueChange($event))"
+                        [formControl]="formBookingEndTime">
+              <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-icon class="pointer no-select" style="margin-left: -20px; background-color: #222222; font-weight: lighter; color:#e3dac9; font-size: 19px;
+    margin-top: 7px;">access_time
+          </mat-icon>
+        </div>
       </div>
-      <div class="grid-cell-m">
+      <div class="grid-cell-s">
         <label class="info-head">Booking End Time:</label>
-        <mat-form-field class="anti-mat-input text">
-          <mat-select [formControl]="formBookingEndTime" (valueChange)="formBookingStartTime.setValue(onValueChange($event))">
-            <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="date-time-container">
+          <mat-form-field class="anti-mat-input text date-time-date">
+            <input [matDatepicker]="picker" matInput>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="anti-mat-input text date-time-hour">
+            <mat-select (valueChange)="formBookingStartTime.setValue(onValueChange($event))"
+                        [formControl]="formBookingEndTime">
+              <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-icon class="pointer no-select" style="margin-left: -20px; background-color: #222222; font-weight: lighter; color:#e3dac9; font-size: 19px;
+    margin-top: 7px;">access_time
+          </mat-icon>
+        </div>
       </div>
     </div>
   </section>
