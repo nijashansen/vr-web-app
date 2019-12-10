@@ -1,0 +1,62 @@
+<div class="background">
+
+  <section style="margin-top: 7%" *ngIf="userForm">
+    <div *ngIf="user" class="header-container">
+      <app-back-button style="background: #111111" class="back-button"></app-back-button>
+      <h1 class="category-h">{{user.firstName | titlecase}} {{user.id}}</h1>
+    </div>
+
+  </section>
+<div>
+  <section *ngIf="userForm">
+  <div>
+    <label class="info-head">ID: </label>
+    <label class="textSpace" style="color: #777777">{{user.id}}</label>
+  </div>
+
+  <div style="margin-top: 7%">
+  <label class="info-head" style="margin-top: 20px">First Name:</label>
+  <mat-form-field class="anti-mat-input text">
+    <input [formControl]="formFirstName" matInput value="{{user.firstName}}">
+  </mat-form-field>
+
+
+    <label class="info-head" style="margin-left: 20px">Last Name:</label>
+    <mat-form-field class="anti-mat-input text">
+      <input [formControl]="formLastName" matInput value="{{user.lastName}}">
+    </mat-form-field>
+  </div>
+
+  <div style="margin-top: 7%">
+    <label class="info-head">Email:</label>
+    <mat-form-field class="anti-mat-input text">
+      <input [formControl]="formEmail" matInput value="{{user.email}}">
+    </mat-form-field>
+
+
+    <label class="info-head" style="margin-left: 20px">Phone Number:</label>
+    <mat-form-field class="anti-mat-input text">
+      <input [formControl]="formPhoneNumber" matInput value="{{user.phoneNumber}}">
+    </mat-form-field>
+
+  </div>
+
+
+    <label class="info-head" style="margin-top: 7%">Address:</label>
+    <mat-form-field class="anti-mat-input text">
+      <input [formControl]="formAddress" matInput value="{{user.address}}">
+    </mat-form-field>
+
+
+
+
+  <section *ngIf="userForm">
+    <div class="button-container-detail">
+      <button *ngIf="userForm.disabled" (click)="onEdit()" mat-raised-button>Edit</button>
+      <button *ngIf="userForm.enabled" (click)="onCancel()" mat-raised-button style="margin-right: 15px">Cancel</button>
+      <button *ngIf="userForm.enabled" (click)="onCommit()" mat-raised-button>Commit</button>
+    </div>
+  </section>
+  </section>
+</div>
+</div>

@@ -28,7 +28,7 @@ export class UserInfoService {
       return this.http.get<User>(this.userApiUrl + '/' + id);
     }
 
-  createUser(user: User): Observable<User> {
+  createUser(user: any): Observable<User> {
     return this.http.post<User>(this.userApiUrl, user);
   }
 

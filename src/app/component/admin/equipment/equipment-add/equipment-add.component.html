@@ -9,7 +9,7 @@
     <div class="img-container" style="">
       <img alt="" class="img-view" [src]="this.currentImageObv | async" (error)="setDefault()">
       <div style="display: flex; flex-direction: column; flex: 1">
-        <label class="info-head">Url:</label>
+        <label class="info -head">Url:</label>
         <!--      <label *ngIf="!editBool" class="info-static">https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png</label>-->
         <mat-form-field class="anti-mat-input text" style="width: 90%;">
           <input [(ngModel)]="tempImageUrl" matInput

@@ -38,7 +38,9 @@ export class UserListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.userService.deleteUser(id).subscribe(() => this.refresh());
+    this.userService.deleteUser(id).subscribe(() => {
+      this.loadPage(this.pageIndex, this.pageSize);
+  });
   }
 
   onNavigate(id: number) {
