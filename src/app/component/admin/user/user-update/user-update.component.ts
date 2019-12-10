@@ -74,7 +74,7 @@ export class UserUpdateComponent implements OnInit {
       email: this.formEmail.value,
       address: this.formAddress.value
     }).subscribe(() => this.fetchData(this.id));
-    console.log('æskjhb')
+    console.log('æskjhb');
     this.userForm.disable();
   }
 

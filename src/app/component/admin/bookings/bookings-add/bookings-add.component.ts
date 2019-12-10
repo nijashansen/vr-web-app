@@ -70,6 +70,6 @@ export class BookingsAddComponent implements OnInit {
   }
 
   public onValueChange($event: any): Date {
-    return
+    return;
   }
 }
