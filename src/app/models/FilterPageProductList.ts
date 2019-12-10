@@ -2,7 +2,7 @@ import {Category} from './category';
 import {Product} from './product';
 
 export interface FilterPageProductList {
-  products?: Product[];
+  list?: Product[];
   filter?: Category;
   itemsTotal?: number;
   itemsPrPage: number;

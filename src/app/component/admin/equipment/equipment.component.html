@@ -11,7 +11,7 @@
     </div>
     <div class="list-container">
       <mat-nav-list *ngIf="currentPage">
-        <mat-list-item *ngFor="let product of currentPage.products" class="list-item" (click)="onNavigate(product.id)">
+        <mat-list-item *ngFor="let product of currentPage.list" class="list-item" (click)="onNavigate(product.id)">
          <label class="list-item-text">{{ product.name }} {{product.id}}</label>
             <button mat-icon-button>
               <mat-icon (click)="delete(product.id)" class="list-item-icon">delete</mat-icon>
