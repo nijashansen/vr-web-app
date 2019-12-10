@@ -9,6 +9,7 @@ import {isPlatformBrowser} from '@angular/common';
 export class AppComponent {
   title = 'vr-web-app';
 
+  // tslint:disable-next-line:ban-types
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               @Inject(APP_ID) private appId: string) {
   }

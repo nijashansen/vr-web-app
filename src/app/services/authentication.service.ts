@@ -13,7 +13,7 @@ import {User} from '../models/User';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private state: StateService,) {
+  constructor(private http: HttpClient, private state: StateService) {
   }// ole123@easv365.dk
 
   get Token(): string {

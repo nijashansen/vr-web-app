@@ -3,10 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {EquipmentOverviewPageComponent} from './component/equipment/equipment-overview-page/equipment-overview-page.component';
 import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-page/equipment-room-page.component';
-import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
-import {ProductListComponent} from './component/admin/product/product-list/product-list.component';
 import {EquipmentAddComponent} from './component/admin/equipment/equipment-add/equipment-add.component';
-import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {AuthGuard} from './Guards/auth.guard';
 import {RoleGuard} from './Guards/auth.guard.admin';
 import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
@@ -19,7 +16,7 @@ import {CategoryDetailsComponent} from './component/admin/category/category-deta
 import {BookingsComponent} from './component/admin/bookings/bookings/bookings.component';
 import {BookingsAddComponent} from './component/admin/bookings/bookings-add/bookings-add.component';
 import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
-import {UserListComponent} from "./component/admin/user/user-list/user-list.component";
+import {UserListComponent} from './component/admin/user/user-list/user-list.component';
 
 
 const routes: Routes = [

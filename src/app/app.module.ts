@@ -10,18 +10,16 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
 import {ProductListComponent} from './component/admin/product/product-list/product-list.component';
-
 import {EquipmentAddComponent} from './component/admin/equipment/equipment-add/equipment-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
-import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DayComponent} from './component/booking-calendar/week-calender/component/day/day.component';
 import {BookingComponent} from './component/booking-calendar/week-calender/component/booking/booking.component';
 import {WeekComponent} from './component/booking-calendar/week-calender/component/week/week.component';
+// tslint:disable-next-line:max-line-length
 import {CurrentTimeIndicatorComponent} from './component/booking-calendar/week-calender/component/current-time-indicator/current-time-indicator.component';
 import {BookingCalenderComponent} from './component/booking-calendar/booking-calender.component';
 import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
@@ -55,11 +53,9 @@ import {UserListComponent} from './component/admin/user/user-list/user-list.comp
     EquipmentRoomPageComponent,
     EquipmentOverviewPageComponent,
     FrontpageComponent,
-    EquipmentAdminOverviewPageComponent,
     ProductListComponent,
     UserListComponent,
     EquipmentAddComponent,
-    ProductUpdateComponent,
     LoginDialogComponent,
     DayComponent,
     BookingComponent,
