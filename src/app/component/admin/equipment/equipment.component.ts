@@ -23,7 +23,7 @@ export class EquipmentComponent implements OnInit {
 
   constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router) {
     this.pageSizes = [6, 12, 18];
-    this.all = {id: 0, name: 'all'};
+    this.all = {id: 0, name: 'all', description: 'all', imgUrl: 'all'};
     this.filter = this.all;
     this.pageIndex = 0;
     this.pageSize = this.pageSizes[1];

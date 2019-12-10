@@ -12,7 +12,7 @@
     <div class="list-container">
       <mat-nav-list *ngIf="categories">
         <mat-list-item *ngFor="let product of categories">
-          <a class="list-item-text" href="admin/category/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
+          <a class="list-item-text" routerLink="/admin/category/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
           <button mat-icon-button>
             <mat-icon (click)="delete(product.id)" class="list-item-text">delete</mat-icon>
           </button>
