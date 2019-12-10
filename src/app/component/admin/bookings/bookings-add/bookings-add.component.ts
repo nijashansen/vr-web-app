@@ -17,7 +17,7 @@ export class BookingsAddComponent implements OnInit {
   category: Category;
   bookingForm: FormGroup;
 
-  constructor(private categoryService: CategoryService, private productService: AdminPageServiceService, private location: Location) {
+  constructor(private bookingOrderService: BookingOrderService, private location: Location) {
     this.bookingForm = new FormGroup({
       user: new FormControl(''),
       product: new FormControl( ''),
@@ -53,11 +53,11 @@ export class BookingsAddComponent implements OnInit {
   onAdd() {
     if (this.bookingForm.valid) {
       console.log(this.bookingForm);
-      this.categoryService.createCategory({
+      this.bookingOrderService.createBooking({
         user: this.formUser.value,
         product: this.formProduct.value,
-        bookingStartTime: this.formBookingStartTime.value,
-        bookingEndTime: this.formBookingEndTime.value,
+        startTimeOfBooking: this.formBookingStartTime.value,
+        endTimeOfBooking: this.formBookingEndTime.value,
       })
         .subscribe(() => {
           this.location.back();
