@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
 })
 export class UserAddComponent implements OnInit {
 
-    userForm = new FormGroup({
+  userForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
@@ -20,10 +20,8 @@ export class UserAddComponent implements OnInit {
   });
 
   constructor(private userInfoService: UserInfoService,
-              private router: Router, private location: Location) { }
-
-
-
+              private router: Router, private location: Location) {
+  }
 
 
   ngOnInit() {
@@ -34,7 +32,7 @@ export class UserAddComponent implements OnInit {
   }
 
   get lastName() {
-    return this.userForm.get('lasttName');
+    return this.userForm.get('lastName');
   }
 
   get email() {
@@ -54,11 +52,20 @@ export class UserAddComponent implements OnInit {
   }
 
   createUser() {
-    const user = this.userForm.value;
-    this.userInfoService.createUser(user)
-      .subscribe(() => {
-        this.router.navigateByUrl('/admin/user');
-      });
+    if (this.userForm.valid) {
+      this.userInfoService.createUser({
+        firstName: this.firstName.value,
+        lastName: this.lastName.value,
+        email: this.email.value,
+        address: this.address.value,
+        phoneNumber: this.phoneNumber.value
+      })
+        .subscribe(() => {
+          this.location.back();
+        });
+
+
+    }
 
   }
 

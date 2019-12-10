@@ -42,6 +42,7 @@ import {BookingsAddComponent} from './component/admin/bookings/bookings-add/book
 import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
 import {UserAddComponent} from './component/admin/user/user-add/user-add.component';
 import {UserListComponent} from './component/admin/user/user-list/user-list.component';
+import {UserUpdateComponent} from './component/admin/user/user-update/user-update.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import {UserListComponent} from './component/admin/user/user-list/user-list.comp
     BookingsAddComponent,
     BookingsDetailsComponent,
     UserAddComponent,
+    UserUpdateComponent,
   ],
   imports: [
     BrowserModule,

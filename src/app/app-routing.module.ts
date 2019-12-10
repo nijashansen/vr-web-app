@@ -18,6 +18,8 @@ import {BookingsAddComponent} from './component/admin/bookings/bookings-add/book
 import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
 import {UserListComponent} from './component/admin/user/user-list/user-list.component';
 import {UserAddComponent} from './component/admin/user/user-add/user-add.component';
+import {UserUpdateComponent} from './component/admin/user/user-update/user-update.component';
+
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
@@ -98,6 +100,16 @@ const routes: Routes = [
         canActivate: [RoleGuard],
         data: {Role: 'Administrator'}
       },
+      {
+        path: 'user/create',
+        component: UserAddComponent,
+        data: {Role: 'Administrator'}
+      },
+      {
+        path: 'user/:id',
+        component: UserUpdateComponent,
+        data: {Role: 'Administrator'}
+      }
     ]
   },
   {
