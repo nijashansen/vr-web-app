@@ -20,7 +20,7 @@ export class CategoryService {
     return this.http.get<Category>(categoryApiUrl + '/' + id);
   }
 
-  createCategory(prod: Category): Observable<Category> {
+  createCategory(prod: any): Observable<Category> {
     return this.http.post<Category>(categoryApiUrl, prod);
   }
 
