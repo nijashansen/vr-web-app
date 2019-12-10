@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {FilterPageUserList} from "../models/FilterPageUserList";
-import {Observable} from "rxjs";
-import {User} from "../models/User";
-import {Category} from "../models/category";
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {FilterPageUserList} from '../models/FilterPageUserList';
+import {Observable} from 'rxjs';
+import {User} from '../models/User';
+import {Category} from '../models/category';
 
 
 

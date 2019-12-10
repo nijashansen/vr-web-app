@@ -4,7 +4,7 @@ import {EventEmitter, Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class StateService {
-  private loggedInStatus$: EventEmitter<boolean>;
+  private readonly loggedInStatus$: EventEmitter<boolean>;
   private isLoggedin = JSON.parse(localStorage.getItem('User')) !== null;
 
   constructor() {

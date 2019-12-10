@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {UserInfoService} from '../../../../services/user-info.service'
-import {Router} from "@angular/router";
+import {FormControl, FormGroup} from '@angular/forms';
+import {UserInfoService} from '../../../../services/user-info.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-add',

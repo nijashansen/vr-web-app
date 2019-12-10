@@ -27,7 +27,9 @@ export class EquipmentDetailsComponent implements OnInit {
   private currentImageBehave: BehaviorSubject<string>;
   private currentImageObv: Observable<string>;
 
-  constructor(private productService: AdminPageServiceService, private categoryService: CategoryService, private route: ActivatedRoute, private router: Router) {
+  constructor(private productService: AdminPageServiceService,
+              private categoryService: CategoryService,
+              private route: ActivatedRoute, private router: Router) {
     this.usedImageUrl = placeholderImage;
     this.currentImageBehave = new BehaviorSubject<string>(placeholderImage);
     this.currentImageObv = this.currentImageBehave.asObservable();

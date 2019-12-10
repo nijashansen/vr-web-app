@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../models/User';
-import {UserInfoService} from '../../../../services/user-info.service'
+import {UserInfoService} from '../../../../services/user-info.service';
 import {take} from 'rxjs/operators';
 
-import {FilterPageUserList} from "../../../../models/FilterPageUserList";
-import {Router} from "@angular/router";
+import {FilterPageUserList} from '../../../../models/FilterPageUserList';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -48,7 +48,7 @@ export class UserListComponent implements OnInit {
   private loadPage(pageIndex: number, pageSize: number) {
 
     this.userService.getUsersWithFilterPage({
-      pageIndex: pageIndex,
+      pageIndex,
       itemsPrPage: pageSize}).subscribe(result => {
       console.log(result);
       this.currentPage = result;

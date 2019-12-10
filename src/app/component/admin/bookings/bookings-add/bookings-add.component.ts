@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {CategoryService} from "../../../../services/category.service";
-import {Router} from "@angular/router";
-import {BookingOrderService} from "../../../../services/booking-order.service";
-import {Category} from "../../../../models/category";
-import {BehaviorSubject, Observable} from "rxjs";
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Location} from "@angular/common";
+import {FormControl, FormGroup} from '@angular/forms';
+import {CategoryService} from '../../../../services/category.service';
+import {Router} from '@angular/router';
+import {BookingOrderService} from '../../../../services/booking-order.service';
+import {Category} from '../../../../models/category';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-bookings-add',

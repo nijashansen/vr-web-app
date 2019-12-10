@@ -1,3 +1,4 @@
+/* tslint:disable:object-literal-shorthand */
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../../models/category';
 import {FilterPageProductList} from '../../../models/FilterPageProductList';
