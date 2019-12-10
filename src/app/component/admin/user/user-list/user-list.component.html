@@ -1,1 +1,30 @@
-<p>user-list works!</p>
+<div class="background">
+  <div class="layout-grid">
+    <div class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">User</h1>
+    </div>
+    <div align="center" class="toolbar">
+      <button class="tool-button" color="primary" mat-stroked-button routerLink="/admin/user/create">
+        <mat-icon class="icon">add</mat-icon>
+      </button>
+    </div>
+    <div class="list-container">
+      <mat-nav-list *ngIf="currentPage">
+        <mat-list-item *ngFor="let User of currentPage.list" class="list-item" (click)="onNavigate(User.id)">
+          <label class="list-item-text">{{ User.firstName }} {{User.lastName}} {{User.id}}</label>
+          <button mat-icon-button>
+            <mat-icon (click)="delete(User.id)" class="list-item-icon">delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+    <div *ngIf="!currentPage" align="center" class="spinner-position">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <mat-paginator (page)="onPageDataChange($event)" [length]="length"
+                   [pageIndex]="pageIndex" [pageSizeOptions]="pageSizes"
+                   [pageSize]="pageSize" class="paginator" color="primary">
+    </mat-paginator>
+  </div>
+</div>

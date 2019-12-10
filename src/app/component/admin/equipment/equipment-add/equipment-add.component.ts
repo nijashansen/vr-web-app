@@ -13,10 +13,10 @@ const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vec
 
 @Component({
   selector: 'app-product-add',
-  templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.scss']
+  templateUrl: './equipment-add.component.html',
+  styleUrls: ['./equipment-add.component.scss']
 })
-export class ProductAddComponent implements OnInit {
+export class EquipmentAddComponent implements OnInit {
 
   categories: Category[];
   productForm: FormGroup;

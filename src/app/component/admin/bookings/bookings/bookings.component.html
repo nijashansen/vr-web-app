@@ -11,9 +11,22 @@
     </div>
     <div class="list-container">
       <mat-nav-list *ngIf="bookings">
-        <mat-list-item *ngFor="let booking of bookings">
-          <a class="list-item-text" href="admin/bookings/{{booking.id}}" matLine>{{booking.startTimeOfBooking}}
-            - {{booking.endTimeOfBooking}}, {{booking.product}}, {{booking.user}}, {{booking.id}}</a>
+        <mat-list-item style="height: fit-content; padding-top: 5px; padding-bottom: 5px" *ngFor="let booking of bookings">
+          <a class="list-item-text" routerLink="/admin/bookings/{{booking.id}}"
+             matLine>
+            <div class="booking-item">
+              <label class="label-text">Date: </label>
+              <label class="label-data">{{booking.startTimeOfBooking.getDate()}}/{{booking.startTimeOfBooking.getMonth()}}/{{booking.startTimeOfBooking.getFullYear()}}
+              </label>
+              <label class="label-text">Time: </label>
+              <label class="label-data">{{booking.startTimeOfBooking.getHours()}}
+              - {{booking.endTimeOfBooking.getHours()}}</label>
+              <label class="label-text">Product Name: </label>
+              <label class="label-data">{{booking.product.name}}</label>
+              <label class="label-text">User email</label>
+              <label class="label-data">{{booking.user.email}}</label>
+            </div>
+          </a>
           <button mat-icon-button>
             <mat-icon (click)="delete(booking.id)" class="list-item-text">delete</mat-icon>
           </button>

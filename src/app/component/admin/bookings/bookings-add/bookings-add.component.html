@@ -1,29 +1,44 @@
-<div style="background-color: #333333; padding-top: 70px; width: 100%; height: 100%">
-  <div class="header-container">
-    <app-back-button class="back-button"></app-back-button>
-    <h1 class="category-h">Add Category</h1>
-  </div>
-  <div class="form-position">
-    <div class="container-color">
-      <form [formGroup]="bookingForm" (ngSubmit)="createBooking()">
-        <mat-form-field class="list-item-text">
-          <input type="text" formControlName="product" matInput placeholder="Product Name">
-        </mat-form-field>
-        <br>
-        <mat-form-field class="list-item-text">
-          <input type="text" formControlName="user" matInput placeholder="User Name">
-        </mat-form-field>
-        <br>
-        <mat-form-field class="list-item-text">
-          <input type="date" formControlName="startTime" matInput placeholder="Start Time">
-        </mat-form-field>
-        <br>
-        <mat-form-field class="list-item-text">
-          <input type="date" formControlName="endTime" matInput placeholder="End Time">
-        </mat-form-field>
-        <br>
-      </form>
-      <button mat-raised-button type="submit" class="button-position" (click)="createBooking()">Submit</button>
+<div class="background">
+  <section>
+    <div class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">Add new booking</h1>
     </div>
-  </div>
+  </section>
+  <section *ngIf="bookingForm">
+    <div class="detail-grid">
+      <div class="grid-cell-s">
+        <label class="info-head">User:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input [formControl]="formUser" matInput required>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Product:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formProduct" class="text-area" matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Booking Start Time:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input type="date" [formControl]="formBookingStartTime" class="text-area" matInput>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Booking End Time:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input type="date" [formControl]="formBookingEndTime" class="text-area" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="bookingForm">
+    <div class="button-container-detail">
+      <button (click)="onCancel()" mat-raised-button style="margin-right: 15px">Cancel</button>
+      <button (click)="onAdd()" mat-raised-button>Add</button>
+    </div>
+  </section>
 </div>
+
+

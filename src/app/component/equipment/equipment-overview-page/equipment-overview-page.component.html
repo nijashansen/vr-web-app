@@ -22,7 +22,7 @@
       </section>
     </div>
     <div *ngIf="currentPage" align="left" class="card-container middle-column" style="grid-row: 1">
-      <app-products-card (navigateEvent)="navigateTo($event)" *ngFor="let product of currentPage.products"
+      <app-products-card (navigateEvent)="navigateTo($event)" *ngFor="let product of currentPage.list"
                          [product]="product"></app-products-card>
     </div>
     <mat-paginator (page)="onPageDataChange($event)" [length]="length"

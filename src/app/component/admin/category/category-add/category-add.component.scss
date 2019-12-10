@@ -1,2 +1,9 @@
 @import "src/app/component/admin/equipment/equipment.component";
-@import "src/app/component/admin/product/product-add/product-add.component";
+
+.list-container{
+  height: fit-content;
+  background-color: #222222;
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 1.49em;
+}
