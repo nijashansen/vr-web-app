@@ -90,6 +90,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onEdit() {
+    this.editBool = !this.editBool;
     this.productForm.enable();
   }
 
