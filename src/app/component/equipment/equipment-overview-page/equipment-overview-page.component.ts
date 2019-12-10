@@ -52,10 +52,9 @@ export class EquipmentOverviewPageComponent implements OnInit {
   }
 
   private loadPage(pageIndex: number, pageSize: number, filter: Category) {
-    console.log(filter);
+    console.log(JSON.stringify(filter));
     if (filter.id === this.all.id) {
       this.productService.getProductsWithFilterPage({pageIndex: pageIndex, itemsPrPage: pageSize}).subscribe(result => {
-        console.log(result);
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;
         this.pageIndex = result.pageIndex;
@@ -65,9 +64,8 @@ export class EquipmentOverviewPageComponent implements OnInit {
       this.productService.getProductsWithFilterPage({
         pageIndex: pageIndex,
         itemsPrPage: pageSize,
-        filter: this.filter
+        filterCategory: this.filter
       }).subscribe(result => {
-        console.log(result);
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;
         this.pageIndex = result.pageIndex;

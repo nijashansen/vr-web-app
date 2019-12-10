@@ -22,13 +22,17 @@
       <div class="grid-cell-m">
         <label class="info-head">Booking Start Time:</label>
         <mat-form-field class="anti-mat-input text">
-          <input type="datetime-local" [formControl]="formBookingStartTime" matInput>
+          <mat-select>
+            <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div class="grid-cell-m">
         <label class="info-head">Booking End Time:</label>
         <mat-form-field class="anti-mat-input text">
-          <input type="datetime-local" [formControl]="formBookingEndTime" matInput>
+          <mat-select [formControl]="formBookingEndTime" (valueChange)="formBookingStartTime.setValue(onValueChange($event))">
+            <mat-option *ngFor="let hour of openingHours" [value]="hour">{{hour}}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </div>

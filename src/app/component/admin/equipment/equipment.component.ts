@@ -63,7 +63,7 @@ export class EquipmentComponent implements OnInit {
       this.productService.getProductsWithFilterPage({
         pageIndex: pageIndex,
         itemsPrPage: pageSize,
-        filter: this.filter
+        filterCategory: this.filter
       }).subscribe(result => {
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;

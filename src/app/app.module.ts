@@ -9,7 +9,6 @@ import {EquipmentRoomPageComponent} from './component/equipment/equipment-room-p
 import {EquipmentOverviewPageComponent} from './component/equipment/equipment-overview-page/equipment-overview-page.component';
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
-import {ProductListComponent} from './component/admin/product/product-list/product-list.component';
 import {EquipmentAddComponent} from './component/admin/equipment/equipment-add/equipment-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
@@ -53,7 +52,6 @@ import {UserListComponent} from './component/admin/user/user-list/user-list.comp
     EquipmentRoomPageComponent,
     EquipmentOverviewPageComponent,
     FrontpageComponent,
-    ProductListComponent,
     UserListComponent,
     EquipmentAddComponent,
     LoginDialogComponent,

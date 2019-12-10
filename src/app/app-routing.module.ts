@@ -17,37 +17,45 @@ import {BookingsComponent} from './component/admin/bookings/bookings/bookings.co
 import {BookingsAddComponent} from './component/admin/bookings/bookings-add/bookings-add.component';
 import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
 import {UserListComponent} from './component/admin/user/user-list/user-list.component';
-
+import {UserAddComponent} from './component/admin/user/user-add/user-add.component';
 
 const routes: Routes = [
   {path: 'index', component: FrontpageComponent},
   {
     path: 'admin',
     component: AdminIndexComponent,
+    canActivate: [RoleGuard],
+    data: {Role: 'Administrator'},
     children: [
       {
         path: '',
         component: OptionMenuComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'equipment',
         component: EquipmentComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'equipment/create',
         component: EquipmentAddComponent,
-        /*canActivate: [RoleGuard],
-        data: {Role: 'Administrator'}*/
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'equipment/:id',
         component: EquipmentDetailsComponent,
-        /*canActivate: [RoleGuard],
-        data: {Role: 'Administrator'}*/
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'category',
         component: CategoryComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'category/create',
@@ -64,6 +72,8 @@ const routes: Routes = [
       {
         path: 'bookings',
         component: BookingsComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
       {
         path: 'bookings/create',
@@ -80,7 +90,13 @@ const routes: Routes = [
       {
         path: 'user',
         component: UserListComponent,
-        canActivate: [RoleGuard], data: {Role: 'Administrator'}
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
+      }, {
+        path: 'user/create',
+        component: UserAddComponent,
+        canActivate: [RoleGuard],
+        data: {Role: 'Administrator'}
       },
     ]
   },

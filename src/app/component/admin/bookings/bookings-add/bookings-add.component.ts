@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {CategoryService} from "../../../../services/category.service";
-import {Router} from "@angular/router";
-import {BookingOrderService} from "../../../../services/booking-order.service";
-import {Category} from "../../../../models/category";
-import {BehaviorSubject, Observable} from "rxjs";
-import {AdminPageServiceService} from "../../../../services/admin-page-service.service";
-import {Location} from "@angular/common";
+import {FormControl, FormGroup} from '@angular/forms';
+import {BookingOrderService} from '../../../../services/booking-order.service';
+import {Category} from '../../../../models/category';
+import {Location} from '@angular/common';
+import {openingHours} from '../../../../../environments/const';
 
 @Component({
   selector: 'app-bookings-add',
@@ -14,6 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./bookings-add.component.scss']
 })
 export class BookingsAddComponent implements OnInit {
+  openingHours: number[];
   category: Category;
   bookingForm: FormGroup;
 
@@ -24,6 +22,12 @@ export class BookingsAddComponent implements OnInit {
       bookingStartTime: new FormControl(''),
       bookingEndTime: new FormControl(''),
     });
+    this.openingHours = [];
+    const start = openingHours.openingHour;
+    const end = openingHours.closingHour;
+    for (let i = start; i <= end; i++) {
+      this.openingHours.push(i);
+    }
   }
 
   get formUser() {
@@ -63,5 +67,9 @@ export class BookingsAddComponent implements OnInit {
           this.location.back();
         });
     }
+  }
+
+  public onValueChange($event: any): Date {
+    return
   }
 }

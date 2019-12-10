@@ -1,9 +1,19 @@
-@import "src/app/component/admin/equipment/equipment.component";
+@import "src/app/component/admin/equipment/equipment-details/equipment-details.component.scss";
 
-.list-container{
+.list-container {
   height: fit-content;
   background-color: #222222;
   grid-row: 2;
   grid-column: 2;
   margin-top: 1.49em;
+}
+
+.detail-grid {
+  grid-template-columns: 10% 80% 10%;
+}
+
+.grid-cell-s, .grid-cell-m {
+  width: 60%;
+  margin: auto;
+  grid-column: 2;
 }
