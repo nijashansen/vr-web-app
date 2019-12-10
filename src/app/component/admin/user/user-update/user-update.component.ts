@@ -49,12 +49,12 @@ export class UserUpdateComponent implements OnInit {
       .subscribe(userFromId => {
       this.user = userFromId;
       this.userForm = new FormGroup({
-        id: new FormControl({value: this.user.id}),
-        firstName: new FormControl({value: this.user.firstName}),
-        lastName: new FormControl({value: this.user.lastName}),
-        email: new FormControl({value: this.user.email}),
-        phoneNumber: new FormControl({value: this.user.phoneNumber}),
-        address: new  FormControl({value: this.user.address})
+        id: new FormControl(this.user.id),
+        firstName: new FormControl( this.user.firstName),
+        lastName: new FormControl(this.user.lastName),
+        email: new FormControl(this.user.email),
+        phoneNumber: new FormControl(this.user.phoneNumber),
+        address: new  FormControl(this.user.address)
       });
       this.userForm.disable();
     });
