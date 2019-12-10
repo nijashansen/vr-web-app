@@ -5,39 +5,35 @@
       <h1 class="category-h">Add new booking</h1>
     </div>
   </section>
-  <section *ngIf="categoryForm">
-    <div class="img-container" style="">
-      <img alt="" class="img-view" [src]="this.currentImageObv | async" (error)="setDefault()">
-      <div style="display: flex; flex-direction: column; flex: 1">
-        <label class="info-head">Url:</label>
-        <!--      <label *ngIf="!editBool" class="info-static">https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png</label>-->
-        <mat-form-field class="anti-mat-input text" style="width: 90%;">
-          <input [(ngModel)]="tempImageUrl" matInput
-                 style="margin-right: 100px;">
-        </mat-form-field>
-      </div>
-      <button [disabled]="categoryForm.disabled" class="img-button" color="primary" mat-stroked-button
-              (click)="onSetImage()">Set Image
-      </button>
-    </div>
-  </section>
-  <section *ngIf="categoryForm">
+  <section *ngIf="bookingForm">
     <div class="detail-grid">
       <div class="grid-cell-s">
-        <label class="info-head">Name:</label>
+        <label class="info-head">User:</label>
         <mat-form-field class="anti-mat-input text">
-          <input [formControl]="formName" matInput required>
+          <input [formControl]="formUser" matInput required>
         </mat-form-field>
       </div>
       <div class="grid-cell-m">
-        <label class="info-head">Description:</label>
+        <label class="info-head">Product:</label>
         <mat-form-field class="anti-mat-input text">
-          <textarea [formControl]="formDescription" class="text-area" matInput></textarea>
+          <textarea [formControl]="formProduct" class="text-area" matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Booking Start Time:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input type="date" [formControl]="formBookingStartTime" class="text-area" matInput>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Booking End Time:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input type="date" [formControl]="formBookingEndTime" class="text-area" matInput>
         </mat-form-field>
       </div>
     </div>
   </section>
-  <section *ngIf="categoryForm">
+  <section *ngIf="bookingForm">
     <div class="button-container-detail">
       <button (click)="onCancel()" mat-raised-button style="margin-right: 15px">Cancel</button>
       <button (click)="onAdd()" mat-raised-button>Add</button>
