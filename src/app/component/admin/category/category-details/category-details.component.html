@@ -1,1 +1,49 @@
-<p>category-details works!</p>
+<div class="background">
+  <section *ngIf="categoryForm">
+    <div *ngIf="category" class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">{{category.name | titlecase}} {{category.id}}</h1>
+    </div>
+  </section>
+  <section *ngIf="categoryForm">
+    <div class="img-container" style="">
+      <img alt="" class="img-view" [src] ="this.currentImageObv | async" (error)="setDefault()">
+      <div style="display: flex; flex-direction: column; flex: 1">
+        <label class="info-head">Url:</label>
+        <!--      <label *ngIf="!editBool" class="info-static">https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png</label>-->
+        <mat-form-field class="anti-mat-input text" style="width: 90%;">
+          <input [(ngModel)]="tempImageUrl" matInput
+                 style="margin-right: 100px;">
+        </mat-form-field>
+      </div>
+      <button [disabled]="categoryForm.disabled" class="img-button" color="primary" mat-stroked-button (click)="onSetImage()">Set Image</button>
+    </div>
+  </section>
+  <section *ngIf="categoryForm">
+    <div class="detail-grid">
+      <div class="grid-cell-s">
+        <label class="info-head">ID:</label>
+        <label class="info-static" style="color: #777777">{{category.id}}</label>
+      </div>
+      <div class="grid-cell-s">
+        <label class="info-head">Name:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input [formControl]="formName" matInput value="{{category.name}}">
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Description:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formDescription" class="text-area" matInput></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="categoryForm">
+    <div class="button-container-detail">
+      <button *ngIf="categoryForm.disabled" (click)="onEdit()" mat-raised-button>Edit</button>
+      <button *ngIf="categoryForm.enabled" (click)="onCancel()" mat-raised-button>Cancel</button>
+      <button *ngIf="categoryForm.enabled" (click)="onCommit()" mat-raised-button>Commit</button>
+    </div>
+  </section>
+</div>

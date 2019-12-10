@@ -2,7 +2,7 @@
   <div class="layout-grid">
     <div class="header-container">
       <app-back-button class="back-button"></app-back-button>
-      <h1 class="category-h">Equipments</h1>
+      <h1 class="category-h">Categories</h1>
     </div>
     <div align="center" class="toolbar">
       <button class="tool-button" color="primary" mat-stroked-button routerLink="/admin/category/create">
@@ -12,9 +12,9 @@
     <div class="list-container">
       <mat-nav-list *ngIf="categories">
         <mat-list-item *ngFor="let product of categories">
-          <a class="list-item-text" href="admin/category/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
+          <a class="list-item-text" routerLink="/admin/category/{{product.id}}" matLine>{{ product.name }} {{product.id}}</a>
           <button mat-icon-button>
-            <mat-icon (click)="delete(product.id)" class="list-item-text">delete</mat-icon>
+            <mat-icon (click)="delete(product.id)">delete</mat-icon>
           </button>
         </mat-list-item>
       </mat-nav-list>

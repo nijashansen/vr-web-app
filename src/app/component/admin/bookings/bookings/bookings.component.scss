@@ -5,3 +5,15 @@
   width: 100%;
   color: #888888;
 }
+
+.booking-item {
+  display: grid;
+  grid-template-columns: fit-content(100%) fit-content(100%);
+  grid-template-rows: repeat(4,25px);
+}
+
+.label-text,.label-data {
+  margin: 5px;
+}
+
+

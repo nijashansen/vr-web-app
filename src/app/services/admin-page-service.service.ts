@@ -23,7 +23,7 @@ export class AdminPageServiceService {
     return this.http.get<Product>(this.productApiUrl + '/' + id);
   }
 
-  createProduct(prod: Product): Observable<Product> {
+  createProduct(prod: any): Observable<Product> {
     return this.http.post<Product>(this.productApiUrl, prod);
   }
 

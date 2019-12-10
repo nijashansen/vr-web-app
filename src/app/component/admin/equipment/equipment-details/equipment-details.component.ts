@@ -24,7 +24,6 @@ export class EquipmentDetailsComponent implements OnInit {
   productForm: FormGroup;
   usedImageUrl: string;
   tempImageUrl: string;
-  privat;
   private currentImageBehave: BehaviorSubject<string>;
   private currentImageObv: Observable<string>;
 
@@ -91,6 +90,7 @@ export class EquipmentDetailsComponent implements OnInit {
   }
 
   onEdit() {
+    this.editBool = !this.editBool;
     this.productForm.enable();
   }
 
