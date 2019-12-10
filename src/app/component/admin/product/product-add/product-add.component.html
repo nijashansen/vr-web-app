@@ -1,28 +1,63 @@
-<div style="background-color: #333333; padding-top: 70px; width: 100%; height: 100%">
-  <div class="header-container">
-    <app-back-button class="back-button"></app-back-button>
-    <h1 class="category-h">Add Equipment</h1>
-  </div>
-  <div class="form-position">
-    <div class="container-color">
-      <form [formGroup]="productForm" (ngSubmit)="createProduct()">
-      <mat-form-field class="list-item-text">
-        <input type="text" formControlName="name" matInput placeholder="Product Name">
-      </mat-form-field>
-      <br>
-      <mat-form-field class="list-item-text">
-        <textarea rows="24" type="text" formControlName="description" matInput placeholder="Product Description"></textarea>
-      </mat-form-field>
-      <br>
-        <mat-form-field class="list-item-text">
-          <mat-select type="number" formControlName="categoryId" placeholder="Category">
-            <div *ngFor="let category of Categories" class="list-item-text">
-              <mat-option class="list-item-text" value="{{category.id}}">{{category.name}}</mat-option>
-            </div>
+<div class="background">
+  <section>
+    <div class="header-container">
+      <app-back-button class="back-button"></app-back-button>
+      <h1 class="category-h">Add new Product</h1>
+    </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="img-container" style="">
+      <img alt="" class="img-view" [src]="this.currentImageObv | async" (error)="setDefault()">
+      <div style="display: flex; flex-direction: column; flex: 1">
+        <label class="info-head">Url:</label>
+        <!--      <label *ngIf="!editBool" class="info-static">https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png</label>-->
+        <mat-form-field class="anti-mat-input text" style="width: 90%;">
+          <input [(ngModel)]="tempImageUrl" matInput
+                 style="margin-right: 100px;">
+        </mat-form-field>
+      </div>
+      <button [disabled]="productForm.disabled" class="img-button" color="primary" mat-stroked-button
+              (click)="onSetImage()">Set Image
+      </button>
+    </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="detail-grid">
+      <div class="grid-cell-s">
+        <label class="info-head">Name:</label>
+        <mat-form-field class="anti-mat-input text">
+          <input [formControl]="formName" matInput required>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-s" style="justify-content: flex-start; grid-column: 2">
+        <label class="info-head">Category:</label>
+        <mat-form-field style="width: 100%;" class="anti-mat-input text">
+          <mat-select [formControl]="formCategory" required>
+            <mat-option *ngFor="let cat of categories" [value]="cat.id">{{cat.name | titlecase}}</mat-option>
           </mat-select>
         </mat-form-field>
-      </form>
-      <button mat-raised-button type="submit" class="button-position" (click)="createProduct()">Submit</button>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Long Description:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formDescription" class="text-area" matInput></textarea>
+        </mat-form-field>
+      </div>
+      <div class="grid-cell-m">
+        <label class="info-head">Short Description:</label>
+        <mat-form-field class="anti-mat-input text">
+          <textarea [formControl]="formShortDescription" class="text-area" matInput required></textarea>
+        </mat-form-field>
+        <button *ngIf="productForm.enabled" color="primary" mat-stroked-button required="">Suggest</button>
+      </div>
+
     </div>
-  </div>
+  </section>
+  <section *ngIf="productForm">
+    <div class="button-container-detail">
+      <button (click)="onCancel()" mat-raised-button style="margin-right: 15px">Cancel</button>
+      <button (click)="onAdd()" mat-raised-button>Add</button>
+    </div>
+  </section>
 </div>
+
