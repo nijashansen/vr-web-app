@@ -10,18 +10,16 @@ import {EquipmentOverviewPageComponent} from './component/equipment/equipment-ov
 import {FrontpageComponent} from './component/Shared/frontpage/frontpage.component';
 import {MaterialModule} from './material.module';
 import {ProductListComponent} from './component/admin/product/product-list/product-list.component';
-import {UserListComponent} from './component/admin-page/user/user-list/user-list.component';
-import {ProductAddComponent} from './component/admin/product/product-add/product-add.component';
+import {EquipmentAddComponent} from './component/admin/equipment/equipment-add/equipment-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ProductUpdateComponent} from './component/admin-page/product/product-update/product-update.component';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
-import {EquipmentAdminOverviewPageComponent} from './component/admin-page/equipment-admin-overview-page/equipment-admin-overview-page.component';
 import {MatDialogModule} from '@angular/material';
 import {AuthenticationService} from './services/authentication.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DayComponent} from './component/booking-calendar/week-calender/component/day/day.component';
 import {BookingComponent} from './component/booking-calendar/week-calender/component/booking/booking.component';
 import {WeekComponent} from './component/booking-calendar/week-calender/component/week/week.component';
+// tslint:disable-next-line:max-line-length
 import {CurrentTimeIndicatorComponent} from './component/booking-calendar/week-calender/component/current-time-indicator/current-time-indicator.component';
 import {BookingCalenderComponent} from './component/booking-calendar/booking-calender.component';
 import {BookingDialogComponent} from './component/booking-calendar/week-calender/component/booking-dialog/booking-dialog.component';
@@ -33,16 +31,18 @@ import {ProductsCardComponent} from './component/equipment/equipment-overview-pa
 import {AdminIndexComponent} from './component/admin/admin-index/admin-index.component';
 import {OptionCardComponent} from './component/admin/option-menu/option-card/option-card.component';
 import {EquipmentComponent} from './component/admin/equipment/equipment.component';
-import { OptionMenuComponent } from './component/admin/option-menu/option-menu.component';
-import { BackButtonComponent } from './component/admin/component/back-button/back-button.component';
-import {HttpIntercepter} from "./interceptor/error-intercepter.service";
-import { ProductDetailsComponent } from './component/admin/product/product-details/product-details.component';
-import {CategoryComponent} from "./component/admin/category/category.component";
-import {CategoryAddComponent} from "./component/admin/category/category-add/category-add.component";
-import { CategoryDetailsComponent } from './component/admin/category/category-details/category-details.component';
-import { BookingsComponent } from './component/admin/bookings/bookings/bookings.component';
-import { BookingsAddComponent } from './component/admin/bookings/bookings-add/bookings-add.component';
-import { BookingsDetailsComponent } from './component/admin/bookings/bookings-details/bookings-details.component';
+import {OptionMenuComponent} from './component/admin/option-menu/option-menu.component';
+import {BackButtonComponent} from './component/admin/component/back-button/back-button.component';
+import {HttpIntercepter} from './interceptor/error-intercepter.service';
+import {EquipmentDetailsComponent} from './component/admin/equipment/equipment-details/equipment-details.component';
+import {CategoryComponent} from './component/admin/category/category.component';
+import {CategoryAddComponent} from './component/admin/category/category-add/category-add.component';
+import {CategoryDetailsComponent} from './component/admin/category/category-details/category-details.component';
+import {BookingsComponent} from './component/admin/bookings/bookings/bookings.component';
+import {BookingsAddComponent} from './component/admin/bookings/bookings-add/bookings-add.component';
+import {BookingsDetailsComponent} from './component/admin/bookings/bookings-details/bookings-details.component';
+import {UserAddComponent} from './component/admin/user/user-add/user-add.component';
+import {UserListComponent} from './component/admin/user/user-list/user-list.component';
 
 
 @NgModule({
@@ -53,11 +53,9 @@ import { BookingsDetailsComponent } from './component/admin/bookings/bookings-de
     EquipmentRoomPageComponent,
     EquipmentOverviewPageComponent,
     FrontpageComponent,
-    EquipmentAdminOverviewPageComponent,
     ProductListComponent,
     UserListComponent,
-    ProductAddComponent,
-    ProductUpdateComponent,
+    EquipmentAddComponent,
     LoginDialogComponent,
     DayComponent,
     BookingComponent,
@@ -72,13 +70,14 @@ import { BookingsDetailsComponent } from './component/admin/bookings/bookings-de
     EquipmentComponent,
     OptionMenuComponent,
     BackButtonComponent,
-    ProductDetailsComponent,
+    EquipmentDetailsComponent,
     CategoryComponent,
     CategoryAddComponent,
     CategoryDetailsComponent,
     BookingsComponent,
     BookingsAddComponent,
     BookingsDetailsComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +98,7 @@ import { BookingsDetailsComponent } from './component/admin/bookings/bookings-de
     AuthenticationService,
     AuthGuard,
     RoleGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepter, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepter, multi: true}
 
   ],
   bootstrap: [

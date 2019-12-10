@@ -11,10 +11,10 @@ const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vec
 
 @Component({
   selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  templateUrl: './equipment-details.component.html',
+  styleUrls: ['./equipment-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class EquipmentDetailsComponent implements OnInit {
 
 
   id: number;

@@ -2,8 +2,9 @@ import {User} from "./User";
 
 
 export interface FilterPageUserList {
-  user?: User[];
+  list?: User[];
   itemsTotal?: number;
+  itemsPrPage: number;
   pageIndex: number;
   pageTotal?: number;
 }
