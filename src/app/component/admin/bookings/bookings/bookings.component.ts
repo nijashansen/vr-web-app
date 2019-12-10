@@ -28,7 +28,7 @@ export class BookingsComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.bookingService.getBooking(id).subscribe(() => {
+    this.bookingService.deleteBooking(id).subscribe(() => {
       this.refresh();
     });
   }

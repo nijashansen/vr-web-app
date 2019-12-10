@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CategoryService} from "../../../../services/category.service";
 import {Router} from "@angular/router";
@@ -20,7 +20,7 @@ export class BookingsAddComponent implements OnInit {
   constructor(private bookingOrderService: BookingOrderService, private location: Location) {
     this.bookingForm = new FormGroup({
       user: new FormControl(''),
-      product: new FormControl( ''),
+      product: new FormControl(''),
       bookingStartTime: new FormControl(''),
       bookingEndTime: new FormControl(''),
     });
