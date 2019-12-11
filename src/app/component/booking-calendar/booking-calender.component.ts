@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../../models/User';
 import {Product} from '../../models/Product';
-import {BookingOrderService} from '../../services/booking-order.service';
+import {BookingOrderService} from '../../services/Booking/booking-order.service';
 import {Week} from './shared/models/Week';
 import {Day} from './shared/models/Day';
 import {BookingOrder} from '../../models/BookingOrder';

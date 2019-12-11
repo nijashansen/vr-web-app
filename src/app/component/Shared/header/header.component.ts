@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {openLoginWindow} from '../../../Functions/OpenLoginDialog';
 import {Router} from '@angular/router';
-import {StateService} from '../../../services/state.service';
+import {StateService} from '../../../services/State/state.service';
 import {User} from '../../../models/User';
-import {AuthenticationService} from '../../../services/authentication.service';
+import {AuthenticationService} from '../../../services/Authentication/authentication.service';
 
 @Component({
   selector: 'app-header',

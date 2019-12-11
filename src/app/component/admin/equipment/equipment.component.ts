@@ -2,8 +2,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../../models/category';
 import {FilterPageProductList} from '../../../models/FilterPageProductList';
-import {ProductService} from '../../../services/product.service';
-import {CategoryService} from '../../../services/category.service';
+import {ProductService} from '../../../services/Product/product.service';
+import {CategoryService} from '../../../services/Category/category.service';
 import {Router} from '@angular/router';
 
 @Component({

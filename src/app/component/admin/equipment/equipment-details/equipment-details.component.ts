@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {ProductService} from '../../../../services/Product/product.service';
 import {Product} from '../../../../models/product';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Category} from '../../../../models/category';
-import {CategoryService} from '../../../../services/category.service';
+import {CategoryService} from '../../../../services/Category/category.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png';
@@ -27,7 +27,7 @@ export class EquipmentDetailsComponent implements OnInit {
   private currentImageBehave: BehaviorSubject<string>;
   private currentImageObv: Observable<string>;
 
-  constructor(private productService: AdminPageServiceService,
+  constructor(private productService: ProductService,
               private categoryService: CategoryService,
               private route: ActivatedRoute, private router: Router) {
     this.usedImageUrl = placeholderImage;

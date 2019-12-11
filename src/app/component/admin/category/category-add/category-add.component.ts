@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
-import {CategoryService} from '../../../../services/category.service';
+import {CategoryService} from '../../../../services/Category/category.service';
 import {Category} from '../../../../models/category';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {AdminPageServiceService} from '../../../../services/admin-page-service.service';
+import {ProductService} from '../../../../services/Product/product.service';
 import {Location} from '@angular/common';
 
 const placeholderImage: string = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png';
@@ -22,13 +21,13 @@ export class CategoryAddComponent implements OnInit {
   private currentImageBehave: BehaviorSubject<string>;
   private currentImageObv: Observable<string>;
 
-  constructor(private categoryService: CategoryService, private productService: AdminPageServiceService, private location: Location) {
+  constructor(private categoryService: CategoryService, private productService: ProductService, private location: Location) {
     this.usedImageUrl = placeholderImage;
     this.currentImageBehave = new BehaviorSubject<string>(placeholderImage);
     this.currentImageObv = this.currentImageBehave.asObservable();
     this.categoryForm = new FormGroup({
       imgUrl: new FormControl(''),
-      name: new FormControl( ''),
+      name: new FormControl(''),
       description: new FormControl(''),
     });
   }

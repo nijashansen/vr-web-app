@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
-import {LoginModel} from '../models/LoginModel';
-import {StateService} from './state.service';
-import {User} from '../models/User';
+import {LoginModel} from '../../models/LoginModel';
+import {StateService} from '../State/state.service';
+import {User} from '../../models/User';
 
 
 @Injectable({
@@ -38,7 +38,6 @@ export class AuthenticationService {
 
 
   login(loginModel: LoginModel): Observable<any> {
-
     return this.http.post<any>(environment.apiUrl + 'Token', loginModel)
       .pipe(map(response => {
         const token = response.token;
@@ -49,16 +48,6 @@ export class AuthenticationService {
           this.state.loginEmit();
         }
       }));
-  }
-
-  getToken(): string {
-    const user = JSON.parse(localStorage.getItem('User'));
-    return user.Token;
-  }
-
-  getUsername(): string {
-    const user = JSON.parse(localStorage.getItem('User'));
-    return user && user.user;
   }
 
   logout(): void {

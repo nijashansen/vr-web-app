@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../models/User';
-import {UserInfoService} from '../../../../services/user-info.service';
+import {UserInfoService} from '../../../../services/User/user-info.service';
 import {take} from 'rxjs/operators';
 
 import {FilterPageUserList} from '../../../../models/FilterPageUserList';

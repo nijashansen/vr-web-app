@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Category} from '../../../../models/category';
-import {CategoryService} from '../../../../services/category.service';
+import {CategoryService} from '../../../../services/Category/category.service';
 import {take} from 'rxjs/operators';
 import {Booking} from '../../../booking-calendar/shared/models/Booking';
-import {BookingOrderService} from '../../../../services/booking-order.service';
+import {BookingOrderService} from '../../../../services/Booking/booking-order.service';
 import {BookingOrder} from '../../../../models/bookingOrder';
 
 @Component({
