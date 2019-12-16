@@ -29,8 +29,11 @@ export class AuthenticationService {
     const jwtData = jwt.split('.')[1];
     const decodedJwtJsonData = window.atob(jwtData);
     if (decodedJwtJsonData.toString().includes('role')) {
-      const decodedJwtData = decodedJwtJsonData.toString().split(',')[1].split(':')[2];
-      const role = decodedJwtData.replace(/"/g, '').replace(' ', '');
+      const role = decodedJwtJsonData.toString()
+        .split('role')[1]
+        .replace(':', '')
+        .replace(/"/g, '')
+        .split(',')[0];
       return role === 'Administrator';
     }
     return false;
