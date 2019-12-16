@@ -13,7 +13,7 @@ import {EquipmentAddComponent} from './component/admin/equipment/equipment-add/e
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginDialogComponent} from './component/Shared/login-dialog/login-dialog.component';
 import {MatDialogModule} from '@angular/material';
-import {AuthenticationService} from './services/authentication.service';
+import {AuthenticationService} from './services/Authentication/authentication.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DayComponent} from './component/booking-calendar/week-calender/component/day/day.component';
 import {BookingComponent} from './component/booking-calendar/week-calender/component/booking/booking.component';

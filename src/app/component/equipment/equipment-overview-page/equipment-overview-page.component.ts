@@ -1,7 +1,7 @@
 /* tslint:disable:object-literal-shorthand */
 import {Component, OnInit} from '@angular/core';
-import {CategoryService} from '../../../services/category.service';
-import {ProductService} from '../../../services/product.service';
+import {CategoryService} from '../../../services/Category/category.service';
+import {ProductService} from '../../../services/Product/product.service';
 import {Category} from '../../../models/category';
 import {FilterPageProductList} from '../../../models/FilterPageProductList';
 import {Router} from '@angular/router';
@@ -27,7 +27,7 @@ export class EquipmentOverviewPageComponent implements OnInit {
     this.all = {id: 0, name: 'all', imgUrl: 'all', description: 'all'};
     this.filter = this.all;
     this.pageIndex = 0;
-    this.pageSize = this.pageSizes[1];
+    this.pageSize = this.pageSizes[0];
   }
 
   ngOnInit() {

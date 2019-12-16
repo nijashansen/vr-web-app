@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
-import {AuthenticationService} from '../../../services/authentication.service';
+import {AuthenticationService} from '../../../services/Authentication/authentication.service';
 import {catchError, delay} from 'rxjs/operators';
 import {BehaviorSubject, Observable, pipe, throwError} from 'rxjs';
 import {LoginModel} from '../../../models/LoginModel';

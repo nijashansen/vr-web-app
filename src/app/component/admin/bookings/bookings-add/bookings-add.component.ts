@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {BookingOrderService} from '../../../../services/booking-order.service';
+import {BookingOrderService} from '../../../../services/Booking/booking-order.service';
 import {Category} from '../../../../models/category';
 import {Location} from '@angular/common';
 import {openingHours} from '../../../../../environments/const';

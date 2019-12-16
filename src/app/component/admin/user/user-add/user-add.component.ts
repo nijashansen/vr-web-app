@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {UserInfoService} from '../../../../services/user-info.service';
+import {UserInfoService} from '../../../../services/User/user-info.service';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
