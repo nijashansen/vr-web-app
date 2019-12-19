@@ -1,3 +1,4 @@
+/* tslint:disable:object-literal-shorthand */
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../../models/User';
@@ -24,7 +25,7 @@ export class BookingCalenderComponent implements OnInit {
   @Input() product: Product;
   @Input() OpeningHour: number;
   @Input() ClosingHour: number;
-  private w: Week;
+  private week: Week;
   private WeekObv: Observable<Week>;
   private WeekBehave: BehaviorSubject<Week>;
   private bookings: BookingOrder[];
@@ -34,8 +35,9 @@ export class BookingCalenderComponent implements OnInit {
 
   ngOnInit() {
     const date = new Date();
+    date.setDate(15);
     this.setWeek(date);
-    this.WeekBehave = new BehaviorSubject<Week>(this.w);
+    this.WeekBehave = new BehaviorSubject<Week>(this.week);
     this.WeekObv = this.WeekBehave.asObservable();
   }
 
@@ -45,7 +47,7 @@ export class BookingCalenderComponent implements OnInit {
   }
 
   private changeWeek(change: number): void {
-    const date = new Date(this.w.weekStart.valueOf() + ((change * 7) * DAY_UNIX));
+    const date = new Date(this.week.weekStart.valueOf() + ((change * 7) * DAY_UNIX));
     this.setWeek(date);
   }
 
@@ -55,11 +57,12 @@ export class BookingCalenderComponent implements OnInit {
 
   private setWeek(date: Date) {
     const weekNumber = this.getWeekNumber(date);
-    const weekstart = this.getWeekStart(date);
-    const weekend = this.getWeekEnd(date);
-    const openingH = this.getOpeningHours(this.OpeningHour, this.ClosingHour);
+    const weekStart = this.getWeekStart(date);
+    const weekEnd = this.getWeekEnd(date);
+    const openingHours = this.getOpeningHours(this.OpeningHour, this.ClosingHour);
 
-    this.bookingservice.getBookingsFromWeek({productId: this.product.id, weekStart: weekstart, weekEnd: weekend}).subscribe(result => {
+    this.bookingservice.getBookingsFromWeek({productId: this.product.id, weekStart: weekStart, weekEnd: weekEnd})
+      .subscribe(result => {
       this.bookings = result;
       const map: Map<number, BookingOrder[]> = new Map<number, BookingOrder[]>();
       for (const booking of result) {
@@ -70,35 +73,41 @@ export class BookingCalenderComponent implements OnInit {
           map.set(key, [booking]);
         }
       }
-      const openingD = this.getOpeningDays(weekstart, weekend, map);
-      this.w = {
-        days: openingD,
-        openingHours: openingH,
-        weekStart: weekstart,
-        weekEnd: weekend,
-        weekNumber
+      const openingDays = this.getOpeningDays(weekStart, weekEnd, map);
+      this.week = {
+        days: openingDays,
+        openingHours: openingHours,
+        weekStart: weekStart,
+        weekEnd: weekEnd,
+        weekNumber: weekNumber
       };
-      this.WeekBehave.next(this.w);
+      this.WeekBehave.next(this.week);
     });
   }
 
   private getWeekStart(date: Date): Date {
-    return new Date(Math.floor((date.valueOf()) / WEEK_UNIX) * WEEK_UNIX - (3 * DAY_UNIX));
+    const d = new Date(date.valueOf());
+    d.setHours(0, 0, 0, 0);
+    return new Date(Math.floor((d.valueOf() + (4 * DAY_UNIX) + 1) / WEEK_UNIX - 0.01) * WEEK_UNIX - (3 * DAY_UNIX));
   }
 
   private getWeekEnd(date: Date): Date {
-    return new Date(Math.floor((date.valueOf()) / WEEK_UNIX) * WEEK_UNIX + (3 * DAY_UNIX));
+    const d = new Date(date.valueOf());
+    d.setHours(0, 0, 0, 0);
+    return new Date(Math.ceil((d.valueOf() + (4 * DAY_UNIX) - 1) / WEEK_UNIX - 0.01) * WEEK_UNIX - (4 * DAY_UNIX));
   }
 
-  private getWeekNumber(d: Date): number {
-    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    const weekNo = Math.ceil((((d.valueOf() - yearStart.valueOf()) / DAY_UNIX) + 1) / 7);
+  // noinspection JSMethodCanBeStatic
+  private getWeekNumber(date: Date): number {
+    const d = new Date(date.valueOf());
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+    const yearStart = new Date(d.getFullYear(), 0, 1);
+    const weekNo = Math.ceil(((d.valueOf() - yearStart.valueOf()) / DAY_UNIX + 1) / 7);
     return weekNo;
   }
 
   private getOpeningHours(open: number, close: number): number[] {
-    const n: number = close - open;
     const openingHours: number[] = [];
     for (let i = open; i <= close; i++) {
       openingHours.push(i);
@@ -125,7 +134,7 @@ export class BookingCalenderComponent implements OnInit {
 
   private catchBooking(b) {
     this.bookingservice.createBooking(b).subscribe(() => {
-      this.setWeek(this.w.weekStart);
+      this.setWeek(this.week.weekStart);
     });
   }
 }

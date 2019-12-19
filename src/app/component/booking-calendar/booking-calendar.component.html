@@ -1,18 +1,21 @@
 <div class="booking-calendar-Main">
   <div align="right">
     <div class="week-picker">
-      <button mat-icon-button (click)="changeWeek(-1)">
+      <button (click)="changeWeek(-1)" mat-icon-button>
         <mat-icon class="mat-icon-rtl-mirror" color="primary">keyboard_arrow_left</mat-icon>
       </button>
-      <label class="week-text" *ngIf="WeekObv | async; else false">Week {{w.weekNumber}}</label>
-      <button mat-icon-button (click)="changeWeek(+1)">
+      <label *ngIf="WeekObv | async; else false" class="week-text">Week {{week.weekNumber}}</label>
+      <button (click)="changeWeek(+1)" mat-icon-button>
         <mat-icon class="mat-icon-rtl-mirror" color="primary">keyboard_arrow_right</mat-icon>
       </button>
     </div>
   </div>
-  <app-week *ngIf="WeekObv | async; else false" [w]="w" [user]="currentUser" [product]="product" (pendingBooking)="catchBooking($event)"></app-week>
+  <app-week (pendingBooking)="catchBooking($event)"
+            *ngIf="WeekObv | async; else false"
+            [product]="product" [user]="currentUser"
+            [week]="week"></app-week>
   <div align="right">
-    <button mat-stroked-button class="current-button" color="primary" (click)="toCurrent()">Current Week</button>
+    <button (click)="toCurrent()" class="current-button" color="primary" mat-stroked-button>Current Week</button>
   </div>
 </div>
 

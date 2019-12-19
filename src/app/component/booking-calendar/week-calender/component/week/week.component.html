@@ -1,18 +1,18 @@
-<div *ngIf="w" style="display: grid; grid-template-columns: 50px 10px fit-content(100%)">
-  <div class="week-grid-side week-grid-side-hour" [ngStyle]="{ 'grid-template-rows': '10px repeat('+w.openingHours.length+', 60px)'}">
+<div *ngIf="week" style="display: grid; grid-template-columns: 50px 10px fit-content(100%)">
+  <div class="week-grid-side week-grid-side-hour" [ngStyle]="{ 'grid-template-rows': '10px repeat('+week.openingHours.length+', 60px)'}">
     <div class="week-grid-side-hour week-grid-side-hour-text"></div>
-    <p *ngFor="let hour of w.openingHours"
+    <p *ngFor="let hour of week.openingHours"
        class="week-grid-side-hour week-grid-side-hour-text">{{hour}}:00</p>
     <p
-      class="week-grid-side-hour week-grid-side-hour-text">{{w.openingHours[w.openingHours.length - 1] + 1}}:00</p>
+      class="week-grid-side-hour week-grid-side-hour-text">{{week.openingHours[week.openingHours.length - 1] + 1}}:00</p>
   </div>
-  <div [ngStyle]="{ 'grid-template-rows': '10px repeat('+w.openingHours.length+', 60px)'}" class="week-grid-side space-column">
+  <div [ngStyle]="{ 'grid-template-rows': '10px repeat('+week.openingHours.length+', 60px)'}" class="week-grid-side space-column">
     <div class="week-grid-side-space"></div>
-    <div *ngFor="let hour of w.openingHours" class="week-grid-side-space"></div>
+    <div *ngFor="let hour of week.openingHours" class="week-grid-side-space"></div>
   </div>
   <div class="week-grid week-grid-main">
-    <app-day (pendingBooking)="parseBooking($event)" *ngFor="let date of w.days"
-             [day]="date" [openingHours]="w.openingHours" [product]="product"
+    <app-day (pendingBooking)="parseBooking($event)" *ngFor="let day of week.days"
+             [day]="day" [openingHours]="week.openingHours" [product]="product"
              [user]="user"></app-day>
   </div>
 </div>

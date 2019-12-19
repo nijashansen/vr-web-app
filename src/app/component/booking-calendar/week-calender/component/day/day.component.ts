@@ -51,13 +51,17 @@ export class DayComponent implements OnInit, OnDestroy {
     this.currentHourObv = this.currentHourBehave.asObservable();
 
     this.clock = this.clockService.time.subscribe(time => {
-      if (this.currentMinBehave.getValue() < time.getHours()) {
-        this.isTodayBehave.next((time.getDate() === this.day.date.getDate() && time.getMonth() === this.day.date.getMonth())
-          && (this.openingHours[0] <= time.getHours() && time.getHours() <= this.openingHours[this.openingHours.length - 1]));
+      if (this.currentHourBehave.getValue() !== time.getHours()) {
+        this.isTodayBehave.next((time.getDate() === this.day.date.getDate()
+          && time.getMonth() === this.day.date.getMonth())
+          && (this.openingHours[0] <= time.getHours()
+            && time.getHours() <= this.openingHours[this.openingHours.length - 1]
+          )
+        );
         this.currentHourBehave.next(time.getHours());
         this.currentMinBehave.next(time.getMinutes());
       }
-      if (this.currentMinBehave.getValue() < time.getMinutes()) {
+      if (this.currentMinBehave.getValue() !== time.getMinutes()) {
         this.currentMinBehave.next(time.getMinutes());
       }
       this.currentTime = time;
