@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://vrbooking-webapp.azurewebsites.net/api/'
+  apiUrl: 'https://localhost:44311/api/'    /*'http://vrbooking-webapp.azurewebsites.net/api/'*/
 };
 
 /*

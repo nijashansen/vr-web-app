@@ -51,7 +51,8 @@ export class BookingOrderService {
   }
 
   createBooking(order: BookingOrder): Observable<BookingOrder> {
-    return this.http.post<BookingOrder>(this.bookingApiUrl, order, GenerateAuthenticationHeader(this.as.Token)).pipe(map(booking => {
+    return this.http.post<BookingOrder>(this.bookingApiUrl, order, GenerateAuthenticationHeader(this.as.Token))
+      .pipe(map(booking => {
       booking.startTimeOfBooking = new Date(booking.startTimeOfBooking.valueOf());
       booking.endTimeOfBooking = new Date(booking.endTimeOfBooking.valueOf());
       return booking;
