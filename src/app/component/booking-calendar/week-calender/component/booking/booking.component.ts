@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Booking} from '../../../shared/models/Booking';
 import {BookingOrder} from '../../../../../models/BookingOrder';
 
 @Component({
@@ -9,8 +8,8 @@ import {BookingOrder} from '../../../../../models/BookingOrder';
 })
 export class BookingComponent implements OnInit {
 
-  @Input()  booking: BookingOrder;
-  @Input() OpeningHour: number;
+  @Input() booking: BookingOrder;
+
   constructor() {
   }
 
