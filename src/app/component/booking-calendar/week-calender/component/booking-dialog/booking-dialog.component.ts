@@ -30,8 +30,6 @@ export class BookingDialogComponent implements OnInit {
 
   }
 
-  onNoClick(): void {
-  }
 
   public ngOnInit(): void {
 
@@ -60,13 +58,17 @@ export class BookingDialogComponent implements OnInit {
     this.endTimeOfBooking.setValidators([Validators.required, Validators.min(this.startTimeOfBooking.value)]);
   }
 
-  get startTimeOfBooking() { return this.bookingForm.get('startTimeOfBooking'); }
+  get startTimeOfBooking() {
+    return this.bookingForm.get('startTimeOfBooking');
+  }
 
-  get endTimeOfBooking() { return this.bookingForm.get('endTimeOfBooking'); }
+  get endTimeOfBooking() {
+    return this.bookingForm.get('endTimeOfBooking');
+  }
 
   onBookClick() {
     if (this.bookingForm.valid) {
-      this.dialogRef.close(this.bookingForm.value );
+      this.dialogRef.close(this.bookingForm.value);
     }
   }
 
@@ -78,7 +80,4 @@ export class BookingDialogComponent implements OnInit {
   }
 
 
-}
-function validateTime(start: number, end: number) {
-  return start !== end;
 }

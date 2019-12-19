@@ -87,10 +87,11 @@ export class DayComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log(result);
         const dateStart = new Date(this.day.date);
-        dateStart.setHours(result.startTimeOfBooking);
+        dateStart.setHours(result.startTimeOfBooking + 1);
         const dateEnd = new Date(this.day.date);
-        dateEnd.setHours(result.endTimeOfBooking);
+        dateEnd.setHours(result.endTimeOfBooking + 1);
         this.pendingBooking.emit({
           user: result.user,
           product: result.product,
