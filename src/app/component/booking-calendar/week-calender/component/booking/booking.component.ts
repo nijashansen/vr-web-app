@@ -9,7 +9,7 @@ import {BookingOrder} from '../../../../../models/BookingOrder';
 export class BookingComponent implements OnInit {
 
   @Input() booking: BookingOrder;
-
+ @Input() OpeningHour: number;
   constructor() {
   }
 

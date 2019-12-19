@@ -35,7 +35,6 @@ export class BookingCalenderComponent implements OnInit {
 
   ngOnInit() {
     const date = new Date();
-    date.setDate(15);
     this.setWeek(date);
     this.WeekBehave = new BehaviorSubject<Week>(this.week);
     this.WeekObv = this.WeekBehave.asObservable();
