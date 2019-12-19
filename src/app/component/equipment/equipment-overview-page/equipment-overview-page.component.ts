@@ -28,6 +28,10 @@ export class EquipmentOverviewPageComponent implements OnInit {
     this.filter = this.all;
     this.pageIndex = 0;
     this.pageSize = this.pageSizes[0];
+    this.currentPage = {
+      pageIndex: this.pageIndex,
+      itemsPrPage: this.pageSize
+    };
   }
 
   ngOnInit() {
@@ -48,13 +52,14 @@ export class EquipmentOverviewPageComponent implements OnInit {
   }
 
   private onFilterChange(event) {
-    this.loadPage(this.currentPage.pageIndex, this.currentPage.itemsPrPage, event.value);
+    this.loadPage(this.pageIndex, this.pageSize, event.value);
   }
 
   private loadPage(pageIndex: number, pageSize: number, filter: Category) {
-    console.log(JSON.stringify(filter));
+    console.log(filter);
     if (filter.id === this.all.id) {
       this.productService.getProductsWithFilterPage({pageIndex: pageIndex, itemsPrPage: pageSize}).subscribe(result => {
+        console.log(result);
         this.currentPage = result;
         this.pageSize = result.itemsPrPage;
         this.pageIndex = result.pageIndex;

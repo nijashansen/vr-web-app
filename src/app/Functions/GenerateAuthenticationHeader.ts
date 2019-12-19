@@ -10,8 +10,8 @@ export function GenerateAuthenticationHeader(token: string) {
       'authorization': 'my-auth-token'
     })
   }
-  console.log('token ' + token);
+
   httpOptions.headers = httpOptions.headers.set('authorization', 'Bearer ' + token);
-  console.log(httpOptions);
-  return httpOptions
+
+  return httpOptions;
 }

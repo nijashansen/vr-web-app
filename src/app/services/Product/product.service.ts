@@ -21,11 +21,12 @@ export class ProductService {
   }
 
   getProductsWithFilterPage(filter: FilterPageProductList): Observable<FilterPageProductList> {
+    console.log(filter.filterCategory);
     return this.http.get<FilterPageProductList>(
       this.productApiUrl +
       '?pageIndex=' + filter.pageIndex +
       '&itemsPrPage=' + filter.itemsPrPage +
-      '&filterID=' + (filter.filterCategory === null ? filter.filterCategory.id : 0),
+      '&filterID=' + (filter.filterCategory === undefined ? 0 : filter.filterCategory.id),
       GenerateAuthenticationHeader(this.as.Token));
   }
 
